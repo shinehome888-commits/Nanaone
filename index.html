@@ -18,7 +18,6 @@
     <meta name="author" content="Asuo Dia Komfour">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
     <meta name="geo.region" content="GH-AS">
     <meta name="geo.placename" content="Manso Abore, Ghana">
     
@@ -27,16 +26,8 @@
     <meta property="og:url" content="https://asuodiakomfour.com/">
     <meta property="og:title" content="Nana Kyeri Beyifour | Asuo Dia Komfour Spiritual Herbal Center">
     <meta property="og:description" content="Traditional spiritual and herbal guidance rooted in Ghanaian heritage. Located in Manso Abore, Ghana.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200">
+    <meta property="og:image" content="https://i.ibb.co/twH6dKy3/IMG-9247.jpg">
     <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="en_GH">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://asuodiakomfour.com/">
-    <meta name="twitter:title" content="Nana Kyeri Beyifour | Asuo Dia Komfour">
-    <meta name="twitter:description" content="Traditional spiritual and herbal guidance rooted in Ghanaian heritage.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200">
     
     <!-- Canonical -->
     <link rel="canonical" href="https://asuodiakomfour.com/">
@@ -55,10 +46,10 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Nana Kyeri Beyifour Spiritual Herbal Center (Asuo Dia Komfour)",
-        "image": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200",
+        "image": "https://i.ibb.co/twH6dKy3/IMG-9247.jpg",
         "@id": "https://asuodiakomfour.com/",
         "url": "https://asuodiakomfour.com/",
-        "telephone": "+233-000-000-000",
+        "telephone": "+233540991248",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
@@ -66,33 +57,20 @@
             "addressRegion": "Ashanti Region",
             "addressCountry": "GH"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 6.6885,
-            "longitude": -1.6119
-        },
         "openingHoursSpecification": [{
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
             "opens": "08:00",
             "closes": "18:00"
-        }],
-        "sameAs": [
-            "https://www.tiktok.com/@asuodiakomfour",
-            "https://wa.me/233000000000"
-        ]
+        }]
     }
     </script>
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="data:application/manifest+json;charset=utf-8,{%22name%22:%22Asuo%20Dia%20Komfour%22,%22short_name%22:%22ADK%22,%22start_url%22:%22/%22,%22display%22:%22standalone%22,%22background_color%22:%22%23f5ecd7%22,%22theme_color%22:%22%232d5016%22,%22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ccircle%20cx='50'%20cy='50'%20r='45'%20fill='%232d5016'/%3E%3C/svg%3E%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]}">
     
     <style>
         /* ============================================= */
         /* CSS VARIABLES & THEME SYSTEM                  */
         /* ============================================= */
         :root {
-            /* Brand Colors */
             --forest-green: #2d5016;
             --forest-green-dark: #1a3d0a;
             --forest-green-light: #4a7c2e;
@@ -106,7 +84,6 @@
             --cream-light: #faf6eb;
             --white: #ffffff;
             
-            /* Theme Colors */
             --bg-primary: var(--cream-light);
             --bg-secondary: var(--white);
             --bg-tertiary: var(--cream);
@@ -116,21 +93,18 @@
             --accent: var(--forest-green);
             --accent-gold: var(--gold);
             --border: rgba(45, 80, 22, 0.15);
-            --shadow-sm: 0 2px 8px rgba(45, 80, 22, 0.08);
-            --shadow-md: 0 8px 24px rgba(45, 80, 22, 0.12);
-            --shadow-lg: 0 20px 50px rgba(45, 80, 22, 0.18);
+            --shadow-sm: 0 4px 12px rgba(45, 80, 22, 0.08);
+            --shadow-md: 0 12px 32px rgba(45, 80, 22, 0.12);
+            --shadow-lg: 0 25px 50px rgba(45, 80, 22, 0.18);
+            --shadow-3d: 0 20px 40px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.4);
             
-            /* Typography */
             --font-heading: 'Cormorant Garamond', 'Noto Serif Display', serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             
-            /* Spacing */
             --section-padding: clamp(4rem, 8vw, 8rem);
             --container-max: 1280px;
-            
-            /* Transitions */
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-3d: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         [data-theme="dark"] {
@@ -142,9 +116,9 @@
             --text-muted: #9ba08e;
             --accent: var(--gold-light);
             --border: rgba(201, 162, 39, 0.2);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
         
         /* ============================================= */
@@ -204,6 +178,23 @@
             max-width: var(--container-max);
             margin: 0 auto;
             padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+        
+        /* ============================================= */
+        /* SPA PAGE SECTIONS                             */
+        /* ============================================= */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* ============================================= */
@@ -283,7 +274,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(245, 236, 215, 0.85);
+            background: rgba(245, 236, 215, 0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
@@ -292,7 +283,7 @@
         }
         
         [data-theme="dark"] .navbar {
-            background: rgba(15, 26, 8, 0.85);
+            background: rgba(15, 26, 8, 0.9);
         }
         
         .navbar.scrolled {
@@ -302,7 +293,7 @@
         .nav-container {
             max-width: var(--container-max);
             margin: 0 auto;
-            padding: 1rem clamp(1rem, 4vw, 2rem);
+            padding: 0.75rem clamp(1rem, 4vw, 2rem);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -313,26 +304,6 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.25rem;
-            color: var(--forest-green);
-        }
-        
-        [data-theme="dark"] .logo {
-            color: var(--gold-light);
-        }
-        
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            box-shadow: var(--shadow-sm);
         }
         
         .logo-text {
@@ -342,8 +313,14 @@
         }
         
         .logo-text .main {
+            font-family: var(--font-heading);
             font-size: 1.1rem;
             font-weight: 600;
+            color: var(--forest-green);
+        }
+        
+        [data-theme="dark"] .logo-text .main {
+            color: var(--gold-light);
         }
         
         .logo-text .sub {
@@ -368,7 +345,6 @@
             color: var(--text-secondary);
             border-radius: 8px;
             transition: all var(--transition);
-            position: relative;
         }
         
         .nav-link:hover,
@@ -448,15 +424,9 @@
             transition: all var(--transition);
         }
         
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
+        .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
         
         /* Search Overlay */
         .search-overlay {
@@ -503,9 +473,9 @@
             transform: translateY(-50%);
             width: 40px;
             height: 40px;
-            border-radius: 50%;
             background: var(--forest-green);
             color: var(--cream);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -521,9 +491,7 @@
             display: none;
         }
         
-        .search-results.active {
-            display: block;
-        }
+        .search-results.active { display: block; }
         
         .search-result-item {
             padding: 1rem;
@@ -532,19 +500,9 @@
             cursor: pointer;
         }
         
-        .search-result-item:hover {
-            background: var(--cream);
-        }
-        
-        .search-result-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .search-result-item p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
+        .search-result-item:hover { background: var(--cream); }
+        .search-result-item h4 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .search-result-item p { font-size: 0.9rem; color: var(--text-muted); }
         
         /* ============================================= */
         /* HERO SECTION                                  */
@@ -556,18 +514,22 @@
             align-items: center;
             padding: 8rem 0 4rem;
             overflow: hidden;
-            background: 
-                linear-gradient(135deg, rgba(26, 61, 10, 0.85) 0%, rgba(45, 80, 22, 0.75) 50%, rgba(107, 68, 35, 0.7) 100%),
-                url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80') center/cover;
+        }
+        
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            background: url('https://i.ibb.co/twH6dKy3/IMG-9247.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
         }
         
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1' opacity='0.15'%3E%3Ccircle cx='100' cy='100' r='40'/%3E%3Cpath d='M100 60 L100 140 M60 100 L140 100'/%3E%3Ccircle cx='100' cy='100' r='15'/%3E%3Cpath d='M70 70 L130 130 M70 130 L130 70'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 200px 200px;
-            pointer-events: none;
+            background: linear-gradient(135deg, rgba(26, 61, 10, 0.85) 0%, rgba(45, 80, 22, 0.75) 50%, rgba(107, 68, 35, 0.7) 100%);
+            z-index: 1;
         }
         
         .hero::after {
@@ -579,11 +541,12 @@
             height: 150px;
             background: linear-gradient(to top, var(--bg-primary), transparent);
             pointer-events: none;
+            z-index: 2;
         }
         
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
@@ -613,12 +576,19 @@
             color: var(--cream);
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            min-height: 1.2em;
         }
         
-        .hero-text h1 .accent {
-            color: var(--gold-light);
-            font-style: italic;
-            display: block;
+        .typing-text {
+            display: inline-block;
+            border-right: 3px solid var(--gold-light);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink 0.75s step-end infinite;
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
         }
         
         .hero-text p {
@@ -635,6 +605,7 @@
             gap: 1rem;
         }
         
+        /* 3D Button Styles */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -643,81 +614,33 @@
             font-size: 0.95rem;
             font-weight: 600;
             border-radius: 50px;
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
             cursor: pointer;
             letter-spacing: 0.02em;
+            box-shadow: var(--shadow-3d);
+            transform-style: preserve-3d;
         }
         
         .btn-primary {
             background: var(--gold);
             color: var(--forest-green-dark);
-            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
         }
         
         .btn-primary:hover {
             background: var(--gold-light);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.4);
+            transform: translateY(-4px) scale(1.02) translateZ(10px);
+            box-shadow: 0 25px 50px rgba(201, 162, 39, 0.4), inset 0 1px 0 rgba(255,255,255,0.4);
         }
         
         .btn-whatsapp {
             background: #25D366;
             color: white;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
         }
         
         .btn-whatsapp:hover {
             background: #20bd5a;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--cream);
-            border: 2px solid rgba(245, 236, 215, 0.5);
-        }
-        
-        .btn-outline:hover {
-            background: var(--cream);
-            color: var(--forest-green-dark);
-            border-color: var(--cream);
-        }
-        
-        .hero-portrait {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .portrait-frame {
-            position: relative;
-            width: min(400px, 80%);
-            aspect-ratio: 3/4;
-            border-radius: 200px 200px 20px 20px;
-            overflow: hidden;
-            border: 4px solid var(--gold);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(135deg, var(--brown), var(--brown-dark));
-        }
-        
-        .portrait-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .portrait-decoration {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 20px;
-            left: 20px;
-            border: 2px solid var(--gold);
-            border-radius: 200px 200px 20px 20px;
-            z-index: -1;
-            opacity: 0.5;
+            transform: translateY(-4px) scale(1.02) translateZ(10px);
+            box-shadow: 0 25px 50px rgba(37, 211, 102, 0.4), inset 0 1px 0 rgba(255,255,255,0.4);
         }
         
         .hero-stats {
@@ -728,10 +651,7 @@
             border-top: 1px solid rgba(245, 236, 215, 0.2);
         }
         
-        .stat {
-            text-align: left;
-        }
-        
+        .stat { text-align: left; }
         .stat-number {
             font-family: var(--font-heading);
             font-size: 2.5rem;
@@ -739,7 +659,6 @@
             color: var(--gold-light);
             line-height: 1;
         }
-        
         .stat-label {
             font-size: 0.85rem;
             color: rgba(245, 236, 215, 0.7);
@@ -760,6 +679,8 @@
             text-align: center;
             max-width: 720px;
             margin: 0 auto 4rem;
+            position: relative;
+            z-index: 2;
         }
         
         .section-tag {
@@ -824,6 +745,17 @@
         /* ============================================= */
         .about {
             background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-bg-img {
+            position: absolute;
+            inset: 0;
+            background: url('https://i.ibb.co/Q3KFNXMK/IMG-9250-1.jpg') center/cover no-repeat;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
         }
         
         .about-grid {
@@ -831,24 +763,29 @@
             grid-template-columns: 1fr 1.2fr;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .about-image {
             position: relative;
+            perspective: 1000px;
         }
         
         .about-image-main {
             border-radius: 20px;
             overflow: hidden;
             aspect-ratio: 4/5;
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--forest-green), var(--brown));
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.3), -5px -5px 20px rgba(255,255,255,0.1);
+            transform: perspective(1000px) rotateY(-5deg);
+            animation: moveRightToLeft 8s ease-in-out infinite;
+            border: 3px solid var(--gold);
         }
         
-        .about-image-main img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes moveRightToLeft {
+            0% { transform: perspective(1000px) rotateY(-5deg) translateX(15px); }
+            50% { transform: perspective(1000px) rotateY(5deg) translateX(-15px); }
+            100% { transform: perspective(1000px) rotateY(-5deg) translateX(15px); }
         }
         
         .about-image-accent {
@@ -862,6 +799,7 @@
             color: var(--forest-green-dark);
             box-shadow: var(--shadow-md);
             text-align: center;
+            z-index: 3;
         }
         
         .about-image-accent .number {
@@ -904,6 +842,12 @@
             background: var(--bg-tertiary);
             border-radius: 12px;
             border-left: 3px solid var(--gold);
+            transition: all var(--transition-3d);
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px) translateZ(10px);
+            box-shadow: var(--shadow-md);
         }
         
         .value-icon {
@@ -934,14 +878,14 @@
         /* ============================================= */
         /* SERVICES SECTION                              */
         /* ============================================= */
-        .services {
-            background: var(--bg-primary);
-        }
+        .services { background: var(--bg-primary); }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.5rem;
+            position: relative;
+            z-index: 2;
         }
         
         .service-card {
@@ -949,9 +893,10 @@
             padding: 2.25rem 1.75rem;
             border-radius: 20px;
             border: 1px solid var(--border);
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
         
         .service-card::before {
@@ -968,14 +913,12 @@
         }
         
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-12px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 25px 50px rgba(45, 80, 22, 0.2), 0 10px 20px rgba(45, 80, 22, 0.1);
             border-color: var(--gold);
         }
         
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
+        .service-card:hover::before { transform: scaleX(1); }
         
         .service-icon {
             width: 64px;
@@ -988,51 +931,38 @@
             justify-content: center;
             margin-bottom: 1.5rem;
             transition: all var(--transition);
+            box-shadow: 0 8px 16px rgba(45, 80, 22, 0.2);
         }
         
         .service-card:hover .service-icon {
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
             color: var(--forest-green-dark);
-            transform: rotate(-5deg) scale(1.05);
+            transform: rotate(-5deg) scale(1.05) translateZ(20px);
         }
         
-        .service-card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .service-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
+        .service-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+        .service-card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
         
         /* ============================================= */
         /* HERBAL MEDICINE SECTION                       */
         /* ============================================= */
         .herbal {
-            background: 
-                linear-gradient(135deg, rgba(45, 80, 22, 0.95), rgba(107, 68, 35, 0.9)),
-                url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1920&q=80') center/cover fixed;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.95), rgba(107, 68, 35, 0.9)),
+                        url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1920&q=80') center/cover fixed;
             color: var(--cream);
             position: relative;
         }
         
-        .herbal .section-header h2,
-        .herbal .section-header p {
-            color: var(--cream);
-        }
-        
-        .herbal .section-tag {
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--gold-light);
-        }
+        .herbal .section-header h2, .herbal .section-header p { color: var(--cream); }
+        .herbal .section-tag { background: rgba(212, 175, 55, 0.2); color: var(--gold-light); }
         
         .herbal-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .herbal-text p {
@@ -1054,6 +984,12 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 12px;
             backdrop-filter: blur(10px);
+            transition: all var(--transition-3d);
+        }
+        
+        .herbal-feature:hover {
+            transform: translateY(-5px) translateZ(10px);
+            background: rgba(245, 236, 215, 0.12);
         }
         
         .herbal-feature-icon {
@@ -1066,6 +1002,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 0.75rem;
+            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.3);
         }
         
         .herbal-feature h4 {
@@ -1088,12 +1025,11 @@
             aspect-ratio: 1;
             box-shadow: var(--shadow-lg);
             border: 3px solid var(--gold);
+            transition: all var(--transition-3d);
         }
         
-        .herbal-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .herbal-image:hover {
+            transform: perspective(1000px) rotateY(-3deg) scale(1.02);
         }
         
         .herbal-disclaimer {
@@ -1106,19 +1042,21 @@
             color: rgba(245, 236, 215, 0.85);
             text-align: center;
             font-style: italic;
+            position: relative;
+            z-index: 2;
         }
         
         /* ============================================= */
         /* WHY CHOOSE US                                 */
         /* ============================================= */
-        .why-us {
-            background: var(--bg-secondary);
-        }
+        .why-us { background: var(--bg-secondary); }
         
         .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
+            position: relative;
+            z-index: 2;
         }
         
         .why-card {
@@ -1127,13 +1065,14 @@
             background: var(--bg-primary);
             border-radius: 20px;
             border: 1px solid var(--border);
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
             position: relative;
+            transform-style: preserve-3d;
         }
         
         .why-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-12px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 25px 50px rgba(45, 80, 22, 0.2), 0 10px 20px rgba(45, 80, 22, 0.1);
             border-color: var(--gold);
         }
         
@@ -1149,6 +1088,7 @@
             justify-content: center;
             transition: all var(--transition);
             position: relative;
+            box-shadow: 0 10px 20px rgba(201, 162, 39, 0.3);
         }
         
         .why-icon::after {
@@ -1167,20 +1107,12 @@
         }
         
         .why-card:hover .why-icon {
-            transform: scale(1.1) rotate(10deg);
+            transform: scale(1.1) rotate(10deg) translateZ(20px);
         }
         
-        .why-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
+        .why-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .why-card p { font-size: 0.95rem; color: var(--text-secondary); }
         
-        .why-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-        
-        /* Animated Counters */
         .counters {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1190,12 +1122,12 @@
             background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark));
             border-radius: 24px;
             color: var(--cream);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(45, 80, 22, 0.3);
         }
         
-        .counter-item {
-            text-align: center;
-        }
-        
+        .counter-item { text-align: center; }
         .counter-number {
             font-family: var(--font-heading);
             font-size: 3.5rem;
@@ -1203,7 +1135,6 @@
             color: var(--gold-light);
             line-height: 1;
         }
-        
         .counter-label {
             font-size: 0.9rem;
             letter-spacing: 0.1em;
@@ -1215,15 +1146,15 @@
         /* ============================================= */
         /* GALLERY                                       */
         /* ============================================= */
-        .gallery {
-            background: var(--bg-primary);
-        }
+        .gallery { background: var(--bg-primary); }
         
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: 200px;
             gap: 1rem;
+            position: relative;
+            z-index: 2;
         }
         
         .gallery-item {
@@ -1232,6 +1163,8 @@
             border-radius: 16px;
             cursor: pointer;
             background: var(--brown);
+            transition: all var(--transition-3d);
+            transform-style: preserve-3d;
         }
         
         .gallery-item:nth-child(1) { grid-row: span 2; }
@@ -1254,13 +1187,14 @@
             transition: opacity var(--transition);
         }
         
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            z-index: 10;
         }
         
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover::after { opacity: 1; }
         
         .gallery-caption {
             position: absolute;
@@ -1279,16 +1213,8 @@
             transform: translateY(0);
         }
         
-        .gallery-caption h4 {
-            color: var(--cream);
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .gallery-caption p {
-            font-size: 0.85rem;
-            color: rgba(245, 236, 215, 0.8);
-        }
+        .gallery-caption h4 { color: var(--cream); font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .gallery-caption p { font-size: 0.85rem; color: rgba(245, 236, 215, 0.8); }
         
         /* Lightbox */
         .lightbox {
@@ -1305,10 +1231,7 @@
             padding: 2rem;
         }
         
-        .lightbox.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .lightbox.active { opacity: 1; visibility: visible; }
         
         .lightbox-content {
             max-width: 90%;
@@ -1335,6 +1258,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: var(--shadow-sm);
         }
         
         .lightbox-nav {
@@ -1349,6 +1273,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: var(--shadow-md);
         }
         
         .lightbox-prev { left: -70px; }
@@ -1357,14 +1282,14 @@
         /* ============================================= */
         /* TESTIMONIALS                                  */
         /* ============================================= */
-        .testimonials {
-            background: var(--bg-secondary);
-        }
+        .testimonials { background: var(--bg-secondary); }
         
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            position: relative;
+            z-index: 2;
         }
         
         .testimonial-card {
@@ -1373,12 +1298,13 @@
             border-radius: 20px;
             border: 1px solid var(--border);
             position: relative;
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
+            transform-style: preserve-3d;
         }
         
         .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 25px 50px rgba(45, 80, 22, 0.15);
             border-color: var(--gold);
         }
         
@@ -1428,6 +1354,7 @@
             font-weight: 600;
             font-family: var(--font-heading);
             font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2);
         }
         
         .author-info h4 {
@@ -1437,136 +1364,18 @@
             margin-bottom: 0.15rem;
         }
         
-        .author-info p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        
-        /* ============================================= */
-        /* TIKTOK SECTION                                */
-        /* ============================================= */
-        .tiktok {
-            background: var(--bg-primary);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .tiktok::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
-            border-radius: 50%;
-        }
-        
-        .tiktok-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .tiktok-card {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all var(--transition);
-            position: relative;
-        }
-        
-        .tiktok-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .tiktok-video {
-            position: relative;
-            aspect-ratio: 9/16;
-            background: linear-gradient(135deg, var(--forest-green-dark), var(--brown-dark));
-            overflow: hidden;
-        }
-        
-        .tiktok-video img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-        }
-        
-        .tiktok-play {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--forest-green-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .tiktok-card:hover .tiktok-play {
-            transform: translate(-50%, -50%) scale(1.1);
-            background: var(--gold);
-        }
-        
-        .tiktok-info {
-            padding: 1.25rem;
-        }
-        
-        .tiktok-info h4 {
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-body);
-            font-weight: 600;
-        }
-        
-        .tiktok-info p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        
-        .tiktok-cta {
-            text-align: center;
-        }
-        
-        .btn-tiktok {
-            background: #000;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 600;
-            transition: all var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-tiktok:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
+        .author-info p { font-size: 0.85rem; color: var(--text-muted); }
         
         /* ============================================= */
         /* FAQ SECTION                                   */
         /* ============================================= */
-        .faq {
-            background: var(--bg-secondary);
-        }
+        .faq { background: var(--bg-secondary); }
         
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .faq-item {
@@ -1597,13 +1406,8 @@
             transition: color var(--transition);
         }
         
-        .faq-question:hover {
-            color: var(--forest-green);
-        }
-        
-        [data-theme="dark"] .faq-question:hover {
-            color: var(--gold-light);
-        }
+        .faq-question:hover { color: var(--forest-green); }
+        [data-theme="dark"] .faq-question:hover { color: var(--gold-light); }
         
         .faq-icon {
             width: 32px;
@@ -1639,21 +1443,17 @@
         /* ============================================= */
         /* CONTACT SECTION                               */
         /* ============================================= */
-        .contact {
-            background: var(--bg-primary);
-        }
+        .contact { background: var(--bg-primary); }
         
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 3rem;
+            position: relative;
+            z-index: 2;
         }
         
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
         
         .contact-card {
             padding: 1.75rem;
@@ -1663,12 +1463,14 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
+            transform-style: preserve-3d;
         }
         
         .contact-card:hover {
             border-color: var(--gold);
-            transform: translateX(5px);
+            transform: translateX(5px) translateY(-5px) translateZ(10px);
+            box-shadow: var(--shadow-md);
         }
         
         .contact-icon {
@@ -1681,6 +1483,7 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2);
         }
         
         .contact-card h4 {
@@ -1698,9 +1501,8 @@
         
         .map-placeholder {
             height: 280px;
-            background: 
-                linear-gradient(135deg, rgba(45, 80, 22, 0.85), rgba(107, 68, 35, 0.8)),
-                url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.85), rgba(107, 68, 35, 0.8)),
+                        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80') center/cover;
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -1710,6 +1512,7 @@
             padding: 2rem;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-md);
         }
         
         .map-placeholder::before {
@@ -1719,10 +1522,7 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.5' opacity='0.3'%3E%3Cpath d='M0 30 L60 30 M30 0 L30 60'/%3E%3C/g%3E%3C/svg%3E");
         }
         
-        .map-content {
-            position: relative;
-            z-index: 2;
-        }
+        .map-content { position: relative; z-index: 2; }
         
         .map-pin {
             width: 60px;
@@ -1736,11 +1536,10 @@
             justify-content: center;
             margin: 0 auto 1rem;
             animation: bounce 2s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
-        .map-pin svg {
-            transform: rotate(45deg);
-        }
+        .map-pin svg { transform: rotate(45deg); }
         
         @keyframes bounce {
             0%, 100% { transform: rotate(-45deg) translateY(0); }
@@ -1752,17 +1551,11 @@
             padding: 2.5rem;
             border-radius: 20px;
             border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
         }
         
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         
         .form-label {
             display: block;
@@ -1772,8 +1565,7 @@
             color: var(--text-primary);
         }
         
-        .form-input,
-        .form-textarea {
+        .form-input, .form-textarea, .form-select {
             width: 100%;
             padding: 0.9rem 1.15rem;
             font-family: inherit;
@@ -1785,17 +1577,13 @@
             transition: all var(--transition);
         }
         
-        .form-input:focus,
-        .form-textarea:focus {
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
             outline: none;
             border-color: var(--gold);
             box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
         }
         
-        .form-textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
+        .form-textarea { min-height: 140px; resize: vertical; }
         
         .form-submit {
             width: 100%;
@@ -1804,16 +1592,17 @@
             color: var(--cream);
             font-weight: 600;
             border-radius: 50px;
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            box-shadow: var(--shadow-3d);
         }
         
         .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(45, 80, 22, 0.3);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(45, 80, 22, 0.3), inset 0 1px 0 rgba(255,255,255,0.4);
         }
         
         /* ============================================= */
@@ -1861,11 +1650,7 @@
             letter-spacing: 0.05em;
         }
         
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
+        .footer-links { display: flex; flex-direction: column; gap: 0.75rem; }
         
         .footer-links a {
             color: rgba(245, 236, 215, 0.75);
@@ -1881,11 +1666,7 @@
             transform: translateX(5px);
         }
         
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
+        .social-links { display: flex; gap: 0.75rem; margin-top: 1rem; }
         
         .social-link {
             width: 42px;
@@ -1897,17 +1678,18 @@
             align-items: center;
             justify-content: center;
             color: var(--gold-light);
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
         }
         
         .social-link:hover {
             background: var(--gold);
             color: var(--forest-green-dark);
-            transform: translateY(-3px);
+            transform: translateY(-5px) translateZ(10px);
+            box-shadow: 0 10px 20px rgba(201, 162, 39, 0.3);
         }
         
         .footer-bottom {
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             text-align: center;
             color: rgba(245, 236, 215, 0.6);
             font-size: 0.85rem;
@@ -1915,9 +1697,7 @@
             z-index: 2;
         }
         
-        .footer-bottom a {
-            color: var(--gold-light);
-        }
+        .footer-bottom a { color: var(--gold-light); }
         
         /* ============================================= */
         /* FLOATING ELEMENTS                             */
@@ -1936,8 +1716,9 @@
             justify-content: center;
             box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
             z-index: 999;
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
             animation: pulseWhatsapp 2s ease-in-out infinite;
+            transform-style: preserve-3d;
         }
         
         @keyframes pulseWhatsapp {
@@ -1946,7 +1727,7 @@
         }
         
         .floating-whatsapp:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateZ(10px);
         }
         
         .back-to-top {
@@ -1965,101 +1746,56 @@
             z-index: 998;
             opacity: 0;
             visibility: hidden;
-            transition: all var(--transition);
+            transition: all var(--transition-3d);
         }
         
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
         
         .back-to-top:hover {
             background: var(--gold);
             color: var(--forest-green-dark);
-            transform: translateY(-5px);
+            transform: translateY(-5px) translateZ(10px);
         }
         
         /* ============================================= */
         /* SCROLL ANIMATIONS                             */
         /* ============================================= */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .reveal.visible {
-            opacity: 1;
+        .reveal, .reveal-left, .reveal-right {
+            opacity: 1; /* Handled by SPA active state */
             transform: translateY(0);
         }
         
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
         
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
+        :focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+            border-radius: 4px;
         }
         
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
+        ::selection {
+            background: var(--gold);
+            color: var(--forest-green-dark);
         }
         
         /* ============================================= */
         /* RESPONSIVE                                    */
         /* ============================================= */
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .hero-portrait {
-                order: -1;
-            }
-            
-            .portrait-frame {
-                width: 280px;
-            }
-            
-            .about-grid,
-            .herbal-content,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-portrait { order: -1; }
+            .about-grid, .herbal-content, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
         }
         
         @media (max-width: 768px) {
@@ -2078,141 +1814,33 @@
                 max-height: calc(100vh - 72px);
                 overflow-y: auto;
             }
-            
-            .nav-menu.active {
-                transform: translateY(0);
-            }
-            
-            .nav-link {
-                width: 100%;
-                padding: 0.85rem 1rem;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .logo-text .main {
-                font-size: 0.95rem;
-            }
-            
-            .logo-text .sub {
-                font-size: 0.6rem;
-            }
-            
-            .about-values {
-                grid-template-columns: 1fr;
-            }
-            
-            .herbal-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-auto-rows: 180px;
-            }
-            
-            .gallery-item:nth-child(1),
-            .gallery-item:nth-child(4),
-            .gallery-item:nth-child(6) {
-                grid-column: auto;
-                grid-row: auto;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .floating-whatsapp {
-                width: 55px;
-                height: 55px;
-                bottom: 1.5rem;
-                right: 1.5rem;
-            }
-            
-            .back-to-top {
-                right: 5.5rem;
-                width: 45px;
-                height: 45px;
-                bottom: 1.75rem;
-            }
-            
+            .nav-menu.active { transform: translateY(0); }
+            .nav-link { width: 100%; padding: 0.85rem 1rem; }
+            .menu-toggle { display: flex; }
+            .logo-text .main { font-size: 0.95rem; }
+            .logo-text .sub { font-size: 0.6rem; }
+            .about-values { grid-template-columns: 1fr; }
+            .herbal-features { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+            .gallery-item:nth-child(1), .gallery-item:nth-child(4), .gallery-item:nth-child(6) { grid-column: auto; grid-row: auto; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+            .form-row { grid-template-columns: 1fr; }
+            .floating-whatsapp { width: 55px; height: 55px; bottom: 1.5rem; right: 1.5rem; }
+            .back-to-top { right: 5.5rem; width: 45px; height: 45px; bottom: 1.75rem; }
             .lightbox-prev { left: 10px; }
             .lightbox-next { right: 10px; }
-            
-            .hero-stats {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
+            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+            .stat-number { font-size: 2rem; }
         }
         
         @media (max-width: 480px) {
-            .hero {
-                padding: 6rem 0 3rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .portrait-frame {
-                width: 220px;
-            }
-            
-            .about-image-accent {
-                width: 140px;
-                padding: 1rem;
-                bottom: -20px;
-                right: -10px;
-            }
-            
-            .about-image-accent .number {
-                font-size: 2.25rem;
-            }
-            
-            .contact-form {
-                padding: 1.75rem;
-            }
-        }
-        
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        :focus-visible {
-            outline: 3px solid var(--gold);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-        
-        /* Selection */
-        ::selection {
-            background: var(--gold);
-            color: var(--forest-green-dark);
+            .hero { padding: 6rem 0 3rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .about-image-accent { width: 140px; padding: 1rem; bottom: -20px; right: -10px; }
+            .about-image-accent .number { font-size: 2.25rem; }
+            .contact-form { padding: 1.75rem; }
         }
     </style>
 </head>
@@ -2255,12 +1883,7 @@
     <nav class="navbar" id="navbar" aria-label="Main navigation">
         <div class="nav-container">
             <a href="#home" class="logo" aria-label="Asuo Dia Komfour Home">
-                <div class="logo-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L12 22M2 12L22 12"/>
-                        <circle cx="12" cy="12" r="4"/>
-                    </svg>
-                </div>
+                <img src="https://i.ibb.co/rfzMc2yh/Chat-GPT-Image-Jul-24-2026-02-06-48-PM-1.png" alt="Asuo Dia Komfour Logo" style="height: 55px; width: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                 <div class="logo-text">
                     <span class="main">Asuo Dia Komfour</span>
                     <span class="sub">Spiritual Herbal Center</span>
@@ -2274,7 +1897,6 @@
                 <li><a href="#herbal" class="nav-link" data-en="Herbal" data-tw="Nhaban">Herbal</a></li>
                 <li><a href="#gallery" class="nav-link" data-en="Gallery" data-tw="Mfonini">Gallery</a></li>
                 <li><a href="#testimonials" class="nav-link" data-en="Testimonials" data-tw="Adansedi">Testimonials</a></li>
-                <li><a href="#tiktok" class="nav-link" data-en="TikTok" data-tw="TikTok">TikTok</a></li>
                 <li><a href="#faq" class="nav-link" data-en="FAQ" data-tw="Nsɛmmisa">FAQ</a></li>
                 <li><a href="#contact" class="nav-link" data-en="Contact" data-tw="Frɛ">Contact</a></li>
             </ul>
@@ -2305,9 +1927,10 @@
     </nav>
     
     <!-- ============================================= -->
-    <!-- HERO SECTION                                  -->
+    <!-- HERO SECTION (HOME)                           -->
     <!-- ============================================= -->
-    <section class="hero" id="home">
+    <section class="hero page-section active" id="home">
+        <div class="hero-bg-img"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -2318,14 +1941,13 @@
                         <span data-en="Manso Abore, Ghana" data-tw="Manso Abore, Ghana">Manso Abore, Ghana</span>
                     </div>
                     <h1>
-                        <span data-en="Ancient Wisdom," data-tw="Nimdeɛ Tete,">Ancient Wisdom,</span>
-                        <span class="accent" data-en="Healing Heritage" data-tw="Sa Yɛn Agyapadeɛ">Healing Heritage</span>
+                        <span class="typing-text" data-text="Ancient Wisdom, Healing Heritage"></span>
                     </h1>
                     <p data-en="Welcome to Asuo Dia Komfour — a sanctuary where generations of traditional spiritual and herbal knowledge meet compassionate, respectful guidance. Led by Nana Kyeri Beyifour, we walk alongside you on your journey toward balance, clarity, and well-being." data-tw="Akwaaba wɔ Asuo Dia Komfour — baabi a awo ntoatoaso nimdeɛ a ɛfa honhom ne nhaban ho hyia ɔyɛ adwene ne ɔboa a ɛyɛ mmɔborɔhunu. Nana Kyeri Beyifour di w'anim wɔ wo kwan so ma wo abam, nteaseɛ, ne asetena pa.">
                         Welcome to Asuo Dia Komfour — a sanctuary where generations of traditional spiritual and herbal knowledge meet compassionate, respectful guidance. Led by Nana Kyeri Beyifour, we walk alongside you on your journey toward balance, clarity, and well-being.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
+                        <a href="#contact" class="btn btn-primary nav-link-trigger" data-target="contact">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                 <line x1="16" y1="2" x2="16" y2="6"/>
@@ -2334,7 +1956,7 @@
                             </svg>
                             <span data-en="Book Consultation" data-tw="Bɔ Hyɛn">Book Consultation</span>
                         </a>
-                        <a href="https://wa.me/233000000000" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                        <a href="https://wa.me/233540991248" class="btn btn-whatsapp" target="_blank" rel="noopener">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
@@ -2356,12 +1978,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-portrait">
-                    <div class="portrait-frame">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Nana Kyeri Beyifour - Spiritual Guide" loading="eager">
-                        <div class="portrait-decoration"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -2369,7 +1985,8 @@
     <!-- ============================================= -->
     <!-- ABOUT SECTION                                 -->
     <!-- ============================================= -->
-    <section class="about adinkra-bg" id="about">
+    <section class="about page-section adinkra-bg" id="about">
+        <div class="about-bg-img"></div>
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="About Nana Kyeri" data-tw="Fa Nana Kyeri Ho">About Nana Kyeri</span>
@@ -2388,7 +2005,7 @@
             <div class="about-grid">
                 <div class="about-image reveal-left">
                     <div class="about-image-main">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" alt="Nana Kyeri in traditional attire" loading="lazy">
+                        <img src="https://i.ibb.co/rCRsHKK/IMG-9238.jpg" alt="Nana Kyeri Beyifour" loading="lazy">
                     </div>
                     <div class="about-image-accent">
                         <div class="number">25+</div>
@@ -2461,7 +2078,7 @@
     <!-- ============================================= -->
     <!-- SERVICES SECTION                              -->
     <!-- ============================================= -->
-    <section class="services" id="services">
+    <section class="services page-section" id="services">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="Our Services" data-tw="Yɛn Nnwuma">Our Services</span>
@@ -2572,7 +2189,7 @@
     <!-- ============================================= -->
     <!-- HERBAL MEDICINE SECTION                       -->
     <!-- ============================================= -->
-    <section class="herbal" id="herbal">
+    <section class="herbal page-section" id="herbal">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="Traditional Herbal Practice" data-tw="Amanmuu Mu Nhaban Adwuma">Traditional Herbal Practice</span>
@@ -2592,7 +2209,7 @@
                     <p data-en="At Asuo Dia Komfour, we honor the ancient tradition of herbal medicine — a practice that has sustained communities across West Africa for centuries. Our approach is rooted in deep respect for the land, the plants, and the ancestral knowledge that guides their use." data-tw="Wɔ Asuo Dia Komfour, yɛdi amanmuu mu nhaban aduru a ɛyɛ amammerɛ a ato so abɔ mmraa mmusua wɔ Atɔeɛ Afrikam no anim. Yɛn kwan gyina abɔdeɛ, nhaban, ne nenanom nimdeɛ a ɛkyerɛ sɛnea wɔde di dwuma no anubuo so.">
                         At Asuo Dia Komfour, we honor the ancient tradition of herbal medicine — a practice that has sustained communities across West Africa for centuries. Our approach is rooted in deep respect for the land, the plants, and the ancestral knowledge that guides their use.
                     </p>
-                    <p data-en="Every consultation begins with listening — to your story, your concerns, and your hopes. From this foundation, Nana Kyeri draws upon generations of knowledge to offer thoughtful guidance. Our herbal preparations are made with care, using plants gathered with intention and prepared according to traditional methods." data-tw="Nhyiamu biara fi atie so — wo ho asɛm, wo nsɛm, ne wo anidaso. Efi hɔ na Nana Kyeri de ntoatoaso nimdeɛ di dwuma ma kwankyerɛ a ɛwɔ nwenem. Yɛn nhaban nsesaeɛ no, yɛyɛ ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne ne......">
+                    <p data-en="Every consultation begins with listening — to your story, your concerns, and your hopes. From this foundation, Nana Kyeri draws upon generations of knowledge to offer thoughtful guidance. Our herbal preparations are made with care, using plants gathered with intention and prepared according to traditional methods." data-tw="Nhyiamu biara fi atie so — wo ho asɛm, wo nsɛm, ne wo anidaso. Efi hɔ na Nana Kyeri de ntoatoaso nimdeɛ di dwuma ma kwankyerɛ a ɛwɔ nwenem. Yɛn nhaban nsesaeɛ no, yɛyɛ ne ne nwenem na wɔsiesie no sɛnea amanmuu kwan te.">
                         Every consultation begins with listening — to your story, your concerns, and your hopes. From this foundation, Nana Kyeri draws upon generations of knowledge to offer thoughtful guidance. Our herbal preparations are made with care, using plants gathered with intention and prepared according to traditional methods.
                     </p>
                     <p data-en="We believe in working alongside modern healthcare, not in opposition to it. Our role is to offer cultural and spiritual support within a framework of respect for your overall well-being." data-tw="Yɛgye di sɛ yɛne nnɛ ayaresa yɛ adwuma, ɛnyɛ atia. Yɛn dwuma ne sɛ yɛbɛma amammerɛ ne honhom mu mmoa wɔ anuonyam mu ma wo asetena pa nyinaa.">
@@ -2626,7 +2243,7 @@
                                 </svg>
                             </div>
                             <h4 data-en="Made with Care" data-tw="Wɔyɛ ne Mmɔborɔhunu">Made with Care</h4>
-                            <p data-en="Prepared with intention and respect" data-tw="Wɔsiesie ne ne nwenem ne anuonyam">Prepared with intention and respect</p>
+                            <p data-en="Prepared with intention and respect" data-tw="Wɔsiesie ne nwenem ne anuonyam">Prepared with intention and respect</p>
                         </div>
                         <div class="herbal-feature">
                             <div class="herbal-feature-icon">
@@ -2657,7 +2274,7 @@
     <!-- ============================================= -->
     <!-- WHY CHOOSE US                                 -->
     <!-- ============================================= -->
-    <section class="why-us adinkra-bg">
+    <section class="why-us page-section adinkra-bg" id="why-us">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="Why Choose Us" data-tw="Adɛn Nti Na Yɛbɛyi Yɛn">Why Choose Us</span>
@@ -2727,7 +2344,6 @@
                 </div>
             </div>
             
-            <!-- Animated Counters -->
             <div class="counters reveal">
                 <div class="counter-item">
                     <div class="counter-number" data-count="25">0</div>
@@ -2752,7 +2368,7 @@
     <!-- ============================================= -->
     <!-- GALLERY SECTION                               -->
     <!-- ============================================= -->
-    <section class="gallery" id="gallery">
+    <section class="gallery page-section" id="gallery">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="Our Gallery" data-tw="Yɛn Mfonini">Our Gallery</span>
@@ -2854,7 +2470,7 @@
     <!-- ============================================= -->
     <!-- TESTIMONIALS SECTION                          -->
     <!-- ============================================= -->
-    <section class="testimonials adinkra-bg" id="testimonials">
+    <section class="testimonials page-section adinkra-bg" id="testimonials">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="Testimonials" data-tw="Adansedi">Testimonials</span>
@@ -2933,161 +2549,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-quote">"</div>
-                    <div class="testimonial-stars">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="testimonial-text" data-en="As someone from abroad reconnecting with my roots, I felt deeply welcomed and understood. The experience honored both tradition and my personal journey." data-tw="Sɛ obi a ɔfiri aman foforɔ so a ɔresan aba n'ahofama so no, metee sɛ wɔgyee me atom na wɔtee me ase. Nhyiamu no dii amammerɛ ne me kwan ankasa anim.">
-                        As someone from abroad reconnecting with my roots, I felt deeply welcomed and understood. The experience honored both tradition and my personal journey.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">YO</div>
-                        <div class="author-info">
-                            <h4>Yaa Owusu</h4>
-                            <p data-en="London, UK" data-tw="London, UK">London, UK</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-quote">"</div>
-                    <div class="testimonial-stars">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="testimonial-text" data-en="The relationship guidance helped my partner and me communicate in ways we never had before. Nana Kyeri listens deeply and speaks with wisdom." data-tw="Abusuabɔ kwankyerɛ no boa me ne me kɔmfo ma yɛn kasa wɔ ɔkwan a yɛn da so nnkasa. Nana Kyeri tie yie na ɔka ne nimdeɛ.">
-                        The relationship guidance helped my partner and me communicate in ways we never had before. Nana Kyeri listens deeply and speaks with wisdom.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">KA</div>
-                        <div class="author-info">
-                            <h4>Kofi Agyeman</h4>
-                            <p data-en="Takoradi, Ghana" data-tw="Takoradi, Ghana">Takoradi, Ghana</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-quote">"</div>
-                    <div class="testimonial-stars">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="testimonial-text" data-en="I was hesitant at first, but Nana Kyeri's warmth and genuine care put me at ease. The spiritual protection guidance gave me a sense of safety I hadn't felt in years." data-tw="Mehyɛɛ aseɛ no na metee nwanwa, nanso Nana Kyeri dɔ ne mmɔborɔhunu maa me ho tɔɔ me. Honhom bammɔ kwankyerɛ no maa me nyaa bammɔ a menyaa mfeɛ pii.">
-                        I was hesitant at first, but Nana Kyeri's warmth and genuine care put me at ease. The spiritual protection guidance gave me a sense of safety I hadn't felt in years.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AA</div>
-                        <div class="author-info">
-                            <h4>Akosua Adjei</h4>
-                            <p data-en="Manso Abore, Ghana" data-tw="Manso Abore, Ghana">Manso Abore, Ghana</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ============================================= -->
-    <!-- TIKTOK SECTION                                -->
-    <!-- ============================================= -->
-    <section class="tiktok" id="tiktok">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag" data-en="Follow Us on TikTok" data-tw="Di Yɛn Akyi wɔ TikTok">Follow Us on TikTok</span>
-                <h2><span data-en="Watch &" data-tw="Hwɛ &">Watch &</span> <span class="accent" data-tw="Di Yɛn Akyi" data-en="Follow Along">Follow Along</span></h2>
-                <div class="divider">
-                    <div class="divider-line"></div>
-                    <svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <circle cx="12" cy="12" r="4"/>
-                    </svg>
-                    <div class="divider-line"></div>
-                </div>
-                <p data-en="Discover traditional wisdom, herbal insights, and spiritual reflections on our TikTok channel." data-tw="Hu amanmuu nimdeɛ, nhaban mu nteaseɛ, ne honhom mu nsusuwii wɔ yɛn TikTok kan no so.">Discover traditional wisdom, herbal insights, and spiritual reflections on our TikTok channel.</p>
-            </div>
-            
-            <div class="tiktok-grid">
-                <div class="tiktok-card reveal">
-                    <div class="tiktok-video">
-                        <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=500&q=80" alt="TikTok video thumbnail" loading="lazy">
-                        <button class="tiktok-play" aria-label="Play video">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="tiktok-info">
-                        <h4 data-en="Morning Herbal Rituals" data-tw="Adeɛ Kyɛɛ Nhaban Amammerɛ">Morning Herbal Rituals</h4>
-                        <p data-en="Traditional morning practices" data-tw="Adeɛ kyɛɛ amammerɛ">Traditional morning practices</p>
-                    </div>
-                </div>
-                
-                <div class="tiktok-card reveal">
-                    <div class="tiktok-video">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&q=80" alt="TikTok video thumbnail" loading="lazy">
-                        <button class="tiktok-play" aria-label="Play video">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="tiktok-info">
-                        <h4 data-en="Forest Walk & Wisdom" data-tw="Kwaeɛ Akɔntene & Nimdeɛ">Forest Walk & Wisdom</h4>
-                        <p data-en="Lessons from nature" data-tw="Nkyerɛkyerɛ fi abɔdeɛ mu">Lessons from nature</p>
-                    </div>
-                </div>
-                
-                <div class="tiktok-card reveal">
-                    <div class="tiktok-video">
-                        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=500&q=80" alt="TikTok video thumbnail" loading="lazy">
-                        <button class="tiktok-play" aria-label="Play video">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="tiktok-info">
-                        <h4 data-en="Sacred Herbs Revealed" data-tw="Nhaban Kronkron Adiyi">Sacred Herbs Revealed</h4>
-                        <p data-en="Ancestral plant knowledge" data-tw="Nenanom nhaban nimdeɛ">Ancestral plant knowledge</p>
-                    </div>
-                </div>
-                
-                <div class="tiktok-card reveal">
-                    <div class="tiktok-video">
-                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=500&q=80" alt="TikTok video thumbnail" loading="lazy">
-                        <button class="tiktok-play" aria-label="Play video">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="tiktok-info">
-                        <h4 data-en="Traditional Preparation" data-tw="Amanmuu Nsiesieɛ">Traditional Preparation</h4>
-                        <p data-en="Ancient methods honored" data-tw="Amanmuu kwan a wɔdi anim">Ancient methods honored</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tiktok-cta reveal">
-                <a href="https://www.tiktok.com/@asuodiakomfour" target="_blank" rel="noopener" class="btn-tiktok">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.54a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.37z"/>
-                    </svg>
-                    <span data-en="Follow on TikTok" data-tw="Di Yɛn Akyi wɔ TikTok">Follow on TikTok</span>
-                </a>
             </div>
         </div>
     </section>
@@ -3095,7 +2556,7 @@
     <!-- ============================================= -->
     <!-- FAQ SECTION                                   -->
     <!-- ============================================= -->
-    <section class="faq" id="faq">
+    <section class="faq page-section" id="faq">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="FAQ" data-tw="Nsɛmmisa">FAQ</span>
@@ -3122,8 +2583,8 @@
                         </div>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-content" data-en="You can book a consultation through our contact form, by calling our office, or by sending a message via WhatsApp. We typically respond within 24 hours and will schedule a time that works for you." data-tw="Wubetumi abɔ nhyiamu fa yɛn contact form so, frɛ yɛn adwumayɛbea, anaa de nkrato adi WhatsApp so. Yɛn dea no, yɛnya yɛn ho wɔ nnɔnhora 24 mu na yɛbɛhyɛ bere a ɛyɛ ma wo.">
-                            You can book a consultation through our contact form, by calling our office, or by sending a message via WhatsApp. We typically respond within 24 hours and will schedule a time that works for you.
+                        <div class="faq-answer-content" data-en="You can book a consultation by sending a message via WhatsApp. We typically respond within 24 hours and will schedule a time that works for you." data-tw="Wubetumi abɔ nhyiamu fa WhatsApp so. Yɛn dea no, yɛnya yɛn ho wɔ nnɔnhora 24 mu na yɛbɛhyɛ bere a ɛyɛ ma wo.">
+                            You can book a consultation by sending a message via WhatsApp. We typically respond within 24 hours and will schedule a time that works for you.
                         </div>
                     </div>
                 </div>
@@ -3156,8 +2617,8 @@
                         </div>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-content" data-en="Yes, we offer virtual consultations via video call for those who cannot visit in person. Please contact us to arrange a suitable time." data-tw="Aane, yɛyɛ nhyiamu a ɛwɔ intanɛt so fa video call so ma wɔn a wontumi mmra. Yɛn frɛ ma yɛnhyɛ bere a ɛfata.">
-                            Yes, we offer virtual consultations via video call for those who cannot visit in person. Please contact us to arrange a suitable time.
+                        <div class="faq-answer-content" data-en="Yes, we offer virtual consultations via video call for those who cannot visit in person. Please contact us via WhatsApp to arrange a suitable time." data-tw="Aane, yɛyɛ nhyiamu a ɛwɔ intanɛt so fa video call so ma wɔn a wontumi mmra. Yɛn frɛ ma yɛnhyɛ bere a ɛfata fa WhatsApp so.">
+                            Yes, we offer virtual consultations via video call for those who cannot visit in person. Please contact us via WhatsApp to arrange a suitable time.
                         </div>
                     </div>
                 </div>
@@ -3198,23 +2659,6 @@
                 
                 <div class="faq-item reveal">
                     <button class="faq-question" aria-expanded="false">
-                        <span data-en="How do your herbal practices differ from modern medicine?" data-tw="Sɛnea mo nhaban adwuma ne nnɛ ayaresa yɛ ɔsono?">How do your herbal practices differ from modern medicine?</span>
-                        <div class="faq-icon">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <line x1="12" y1="5" x2="12" y2="19"/>
-                                <line x1="5" y1="12" x2="19" y2="12"/>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content" data-en="Our herbal practices are rooted in cultural tradition and spiritual guidance. They complement, rather than replace, modern healthcare. We always encourage visitors to consult qualified medical professionals for any health concerns." data-tw="Yɛn nhaban adwuma gyina amammerɛ ne honhom kwankyerɛ so. Ɛne nnɛ ayaresa kɔ bom, ɛnsi hɔ sɛ ɛbɛsi ano. Yɛhyɛ wɔn a wɔba nyinaa nkɔmmɔ a wɔwɔ abodin krataa wɔ ayaresa mu nkɔmmɔ ho asɛm biara.">
-                            Our herbal practices are rooted in cultural tradition and spiritual guidance. They complement, rather than replace, modern healthcare. We always encourage visitors to consult qualified medical professionals for any health concerns.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item reveal">
-                    <button class="faq-question" aria-expanded="false">
                         <span data-en="What are your business hours?" data-tw="Mo adwuma bere yɛ sɛn?">What are your business hours?</span>
                         <div class="faq-icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
@@ -3236,7 +2680,7 @@
     <!-- ============================================= -->
     <!-- CONTACT SECTION                               -->
     <!-- ============================================= -->
-    <section class="contact adinkra-bg" id="contact">
+    <section class="contact page-section adinkra-bg" id="contact">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-en="Get in Touch" data-tw="Ka Yɛn Ho">Get in Touch</span>
@@ -3269,26 +2713,13 @@
                     
                     <div class="contact-card reveal-left">
                         <div class="contact-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
                         </div>
                         <div>
-                            <h4 data-en="Call or WhatsApp" data-tw="Frɛ anaa WhatsApp">Call or WhatsApp</h4>
-                            <p>+233 (0) 00 000 0000</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card reveal-left">
-                        <div class="contact-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 data-en="Email Us" data-tw="Krataa Di Yɛn Ho">Email Us</h4>
-                            <p>info@asuodiakomfour.com</p>
+                            <h4>WhatsApp Us</h4>
+                            <p>+233 54 099 1248<br>+233 24 008 1689</p>
                         </div>
                     </div>
                     
@@ -3332,12 +2763,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="email" data-en="Email" data-tw="Email">Email</label>
-                            <input type="email" id="email" name="email" class="form-input">
-                        </div>
-                        <div class="form-group">
                             <label class="form-label" for="service" data-en="Service of Interest" data-tw="Adwuma a Wopɛ">Service of Interest</label>
-                            <select id="service" name="service" class="form-input" required>
+                            <select id="service" name="service" class="form-input form-select" required>
                                 <option value="" data-en="Select a service" data-tw="Yi adwuma bi">Select a service</option>
                                 <option value="spiritual" data-en="Spiritual Consultation" data-tw="Honhom Nhyiamu">Spiritual Consultation</option>
                                 <option value="herbal" data-en="Herbal Guidance" data-tw="Nhaban Kwankyerɛ">Herbal Guidance</option>
@@ -3354,10 +2781,9 @@
                             <textarea id="message" name="message" class="form-textarea" required></textarea>
                         </div>
                         <button type="submit" class="form-submit">
-                            <span data-en="Send Message" data-tw="Mane Nkrato">Send Message</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <line x1="22" y1="2" x2="11" y2="13"/>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            <span data-en="Send via WhatsApp" data-tw="Mane fa WhatsApp">Send via WhatsApp</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
                         </button>
                     </form>
@@ -3373,13 +2799,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#home" class="logo" style="color: var(--gold-light);">
-                        <div class="logo-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L12 22M2 12L22 12"/>
-                                <circle cx="12" cy="12" r="4"/>
-                            </svg>
-                        </div>
+                    <a href="#home" class="logo nav-link-trigger" data-target="home" style="color: var(--gold-light);">
+                        <img src="https://i.ibb.co/rfzMc2yh/Chat-GPT-Image-Jul-24-2026-02-06-48-PM-1.png" alt="Asuo Dia Komfour Logo" style="height: 55px; width: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                         <div class="logo-text">
                             <span class="main" style="color: var(--gold-light);">Asuo Dia Komfour</span>
                             <span class="sub">Spiritual Herbal Center</span>
@@ -3387,7 +2808,7 @@
                     </a>
                     <p data-en="A sanctuary of traditional wisdom, spiritual guidance, and herbal heritage rooted in the heart of Ghana's Ashanti region." data-tw="Baabi a ɛwɔ amanmuu nimdeɛ, honhom kwankyerɛ, ne nhaban agyapadeɛ a ɛwɔ Ghana Asante mantam koma mu.">A sanctuary of traditional wisdom, spiritual guidance, and herbal heritage rooted in the heart of Ghana's Ashanti region.</p>
                     <div class="social-links">
-                        <a href="https://wa.me/233000000000" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <a href="https://wa.me/233540991248" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
@@ -3397,40 +2818,28 @@
                                 <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.54a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.37z"/>
                             </svg>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                            </svg>
-                        </a>
                     </div>
                 </div>
                 
                 <div>
                     <h4 data-en="Quick Links" data-tw="Nkitahodi Ntɛmpɛ">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#home" data-en="Home" data-tw="Fie">Home</a></li>
-                        <li><a href="#about" data-en="About" data-tw="Fa Ho">About</a></li>
-                        <li><a href="#services" data-en="Services" data-tw="Dwuma">Services</a></li>
-                        <li><a href="#herbal" data-en="Herbal" data-tw="Nhaban">Herbal</a></li>
-                        <li><a href="#gallery" data-en="Gallery" data-tw="Mfonini">Gallery</a></li>
+                        <li><a href="#home" class="nav-link-trigger" data-target="home" data-en="Home" data-tw="Fie">Home</a></li>
+                        <li><a href="#about" class="nav-link-trigger" data-target="about" data-en="About" data-tw="Fa Ho">About</a></li>
+                        <li><a href="#services" class="nav-link-trigger" data-target="services" data-en="Services" data-tw="Dwuma">Services</a></li>
+                        <li><a href="#herbal" class="nav-link-trigger" data-target="herbal" data-en="Herbal" data-tw="Nhaban">Herbal</a></li>
+                        <li><a href="#gallery" class="nav-link-trigger" data-target="gallery" data-en="Gallery" data-tw="Mfonini">Gallery</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 data-en="Services" data-tw="Nnwuma">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#services" data-en="Spiritual Consultation" data-tw="Honhom Nhyiamu">Spiritual Consultation</a></li>
-                        <li><a href="#services" data-en="Herbal Guidance" data-tw="Nhaban Kwankyerɛ">Herbal Guidance</a></li>
-                        <li><a href="#services" data-en="Family Guidance" data-tw="Abusua Kwankyerɛ">Family Guidance</a></li>
-                        <li><a href="#services" data-en="Home Blessings" data-tw="Fie Nhyira">Home Blessings</a></li>
-                        <li><a href="#services" data-en="Spiritual Protection" data-tw="Honhom Bammɔ">Spiritual Protection</a></li>
+                        <li><a href="#services" class="nav-link-trigger" data-target="services" data-en="Spiritual Consultation" data-tw="Honhom Nhyiamu">Spiritual Consultation</a></li>
+                        <li><a href="#services" class="nav-link-trigger" data-target="services" data-en="Herbal Guidance" data-tw="Nhaban Kwankyerɛ">Herbal Guidance</a></li>
+                        <li><a href="#services" class="nav-link-trigger" data-target="services" data-en="Family Guidance" data-tw="Abusua Kwankyerɛ">Family Guidance</a></li>
+                        <li><a href="#services" class="nav-link-trigger" data-target="services" data-en="Home Blessings" data-tw="Fie Nhyira">Home Blessings</a></li>
+                        <li><a href="#services" class="nav-link-trigger" data-target="services" data-en="Spiritual Protection" data-tw="Honhom Bammɔ">Spiritual Protection</a></li>
                     </ul>
                 </div>
                 
@@ -3445,17 +2854,10 @@
                             <span data-en="Manso Abore, Ghana" data-tw="Manso Abore, Ghana">Manso Abore, Ghana</span>
                         </li>
                         <li>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
-                            <span>+233 (0) 00 000 0000</span>
-                        </li>
-                        <li>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            <span>info@asuodiakomfour.com</span>
+                            <span>+233 54 099 1248<br>+233 24 008 1689</span>
                         </li>
                         <li>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -3469,8 +2871,8 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 Nana Kyeri Beyifour Spiritual Herbal Center (Asuo Dia Komfour). <span data-en="All rights reserved." data-tw="Hokwan nyinaa wɔ hɔ.">All rights reserved.</span></p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;" data-en="Crafted with respect for Ghanaian heritage and tradition." data-tw="Wɔyɛ ne anuonyam ma Ghana amammerɛ ne amanmuu.">Crafted with respect for Ghanaian heritage and tradition.</p>
+                <p>&copy; 2026 Nana Kyeri Beyifour Spiritual Herbal Center (Asuo Dia Komfour). All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gold-light); font-weight: 600;">Powered by KS1 Empire Global Foundation (KS1EGF)</p>
             </div>
         </div>
     </footer>
@@ -3478,7 +2880,7 @@
     <!-- ============================================= -->
     <!-- FLOATING ELEMENTS                             -->
     <!-- ============================================= -->
-    <a href="https://wa.me/233000000000" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/233540991248" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
@@ -3497,7 +2899,77 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
+                // Start typing effect after loader
+                startTypingEffect();
             }, 800);
+        });
+        
+        /* ============================================= */
+        /* TYPING EFFECT                                 */
+        /* ============================================= */
+        function startTypingEffect() {
+            const typingElement = document.querySelector('.typing-text');
+            if (!typingElement) return;
+            
+            const textToType = typingElement.getAttribute('data-text');
+            let charIndex = 0;
+            typingElement.textContent = '';
+            
+            function typeText() {
+                if (charIndex < textToType.length) {
+                    typingElement.textContent += textToType.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, 100);
+                }
+            }
+            setTimeout(typeText, 500);
+        }
+        
+        /* ============================================= */
+        /* SPA NAVIGATION                                */
+        /* ============================================= */
+        function showSection(id) {
+            document.querySelectorAll('.page-section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            
+            const target = document.getElementById(id);
+            if (target) {
+                target.classList.add('active');
+                // Re-trigger animations inside the new section
+                setTimeout(() => {
+                    target.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+                        el.classList.add('visible');
+                    });
+                }, 100);
+            }
+            
+            document.querySelectorAll('.nav-link, .nav-link-trigger').forEach(link => {
+                const href = link.getAttribute('href') || link.getAttribute('data-target');
+                link.classList.toggle('active', href === `#${id}` || href === id);
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Initialize SPA
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+            
+            // Nav link clicks
+            document.querySelectorAll('.nav-link, .nav-link-trigger').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href')?.substring(1) || link.getAttribute('data-target');
+                    if (targetId) {
+                        showSection(targetId);
+                        // Close mobile menu
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
         });
         
         /* ============================================= */
@@ -3520,23 +2992,6 @@
             } else {
                 backToTop.classList.remove('visible');
             }
-            
-            // Active nav link
-            const sections = document.querySelectorAll('section[id]');
-            sections.forEach(section => {
-                const top = section.offsetTop - 100;
-                const height = section.offsetHeight;
-                const id = section.getAttribute('id');
-                
-                if (scrollY >= top && scrollY < top + height) {
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
         });
         
         /* ============================================= */
@@ -3550,14 +3005,6 @@
             navMenu.classList.toggle('active');
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', !expanded);
-        });
-        
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            });
         });
         
         /* ============================================= */
@@ -3604,14 +3051,9 @@
             document.querySelectorAll('[data-en][data-tw]').forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
                 if (text) {
-                    // Preserve HTML structure for elements with children
-                    if (el.children.length === 0 || el.tagName === 'P' || el.tagName === 'SPAN' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4') {
-                        el.textContent = text;
-                    }
+                    el.textContent = text;
                 }
             });
-            
-            // Update HTML lang attribute
             document.documentElement.lang = lang === 'en' ? 'en' : 'tw';
             langLabel.textContent = lang.toUpperCase();
             localStorage.setItem('lang', lang);
@@ -3634,21 +3076,19 @@
         const searchResults = document.getElementById('searchResults');
         
         const searchData = [
-            { title: 'Spiritual Consultation', desc: 'Personalized spiritual guidance', section: '#services' },
-            { title: 'Herbal Guidance', desc: 'Traditional herbal wisdom', section: '#services' },
-            { title: 'Family Guidance', desc: 'Support for families', section: '#services' },
-            { title: 'Relationship Guidance', desc: 'Counsel for couples', section: '#services' },
-            { title: 'Business Guidance', desc: 'Spiritual insight for entrepreneurs', section: '#services' },
-            { title: 'Home Blessings', desc: 'Traditional blessings for your home', section: '#services' },
-            { title: 'Spiritual Protection', desc: 'Traditional protective practices', section: '#services' },
-            { title: 'Community Counseling', desc: 'Supportive counseling', section: '#services' },
-            { title: 'About Nana Kyeri', desc: 'Biography and mission', section: '#about' },
-            { title: 'Contact', desc: 'Get in touch with us', section: '#contact' },
-            { title: 'Gallery', desc: 'View our heritage photos', section: '#gallery' },
-            { title: 'Testimonials', desc: 'What our visitors say', section: '#testimonials' },
-            { title: 'TikTok', desc: 'Follow us on TikTok', section: '#tiktok' },
-            { title: 'FAQ', desc: 'Frequently asked questions', section: '#faq' },
-            { title: 'Manso Abore', desc: 'Our location in Ghana', section: '#contact' }
+            { title: 'Spiritual Consultation', desc: 'Personalized spiritual guidance', section: 'services' },
+            { title: 'Herbal Guidance', desc: 'Traditional herbal wisdom', section: 'services' },
+            { title: 'Family Guidance', desc: 'Support for families', section: 'services' },
+            { title: 'Relationship Guidance', desc: 'Counsel for couples', section: 'services' },
+            { title: 'Business Guidance', desc: 'Spiritual insight for entrepreneurs', section: 'services' },
+            { title: 'Home Blessings', desc: 'Traditional blessings for your home', section: 'services' },
+            { title: 'Spiritual Protection', desc: 'Traditional protective practices', section: 'services' },
+            { title: 'Community Counseling', desc: 'Supportive counseling', section: 'services' },
+            { title: 'About Nana Kyeri', desc: 'Biography and mission', section: 'about' },
+            { title: 'Contact', desc: 'Get in touch with us', section: 'contact' },
+            { title: 'Gallery', desc: 'View our heritage photos', section: 'gallery' },
+            { title: 'Testimonials', desc: 'What our visitors say', section: 'testimonials' },
+            { title: 'FAQ', desc: 'Frequently asked questions', section: 'faq' }
         ];
         
         searchBtn.addEventListener('click', () => {
@@ -3699,7 +3139,7 @@
                     item.addEventListener('click', () => {
                         const section = item.dataset.section;
                         closeSearch();
-                        document.querySelector(section).scrollIntoView({ behavior: 'smooth' });
+                        showSection(section);
                     });
                 });
             } else {
@@ -3709,33 +3149,12 @@
         });
         
         /* ============================================= */
-        /* SCROLL REVEAL ANIMATIONS                      */
-        /* ============================================= */
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-            observer.observe(el);
-        });
-        
-        /* ============================================= */
         /* ANIMATED COUNTERS                             */
         /* ============================================= */
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.counter-number');
+                    const counters = entry.target.querySelectorAll('.counter-number, .stat-number');
                     counters.forEach(counter => {
                         const target = parseInt(counter.getAttribute('data-count'));
                         const duration = 2000;
@@ -3758,36 +3177,7 @@
             });
         }, { threshold: 0.3 });
         
-        document.querySelectorAll('.counters').forEach(el => counterObserver.observe(el));
-        
-        // Hero stats counters
-        const heroStatsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-number');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        const duration = 2000;
-                        const step = target / (duration / 16);
-                        let current = 0;
-                        
-                        const updateCounter = () => {
-                            current += step;
-                            if (current < target) {
-                                counter.textContent = Math.floor(current).toLocaleString();
-                                requestAnimationFrame(updateCounter);
-                            } else {
-                                counter.textContent = target.toLocaleString() + '+';
-                            }
-                        };
-                        updateCounter();
-                    });
-                    heroStatsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        document.querySelectorAll('.hero-stats').forEach(el => heroStatsObserver.observe(el));
+        document.querySelectorAll('.counters, .hero-stats').forEach(el => counterObserver.observe(el));
         
         /* ============================================= */
         /* FAQ ACCORDION                                 */
@@ -3798,14 +3188,12 @@
                 const answer = item.querySelector('.faq-answer');
                 const isActive = item.classList.contains('active');
                 
-                // Close all
                 document.querySelectorAll('.faq-item').forEach(faq => {
                     faq.classList.remove('active');
                     faq.querySelector('.faq-answer').style.maxHeight = null;
                     faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 });
                 
-                // Open clicked if wasn't active
                 if (!isActive) {
                     item.classList.add('active');
                     answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -3871,7 +3259,7 @@
         });
         
         /* ============================================= */
-        /* CONTACT FORM                                  */
+        /* CONTACT FORM (WHATSAPP ONLY)                  */
         /* ============================================= */
         const contactForm = document.getElementById('contactForm');
         
@@ -3884,16 +3272,13 @@
             const service = formData.get('service');
             const message = formData.get('message');
             
-            // Build WhatsApp message
             const waMessage = `Hello Nana Kyeri,%0A%0AMy name is ${encodeURIComponent(name)}.%0A%0AI'm interested in: ${encodeURIComponent(service)}%0A%0APhone: ${encodeURIComponent(phone)}%0A%0AMessage: ${encodeURIComponent(message)}`;
             
-            // Open WhatsApp with pre-filled message
-            window.open(`https://wa.me/233000000000?text=${waMessage}`, '_blank');
+            window.open(`https://wa.me/233540991248?text=${waMessage}`, '_blank');
             
-            // Show success feedback
             const submitBtn = contactForm.querySelector('.form-submit');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span>✓ Message Sent!</span>';
+            submitBtn.innerHTML = '<span>✓ Opening WhatsApp...</span>';
             submitBtn.style.background = '#25D366';
             
             setTimeout(() => {
@@ -3904,82 +3289,19 @@
         });
         
         /* ============================================= */
-        /* TIKTOK CARD CLICK                             */
-        /* ============================================= */
-        document.querySelectorAll('.tiktok-card').forEach(card => {
-            card.addEventListener('click', () => {
-                window.open('https://www.tiktok.com/@asuodiakomfour', '_blank');
-            });
-        });
-        
-        /* ============================================= */
         /* SERVICE WORKER REGISTRATION (PWA)             */
         /* ============================================= */
         if ('serviceWorker' in navigator) {
-            // Register a minimal service worker for offline support
             const swCode = `
-                self.addEventListener('install', (event) => {
-                    self.skipWaiting();
-                });
-                self.addEventListener('activate', (event) => {
-                    event.waitUntil(self.clients.claim());
-                });
+                self.addEventListener('install', (event) => { self.skipWaiting(); });
+                self.addEventListener('activate', (event) => { event.waitUntil(self.clients.claim()); });
                 self.addEventListener('fetch', (event) => {
-                    event.respondWith(
-                        fetch(event.request).catch(() => {
-                            return new Response('Offline - Please check your connection');
-                        })
-                    );
+                    event.respondWith(fetch(event.request).catch(() => new Response('Offline')));
                 });
             `;
             const swBlob = new Blob([swCode], { type: 'application/javascript' });
-            const swUrl = URL.createObjectURL(swBlob);
-            navigator.serviceWorker.register(swUrl).catch(() => {});
+            navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(() => {});
         }
-        
-        /* ============================================= */
-        /* SMOOTH SCROLL POLYFILL                        */
-        /* ============================================= */
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        /* ============================================= */
-        /* PERFORMANCE: Lazy load images                 */
-        /* ============================================= */
-        if ('loading' in HTMLImageElement.prototype) {
-            // Native lazy loading supported
-        } else {
-            // Fallback for older browsers
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            lazyImages.forEach(img => imageObserver.observe(img));
-        }
-        
-        console.log('%c🌿 Asuo Dia Komfour', 'color: #2d5016; font-size: 24px; font-weight: bold;');
-        console.log('%cNana Kyeri Beyifour Spiritual Herbal Center', 'color: #c9a227; font-size: 14px;');
-        console.log('%cManso Abore, Ghana', 'color: #6b4423; font-size: 12px;');
     </script>
 </body>
 </html>
