@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -119,6 +119,13 @@
         [data-theme="dark"] .nav-link:hover, [data-theme="dark"] .nav-link.active { color: var(--gold-light); background: rgba(212, 175, 55, 0.1); }
         
         .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+        .icon-btn {
+            width: 38px; height: 38px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-secondary); transition: all 0.3s ease;
+        }
+        .icon-btn:hover { background: rgba(45, 80, 22, 0.1); color: var(--forest-green); transform: scale(1.1); }
+        [data-theme="dark"] .icon-btn:hover { background: rgba(212, 175, 55, 0.15); color: var(--gold-light); }
         
         .lang-switch {
             font-size: 0.75rem; font-weight: 700; padding: 0.4rem 0.8rem;
@@ -148,7 +155,7 @@
         .hero-bg-img {
             position: absolute; inset: 0;
             background: url('https://i.ibb.co/QFjGF9f3/D1-AB43-CB-F582-4-C5-D-9-B1-C-7798-F3-BEDF7-C.jpg') center center no-repeat;
-            background-size: cover;
+            background-size: contain;
             opacity: 0.35; z-index: 0;
         }
         .hero::before {
@@ -281,7 +288,7 @@
             position: absolute;
             inset: 0;
             background: url('https://i.ibb.co/fzhWQjMc/IMG-9240.jpg') center center no-repeat;
-            background-size: cover;
+            background-size: contain;
             opacity: 0.18;
             z-index: 0;
         }
@@ -320,7 +327,7 @@
             position: absolute;
             inset: 0;
             background: url('https://i.ibb.co/G3dd0bq4/IMG-9248.jpg') center center no-repeat;
-            background-size: cover;
+            background-size: contain;
             opacity: 0.15;
             z-index: 0;
         }
@@ -347,7 +354,7 @@
         .herbal {
             background: linear-gradient(135deg, rgba(26, 61, 10, 0.5), rgba(107, 68, 35, 0.4)),
                         url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1920&q=80') center center no-repeat;
-            background-size: cover;
+            background-size: contain;
             color: var(--cream);
         }
         .herbal .section-header h2, .herbal .section-header p { color: var(--cream); }
@@ -370,7 +377,7 @@
         .gallery { background: var(--bg-secondary); }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; position: relative; z-index: 2; }
         .gallery-item-3d { position: relative; border-radius: 20px; overflow: hidden; cursor: pointer; box-shadow: 0 20px 40px rgba(0,0,0,0.15); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: floatUpDown 8s ease-in-out infinite; border: 2px solid rgba(212, 175, 55, 0.3); background: var(--forest-green-dark); }
-        .gallery-item-3d img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-item-3d img { width: 100%; height: 280px; object-fit: contain; transition: transform 0.6s ease; }
         .gallery-item-3d:hover { transform: translateY(-10px) scale(1.03) perspective(1000px) rotateX(5deg) !important; box-shadow: 0 30px 60px rgba(45, 80, 22, 0.25); border-color: var(--gold); z-index: 10; }
         .gallery-item-3d:hover img { transform: scale(1.1); }
         .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(to top, rgba(26, 61, 10, 0.9), transparent); color: var(--cream); transform: translateY(100%); transition: transform 0.4s ease; }
@@ -421,7 +428,7 @@
         .contact-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark)); color: var(--gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 8px 16px rgba(45, 80, 22, 0.2); }
         .contact-card h4 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
         .contact-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
-        .map-placeholder { height: 220px; background: linear-gradient(135deg, rgba(45, 80, 22, 0.4), rgba(107, 68, 35, 0.3)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80') center center no-repeat; background-size: cover; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--cream); text-align: center; padding: 2rem; position: relative; overflow: hidden; box-shadow: var(--shadow-3d); }
+        .map-placeholder { height: 220px; background: linear-gradient(135deg, rgba(45, 80, 22, 0.4), rgba(107, 68, 35, 0.3)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80') center center no-repeat; background-size: contain; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--cream); text-align: center; padding: 2rem; position: relative; overflow: hidden; box-shadow: var(--shadow-3d); }
         .map-pin { width: 50px; height: 50px; background: var(--gold); color: var(--forest-green-dark); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; animation: bounce 2s ease-in-out infinite; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .map-pin svg { transform: rotate(45deg); }
         @keyframes bounce { 0%, 100% { transform: rotate(-45deg) translateY(0); } 50% { transform: rotate(-45deg) translateY(-10px); } }
@@ -449,7 +456,6 @@
         .footer-bottom { padding: 2rem 0; text-align: center; color: rgba(250, 246, 235, 0.6); font-size: 0.8rem; position: relative; z-index: 2; }
         .footer-bottom a { color: var(--gold-light); }
 
-        /* Floating buttons positioned ABOVE the footer */
         .floating-whatsapp { 
             position: fixed; bottom: 2rem; right: 2rem; 
             width: 56px; height: 56px; background: #25D366; color: white; 
@@ -481,7 +487,6 @@
         .back-to-top.visible { opacity: 1; visibility: visible; }
         .back-to-top:hover { background: var(--gold); color: var(--forest-green-dark); transform: translateY(-5px) translateZ(10px); }
         
-        /* Hide floating buttons when footer is in view */
         .floating-buttons-hidden {
             opacity: 0 !important;
             pointer-events: none !important;
@@ -580,6 +585,11 @@
                     <option value="ee">Ewe</option>
                     <option value="ha">Hausa</option>
                 </select>
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                </button>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -938,6 +948,26 @@
         langSwitch.value = savedLang;
         if (savedLang !== 'en') applyLanguage(savedLang);
 
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        function updateThemeIcon(theme) {
+            themeIcon.innerHTML = theme === 'dark' 
+                ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>' 
+                : '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        updateThemeIcon('dark');
+
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('backToTop');
         const floatingWhatsapp = document.getElementById('floatingWhatsapp');
@@ -948,7 +978,6 @@
             navbar.classList.toggle('scrolled', window.scrollY > 50);
             backToTop.classList.toggle('visible', window.scrollY > 500);
             
-            // Hide floating buttons when footer is in view so trademark is clearly visible
             if (footer) {
                 const footerRect = footer.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
@@ -1057,7 +1086,6 @@
             setTimeout(() => { submitBtn.innerHTML = originalHTML; submitBtn.style.background = ''; e.target.reset(); }, 3000);
         });
 
-        // Share Button Functionality
         floatingShareBtn.addEventListener('click', async () => {
             const shareData = {
                 title: 'Asuo Dia Komfour - Spiritual Herbal Center',
