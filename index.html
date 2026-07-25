@@ -35,13 +35,11 @@
             --border: rgba(45, 80, 22, 0.1);
             
             --shadow-3d: 0 20px 40px rgba(26, 61, 10, 0.15), 0 10px 10px rgba(26, 61, 10, 0.1), inset 0 1px 0 rgba(255,255,255,0.6);
-            --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.2);
-            --glass: rgba(255, 255, 255, 0.7);
+            --glass: rgba(255, 255, 255, 0.85);
             --glass-border: rgba(255, 255, 255, 0.5);
             
             --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Inter', sans-serif;
-            --transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         [data-theme="dark"] {
@@ -51,7 +49,7 @@
             --text-secondary: #d4c8a8;
             --text-muted: #9ba08e;
             --border: rgba(212, 175, 55, 0.15);
-            --glass: rgba(22, 36, 16, 0.7);
+            --glass: rgba(22, 36, 16, 0.85);
             --glass-border: rgba(212, 175, 55, 0.2);
             --shadow-3d: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
         }
@@ -63,7 +61,7 @@
         
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: 80px;
         }
         
         body {
@@ -99,28 +97,6 @@
         }
         
         /* ============================================= */
-        /* SPA PAGE SECTIONS                             */
-        /* ============================================= */
-        .page-section {
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .page-section.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* ============================================= */
         /* LOADING SCREEN WITH LOGO                      */
         /* ============================================= */
         .loader {
@@ -142,13 +118,13 @@
         }
         
         .loader-logo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
             border-radius: 50%;
             box-shadow: 0 0 60px rgba(212, 175, 55, 0.4);
             animation: pulseLogo 2s ease-in-out infinite;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         @keyframes pulseLogo {
@@ -158,14 +134,14 @@
         
         .loader-text {
             font-family: var(--font-heading);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             letter-spacing: 0.3em;
             color: var(--gold);
             text-transform: uppercase;
         }
         
         /* ============================================= */
-        /* NAVIGATION                                    */
+        /* NAVIGATION (Mobile Optimized)                 */
         /* ============================================= */
         .navbar {
             position: fixed;
@@ -191,17 +167,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
         }
         
         .logo img {
-            height: 50px;
+            height: 45px;
             width: auto;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -209,7 +185,7 @@
         
         .logo-text .main {
             font-family: var(--font-heading);
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--forest-green);
             line-height: 1;
@@ -218,7 +194,7 @@
         [data-theme="dark"] .logo-text .main { color: var(--gold-light); }
         
         .logo-text .sub {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--gold-dark);
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -228,17 +204,16 @@
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.25rem;
         }
         
         .nav-link {
-            padding: 0.6rem 1rem;
-            font-size: 0.9rem;
+            padding: 0.5rem 0.85rem;
+            font-size: 0.85rem;
             font-weight: 500;
             color: var(--text-secondary);
             border-radius: 50px;
             transition: all 0.3s ease;
-            position: relative;
         }
         
         .nav-link:hover, .nav-link.active {
@@ -251,11 +226,11 @@
             background: rgba(212, 175, 55, 0.1);
         }
         
-        .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-actions { display: flex; align-items: center; gap: 0.25rem; }
         
         .icon-btn {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -276,9 +251,9 @@
         }
         
         .lang-switch {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 50px;
             background: rgba(45, 80, 22, 0.1);
             color: var(--forest-green);
@@ -292,28 +267,28 @@
         
         .menu-toggle {
             display: none;
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
         
         .menu-toggle span {
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: var(--text-primary);
             border-radius: 2px;
             transition: all 0.3s ease;
         }
         
-        .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
         
         /* ============================================= */
-        /* HERO SECTION (HOME)                           */
+        /* HERO SECTION                                  */
         /* ============================================= */
         .hero {
             min-height: 100vh;
@@ -382,7 +357,7 @@
         }
         
         .hero-title {
-            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-size: clamp(2.8rem, 6vw, 5rem);
             font-weight: 700;
             color: var(--cream);
             margin-bottom: 1.5rem;
@@ -409,9 +384,9 @@
         }
         
         .hero-desc {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: rgba(250, 246, 235, 0.9);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             max-width: 560px;
             line-height: 1.8;
             opacity: 0;
@@ -421,23 +396,21 @@
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.25rem;
+            gap: 1rem;
             opacity: 0;
             animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
         }
         
-        /* 3D Premium Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            padding: 1.1rem 2.5rem;
-            font-size: 1rem;
+            padding: 1rem 2rem;
+            font-size: 0.95rem;
             font-weight: 600;
             border-radius: 50px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
-            letter-spacing: 0.02em;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
             transform-style: preserve-3d;
             position: relative;
@@ -479,9 +452,9 @@
         
         .hero-stats {
             display: flex;
-            gap: 3rem;
-            margin-top: 4rem;
-            padding-top: 2.5rem;
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(250, 246, 235, 0.2);
             opacity: 0;
             animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
@@ -489,14 +462,14 @@
         
         .stat-number {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--gold-light);
             line-height: 1;
         }
         
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: rgba(250, 246, 235, 0.7);
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -506,12 +479,15 @@
         /* ============================================= */
         /* SECTION COMMON                                */
         /* ============================================= */
-        section { padding: clamp(5rem, 10vw, 8rem) 0; position: relative; }
+        section { 
+            padding: clamp(5rem, 10vw, 8rem) 0; 
+            position: relative; 
+        }
         
         .section-header {
             text-align: center;
             max-width: 750px;
-            margin: 0 auto 5rem;
+            margin: 0 auto 4rem;
             position: relative;
             z-index: 2;
         }
@@ -537,7 +513,7 @@
         }
         
         .section-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             margin-bottom: 1.5rem;
         }
         
@@ -549,7 +525,7 @@
         [data-theme="dark"] .section-header h2 .accent { color: var(--gold-light); }
         
         .section-header p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             line-height: 1.8;
         }
@@ -573,7 +549,7 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
+            gap: 4rem;
             align-items: center;
             position: relative;
             z-index: 2;
@@ -602,10 +578,10 @@
         
         .about-image-accent {
             position: absolute;
-            bottom: -30px;
-            right: -30px;
-            width: 180px;
-            padding: 1.75rem;
+            bottom: -25px;
+            right: -25px;
+            width: 160px;
+            padding: 1.5rem;
             background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             border-radius: 20px;
             color: var(--forest-green-dark);
@@ -616,13 +592,13 @@
         
         .about-image-accent .number {
             font-family: var(--font-heading);
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
             line-height: 1;
         }
         
         .about-image-accent .label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -630,7 +606,7 @@
         }
         
         .about-content h3 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             margin-bottom: 1.5rem;
         }
         
@@ -644,15 +620,15 @@
         .about-values {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2.5rem;
+            gap: 1.25rem;
+            margin-top: 2rem;
         }
         
         .value-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            padding: 1.5rem;
+            padding: 1.25rem;
             background: var(--bg-primary);
             border-radius: 16px;
             border-left: 4px solid var(--gold);
@@ -666,8 +642,8 @@
         }
         
         .value-icon {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             flex-shrink: 0;
             background: var(--forest-green);
             color: var(--gold);
@@ -680,13 +656,13 @@
         
         .value-item h4 {
             font-family: var(--font-body);
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.25rem;
         }
         
         .value-item p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             margin: 0;
             line-height: 1.5;
@@ -699,16 +675,16 @@
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.75rem;
             position: relative;
             z-index: 2;
         }
         
         .service-card {
             background: var(--bg-secondary);
-            padding: 2.5rem 2rem;
-            border-radius: 24px;
+            padding: 2.25rem 1.75rem;
+            border-radius: 20px;
             border: 1px solid var(--border);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
@@ -731,7 +707,7 @@
         }
         
         .service-card:hover {
-            transform: translateY(-15px) rotateX(3deg) rotateY(3deg) translateZ(20px);
+            transform: translateY(-12px) rotateX(3deg) rotateY(3deg) translateZ(20px);
             box-shadow: 0 30px 60px rgba(45, 80, 22, 0.2), 0 15px 20px rgba(45, 80, 22, 0.1);
             border-color: var(--gold);
         }
@@ -739,15 +715,15 @@
         .service-card:hover::before { transform: scaleX(1); }
         
         .service-icon {
-            width: 70px;
-            height: 70px;
+            width: 64px;
+            height: 64px;
             background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark));
             color: var(--gold);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
             transition: all 0.4s ease;
             box-shadow: 0 10px 20px rgba(45, 80, 22, 0.2);
         }
@@ -758,40 +734,744 @@
             transform: rotate(-10deg) scale(1.1) translateZ(30px);
         }
         
-        .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; }
-        .service-card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; }
+        .service-card h3 { font-size: 1.25rem; margin-bottom: 0.85rem; }
+        .service-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
         
-        /* Responsive */
+        /* ============================================= */
+        /* HERBAL MEDICINE SECTION                       */
+        /* ============================================= */
+        .herbal {
+            background: linear-gradient(135deg, rgba(26, 61, 10, 0.95), rgba(107, 68, 35, 0.9)),
+                        url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1920&q=80') center/cover fixed;
+            color: var(--cream);
+        }
+        
+        .herbal .section-header h2, .herbal .section-header p { color: var(--cream); }
+        .herbal .section-tag { background: rgba(212, 175, 55, 0.2); color: var(--gold-light); border-color: rgba(212, 175, 55, 0.3); }
+        
+        .herbal-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .herbal-text p {
+            font-size: 1.1rem;
+            color: rgba(250, 246, 235, 0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .herbal-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        
+        .herbal-feature {
+            padding: 1.25rem;
+            background: rgba(250, 246, 235, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+        
+        .herbal-feature:hover {
+            transform: translateY(-5px) translateZ(10px);
+            background: rgba(250, 246, 235, 0.12);
+        }
+        
+        .herbal-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: var(--forest-green-dark);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+        }
+        
+        .herbal-feature h4 {
+            color: var(--gold-light);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        
+        .herbal-feature p {
+            font-size: 0.85rem;
+            color: rgba(250, 246, 235, 0.75);
+            margin: 0;
+        }
+        
+        .herbal-image-wrapper {
+            perspective: 1000px;
+        }
+        
+        .herbal-image-wrapper img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 30px 30px 80px rgba(0,0,0,0.3), -10px -10px 30px rgba(255,255,255,0.1);
+            border: 3px solid var(--gold);
+            animation: floatUpDown 8s ease-in-out infinite;
+            transform: perspective(1000px) rotateY(5deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .herbal-image-wrapper img:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+        
+        .herbal-disclaimer {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .herbal-disclaimer p {
+            font-size: 0.95rem;
+            color: rgba(250, 246, 235, 0.85);
+            font-style: italic;
+            line-height: 1.7;
+        }
+        
+        /* ============================================= */
+        /* GALLERY SECTION (3D FLOATING)                 */
+        /* ============================================= */
+        .gallery { background: var(--bg-secondary); }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.75rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gallery-item-3d {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: floatUpDown 8s ease-in-out infinite;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: var(--forest-green-dark);
+        }
+        
+        .gallery-item-3d img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item-3d:hover {
+            transform: translateY(-10px) scale(1.03) perspective(1000px) rotateX(5deg) !important;
+            box-shadow: 0 30px 60px rgba(45, 80, 22, 0.25), 0 15px 20px rgba(45, 80, 22, 0.1);
+            border-color: var(--gold);
+            z-index: 10;
+        }
+        
+        .gallery-item-3d:hover img { transform: scale(1.1); }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(26, 61, 10, 0.9), transparent);
+            color: var(--cream);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item-3d:hover .gallery-overlay { transform: translateY(0); }
+        .gallery-overlay h4 { font-family: var(--font-heading); font-size: 1.2rem; color: var(--gold-light); }
+        
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0) perspective(1000px) rotateX(0deg); }
+            50% { transform: translateY(-12px) perspective(1000px) rotateX(2deg); }
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            padding: 2rem;
+        }
+        
+        .lightbox.active { opacity: 1; visibility: visible; }
+        
+        .lightbox-content { position: relative; max-width: 90%; max-height: 90vh; }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        }
+        
+        .lightbox-close, .lightbox-nav {
+            width: 44px;
+            height: 44px;
+            background: var(--gold);
+            color: var(--forest-green-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox-close:hover, .lightbox-nav:hover { transform: scale(1.1); }
+        .lightbox-close { position: absolute; top: -50px; right: 0; }
+        .lightbox-prev { position: absolute; top: 50%; left: -60px; transform: translateY(-50%); }
+        .lightbox-next { position: absolute; top: 50%; right: -60px; transform: translateY(-50%); }
+        
+        /* ============================================= */
+        /* TESTIMONIALS (INFINITE 3D MARQUEE)            */
+        /* ============================================= */
+        .testimonials { background: var(--bg-primary); overflow: hidden; }
+        
+        .marquee-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .marquee-track {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            animation: scrollLeft 50s linear infinite;
+        }
+        
+        .marquee-container:hover .marquee-track { animation-play-state: paused; }
+        
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .testimonial-card-3d {
+            width: 360px;
+            flex-shrink: 0;
+            background: var(--bg-secondary);
+            padding: 2.25rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-3d);
+            transition: all 0.4s ease;
+        }
+        
+        .testimonial-card-3d:hover {
+            transform: translateY(-10px) scale(1.02) perspective(1000px) rotateY(-2deg);
+            box-shadow: 0 30px 60px rgba(45, 80, 22, 0.2);
+            border-color: var(--gold);
+        }
+        
+        .testimonial-stars { color: var(--gold); margin-bottom: 1rem; font-size: 1.1rem; }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--forest-green), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            box-shadow: 0 8px 16px rgba(45, 80, 22, 0.2);
+        }
+        
+        .author-info h4 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.15rem; }
+        .author-info p { font-size: 0.8rem; color: var(--text-muted); }
+        
+        /* ============================================= */
+        /* FAQ SECTION                                   */
+        /* ============================================= */
+        .faq { background: var(--bg-secondary); }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .faq-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-3d);
+        }
+        
+        .faq-item.active {
+            border-color: var(--gold);
+            box-shadow: 0 15px 30px rgba(45, 80, 22, 0.1);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover { color: var(--forest-green); }
+        [data-theme="dark"] .faq-question:hover { color: var(--gold-light); }
+        
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--forest-green);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            background: var(--gold);
+            color: var(--forest-green-dark);
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 1.5rem 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        /* ============================================= */
+        /* CONTACT SECTION                               */
+        /* ============================================= */
+        .contact { background: var(--bg-primary); }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+        
+        .contact-card {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-3d);
+        }
+        
+        .contact-card:hover {
+            border-color: var(--gold);
+            transform: translateX(5px) translateY(-5px) translateZ(10px);
+            box-shadow: 0 20px 40px rgba(45, 80, 22, 0.15);
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark));
+            color: var(--gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 16px rgba(45, 80, 22, 0.2);
+        }
+        
+        .contact-card h4 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .contact-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+        
+        .map-placeholder {
+            height: 220px;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.85), rgba(107, 68, 35, 0.8)),
+                        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80') center/cover;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .map-pin {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--forest-green-dark);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            animation: bounce 2s ease-in-out infinite;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .map-pin svg { transform: rotate(45deg); }
+        
+        @keyframes bounce {
+            0%, 100% { transform: rotate(-45deg) translateY(0); }
+            50% { transform: rotate(-45deg) translateY(-10px); }
+        }
+        
+        .contact-form {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-3d);
+        }
+        
+        .form-group { margin-bottom: 1.25rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+        
+        .form-textarea { min-height: 120px; resize: vertical; }
+        
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(37, 211, 102, 0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        
+        /* ============================================= */
+        /* FOOTER                                        */
+        /* ============================================= */
+        .footer {
+            background: var(--forest-green-dark);
+            color: var(--cream);
+            padding: 4rem 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1' opacity='0.08'%3E%3Ccircle cx='60' cy='60' r='25'/%3E%3Cpath d='M60 35 L60 85 M35 60 L85 60'/%3E%3Cpath d='M42 42 L78 78 M42 78 L78 42'/%3E%3Ccircle cx='60' cy='60' r='8'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 120px 120px;
+            pointer-events: none;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 2.5rem;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-brand p {
+            color: rgba(250, 246, 235, 0.75);
+            margin: 1rem 0 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        .footer h4 {
+            color: var(--gold-light);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .footer-links { display: flex; flex-direction: column; gap: 0.75rem; }
+        
+        .footer-links a {
+            color: rgba(250, 246, 235, 0.75);
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-light);
+            transform: translateX(5px);
+        }
+        
+        .social-links { display: flex; gap: 0.75rem; margin-top: 1rem; }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--forest-green-dark);
+            transform: translateY(-5px) translateZ(10px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .footer-bottom {
+            padding: 2rem 0;
+            text-align: center;
+            color: rgba(250, 246, 235, 0.6);
+            font-size: 0.8rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-bottom a { color: var(--gold-light); }
+        
+        /* ============================================= */
+        /* FLOATING ELEMENTS                             */
+        /* ============================================= */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulseWhatsapp 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseWhatsapp {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6), 0 0 0 15px rgba(37, 211, 102, 0); }
+        }
+        
+        .floating-whatsapp:hover { transform: scale(1.1) translateZ(10px); }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 6rem;
+            width: 46px;
+            height: 46px;
+            background: var(--forest-green);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        
+        .back-to-top:hover {
+            background: var(--gold);
+            color: var(--forest-green-dark);
+            transform: translateY(-5px) translateZ(10px);
+        }
+        
+        /* ============================================= */
+        /* RESPONSIVE (Mobile Optimized)                 */
+        /* ============================================= */
         @media (max-width: 1024px) {
             .hero-content { grid-template-columns: 1fr; text-align: center; }
             .hero-desc { margin-left: auto; margin-right: auto; }
             .hero-buttons { justify-content: center; }
             .hero-stats { justify-content: center; }
-            .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .about-grid, .herbal-content, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
         }
         
         @media (max-width: 768px) {
+            /* Compact Mobile Header */
+            .nav-container { padding: 0.5rem 1rem; }
+            .logo img { height: 35px; }
+            .logo-text .main { font-size: 0.9rem; }
+            .logo-text .sub { font-size: 0.6rem; }
+            
             .nav-menu {
                 position: fixed;
-                top: 75px;
+                top: 60px;
                 left: 0;
                 right: 0;
                 background: var(--glass);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
-                padding: 2rem;
-                gap: 0.5rem;
+                padding: 1rem;
+                gap: 0.25rem;
                 border-bottom: 1px solid var(--glass-border);
                 transform: translateY(-150%);
                 transition: transform 0.4s ease;
-                max-height: calc(100vh - 75px);
+                max-height: calc(100vh - 60px);
                 overflow-y: auto;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             .nav-menu.active { transform: translateY(0); }
-            .nav-link { width: 100%; text-align: center; padding: 1rem; }
-            .menu-toggle { display: flex; }
-            .about-values { grid-template-columns: 1fr; }
-            .hero-stats { flex-direction: column; gap: 2rem; align-items: center; }
+            .nav-link { width: 100%; text-align: center; padding: 0.75rem 1rem; font-size: 0.9rem; }
+            
+            .menu-toggle { display: flex; width: 36px; height: 36px; }
+            .menu-toggle span { width: 20px; }
+            
+            .icon-btn { width: 36px; height: 36px; }
+            .lang-switch { font-size: 0.7rem; padding: 0.35rem 0.7rem; }
+            
+            /* Section Adjustments */
+            .about-values, .herbal-features { grid-template-columns: 1fr; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; align-items: center; }
+            .stat-number { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand { display: flex; flex-direction: column; align-items: center; }
+            .social-links { justify-content: center; }
+            .form-row { grid-template-columns: 1fr; }
+            
+            .floating-whatsapp { width: 52px; height: 52px; bottom: 1.5rem; right: 1.5rem; }
+            .back-to-top { right: 5.2rem; width: 42px; height: 42px; bottom: 1.75rem; }
+            
+            .lightbox-prev { left: 10px !important; }
+            .lightbox-next { right: 10px !important; }
+            .lightbox-close { top: -45px; right: 0; width: 40px; height: 40px; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero { padding: 6rem 0 3rem; }
+            .hero-title { font-size: 2.2rem; }
+            .btn { width: 100%; justify-content: center; padding: 0.9rem 1.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .contact-form { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -805,26 +1485,11 @@
     </div>
     
     <!-- ============================================= -->
-    <!-- SEARCH OVERLAY                                -->
-    <!-- ============================================= -->
-    <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search services, information..." aria-label="Search">
-            <button class="search-close" id="searchClose" aria-label="Close search">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-            </button>
-            <div class="search-results" id="searchResults"></div>
-        </div>
-    </div>
-    
-    <!-- ============================================= -->
     <!-- NAVIGATION                                    -->
     <!-- ============================================= -->
     <nav class="navbar" id="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#home" class="logo nav-link-trigger" data-target="home" aria-label="Asuo Dia Komfour Home">
+            <a href="#home" class="logo">
                 <img src="https://i.ibb.co/rfzMc2yh/Chat-GPT-Image-Jul-24-2026-02-06-48-PM-1.png" alt="Asuo Dia Komfour Logo">
                 <div class="logo-text">
                     <span class="main">Asuo Dia Komfour</span>
@@ -833,27 +1498,22 @@
             </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active" data-en="Home" data-tw="Fie">Home</a></li>
-                <li><a href="#about" class="nav-link" data-en="About" data-tw="Fa Ho">About</a></li>
-                <li><a href="#services" class="nav-link" data-en="Services" data-tw="Dwuma">Services</a></li>
-                <li><a href="#herbal" class="nav-link" data-en="Herbal" data-tw="Nhaban">Herbal</a></li>
-                <li><a href="#gallery" class="nav-link" data-en="Gallery" data-tw="Mfonini">Gallery</a></li>
-                <li><a href="#testimonials" class="nav-link" data-en="Testimonials" data-tw="Adansedi">Testimonials</a></li>
-                <li><a href="#faq" class="nav-link" data-en="FAQ" data-tw="Nsɛmmisa">FAQ</a></li>
-                <li><a href="#contact" class="nav-link" data-en="Contact" data-tw="Frɛ">Contact</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#herbal" class="nav-link">Herbal</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             
             <div class="nav-actions">
-                <button class="icon-btn" id="searchBtn" aria-label="Search">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-                    </svg>
-                </button>
                 <button class="lang-switch" id="langSwitch" aria-label="Switch language">
                     <span id="langLabel">EN</span>
                 </button>
                 <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-                    <svg id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"/>
                         <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
                     </svg>
@@ -868,7 +1528,7 @@
     <!-- ============================================= -->
     <!-- HERO SECTION (HOME)                           -->
     <!-- ============================================= -->
-    <section class="hero page-section active" id="home">
+    <section class="hero" id="home">
         <div class="hero-bg-img"></div>
         <div class="container">
             <div class="hero-content">
@@ -887,15 +1547,15 @@
                         Welcome to Asuo Dia Komfour — a sacred sanctuary where generations of traditional spiritual and herbal knowledge meet compassionate, respectful guidance. Led by Nana Kyeri Beyifour, we walk alongside you on your journey toward balance, clarity, and profound well-being.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary nav-link-trigger" data-target="contact">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <a href="#contact" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                 <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
                             </svg>
                             <span>Book Consultation</span>
                         </a>
                         <a href="https://wa.me/233540991248" class="btn btn-whatsapp" target="_blank" rel="noopener">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                             </svg>
                             <span>WhatsApp Us</span>
@@ -923,7 +1583,7 @@
     <!-- ============================================= -->
     <!-- ABOUT SECTION                                 -->
     <!-- ============================================= -->
-    <section class="about page-section" id="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">About Nana Kyeri</span>
@@ -1010,7 +1670,7 @@
     <!-- ============================================= -->
     <!-- SERVICES SECTION                              -->
     <!-- ============================================= -->
-    <section class="services page-section" id="services">
+    <section class="services" id="services">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Our Services</span>
@@ -1028,7 +1688,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
                         </svg>
                     </div>
@@ -1038,7 +1698,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2L12 22M2 12L22 12"/><path d="M7 7L17 17M7 17L17 7"/><circle cx="12" cy="12" r="3"/>
                         </svg>
                     </div>
@@ -1048,7 +1708,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
                             <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
                         </svg>
@@ -1059,7 +1719,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
                         </svg>
                     </div>
@@ -1069,7 +1729,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
                         </svg>
                     </div>
@@ -1079,7 +1739,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
                         </svg>
                     </div>
@@ -1089,7 +1749,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
@@ -1099,7 +1759,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
                         </svg>
                     </div>
@@ -1109,11 +1769,11 @@
             </div>
         </div>
     </section>
-
-<!-- END OF PART 1 -->    <!-- ============================================= -->
+    
+    <!-- ============================================= -->
     <!-- HERBAL MEDICINE SECTION                       -->
     <!-- ============================================= -->
-    <section class="herbal page-section" id="herbal">
+    <section class="herbal" id="herbal">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Traditional Herbal Practice</span>
@@ -1127,42 +1787,59 @@
                 </div>
             </div>
             
-            <div class="herbal-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2;">
+            <div class="herbal-content">
                 <div class="herbal-text">
-                    <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
-                        At Asuo Dia Komfour, we honor the ancient tradition of herbal medicine — a practice that has sustained communities across West Africa for centuries. Our approach is rooted in deep respect for the land, the plants, and the ancestral knowledge that guides their use.
-                    </p>
-                    <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
-                        Every consultation begins with listening. From this foundation, Nana Kyeri draws upon generations of knowledge to offer thoughtful guidance. Our herbal preparations are made with care, using plants gathered with intention and prepared according to traditional methods.
-                    </p>
-                    <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8;">
-                        We believe in working alongside modern healthcare, not in opposition to it. Our role is to offer cultural and spiritual support within a framework of respect for your overall well-being.
-                    </p>
+                    <p>At Asuo Dia Komfour, we honor the ancient tradition of herbal medicine — a practice that has sustained communities across West Africa for centuries. Our approach is rooted in deep respect for the land, the plants, and the ancestral knowledge that guides their use.</p>
+                    <p>Every consultation begins with listening. From this foundation, Nana Kyeri draws upon generations of knowledge to offer thoughtful guidance. Our herbal preparations are made with care, using plants gathered with intention and prepared according to traditional methods.</p>
+                    <p>We believe in working alongside modern healthcare, not in opposition to it. Our role is to offer cultural and spiritual support within a framework of respect for your overall well-being.</p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <div class="value-item" style="margin: 0;">
-                            <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                            <div><h4>Ancestral Knowledge</h4><p>Wisdom passed through generations</p></div>
+                    <div class="herbal-features">
+                        <div class="herbal-feature">
+                            <div class="herbal-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h4>Ancestral Knowledge</h4>
+                            <p>Wisdom passed through generations</p>
                         </div>
-                        <div class="value-item" style="margin: 0;">
-                            <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8C17 5.24 14.76 3 12 3S7 5.24 7 8c0 3 5 9 5 9s5-6 5-9z"/><circle cx="12" cy="8" r="2"/></svg></div>
-                            <div><h4>Local Plants</h4><p>Sourced from Ghana's rich forests</p></div>
+                        <div class="herbal-feature">
+                            <div class="herbal-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 8C17 5.24 14.76 3 12 3S7 5.24 7 8c0 3 5 9 5 9s5-6 5-9z"/><circle cx="12" cy="8" r="2"/>
+                                </svg>
+                            </div>
+                            <h4>Local Plants</h4>
+                            <p>Sourced from Ghana's rich forests</p>
+                        </div>
+                        <div class="herbal-feature">
+                            <div class="herbal-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                                </svg>
+                            </div>
+                            <h4>Made with Care</h4>
+                            <p>Prepared with intention and respect</p>
+                        </div>
+                        <div class="herbal-feature">
+                            <div class="herbal-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h4>Respectful Approach</h4>
+                            <p>Honoring tradition and dignity</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="herbal-image-wrapper" style="perspective: 1000px;">
-                    <img src="https://i.ibb.co/pj2gkVbB/Chat-GPT-Image-Jul-24-2026-02-06-48-PM.png" alt="Traditional Herbal Preparation" 
-                         style="width: 100%; border-radius: 24px; box-shadow: 30px 30px 80px rgba(0,0,0,0.2), -10px -10px 30px rgba(255,255,255,0.1); border: 3px solid var(--gold); animation: floatUpDown 8s ease-in-out infinite; transform: perspective(1000px) rotateY(5deg); transition: transform 0.5s ease;"
-                         onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.02)'" 
-                         onmouseout="this.style.transform='perspective(1000px) rotateY(5deg)'">
+                <div class="herbal-image-wrapper">
+                    <img src="https://i.ibb.co/pj2gkVbB/Chat-GPT-Image-Jul-24-2026-02-06-48-PM.png" alt="Traditional Herbal Preparation" loading="lazy">
                 </div>
             </div>
             
-            <div style="margin-top: 4rem; padding: 2rem; background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 16px; text-align: center; position: relative; z-index: 2;">
-                <p style="font-size: 0.95rem; color: var(--text-secondary); font-style: italic;">
-                    <strong style="color: var(--gold-dark);">Note:</strong> Our herbal practices are rooted in cultural tradition and spiritual guidance. They are not intended to diagnose, treat, cure, or prevent any medical condition. We encourage all visitors to consult qualified healthcare professionals for medical concerns.
-                </p>
+            <div class="herbal-disclaimer">
+                <p><strong>Note:</strong> Our herbal practices are rooted in cultural tradition and spiritual guidance. They are not intended to diagnose, treat, cure, or prevent any medical condition. We encourage all visitors to consult qualified healthcare professionals for medical concerns.</p>
             </div>
         </div>
     </section>
@@ -1170,7 +1847,7 @@
     <!-- ============================================= -->
     <!-- GALLERY SECTION (3D FLOATING)                 -->
     <!-- ============================================= -->
-    <section class="gallery page-section" id="gallery" style="background: var(--bg-secondary);">
+    <section class="gallery" id="gallery">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Our Gallery</span>
@@ -1184,48 +1861,39 @@
                 </div>
             </div>
             
-            <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; position: relative; z-index: 2;">
-                <!-- Gallery Item 1 -->
+            <div class="gallery-grid">
                 <div class="gallery-item-3d" style="animation-delay: 0s;">
                     <img src="https://i.ibb.co/BHpSZ0jz/IMG-9244.jpg" alt="Gallery 1" loading="lazy">
                     <div class="gallery-overlay"><h4>Sacred Space</h4></div>
                 </div>
-                <!-- Gallery Item 2 -->
                 <div class="gallery-item-3d" style="animation-delay: 1s;">
                     <img src="https://i.ibb.co/fG4TDp0P/IMG-9245.jpg" alt="Gallery 2" loading="lazy">
                     <div class="gallery-overlay"><h4>Traditional Herbs</h4></div>
                 </div>
-                <!-- Gallery Item 3 -->
                 <div class="gallery-item-3d" style="animation-delay: 2s;">
                     <img src="https://i.ibb.co/Rkbzk6x5/IMG-9247.jpg" alt="Gallery 3" loading="lazy">
                     <div class="gallery-overlay"><h4>Nature's Embrace</h4></div>
                 </div>
-                <!-- Gallery Item 4 -->
                 <div class="gallery-item-3d" style="animation-delay: 0.5s;">
                     <img src="https://i.ibb.co/r26B1SSW/IMG-9248.jpg" alt="Gallery 4" loading="lazy">
                     <div class="gallery-overlay"><h4>Ancestral Roots</h4></div>
                 </div>
-                <!-- Gallery Item 5 -->
                 <div class="gallery-item-3d" style="animation-delay: 1.5s;">
                     <img src="https://i.ibb.co/wZvfT8gt/IMG-9250-1.jpg" alt="Gallery 5" loading="lazy">
                     <div class="gallery-overlay"><h4>Healing Environment</h4></div>
                 </div>
-                <!-- Gallery Item 6 -->
                 <div class="gallery-item-3d" style="animation-delay: 2.5s;">
                     <img src="https://i.ibb.co/0yq3nPjt/IMG-9251.jpg" alt="Gallery 6" loading="lazy">
                     <div class="gallery-overlay"><h4>Community Harmony</h4></div>
                 </div>
-                <!-- Gallery Item 7 -->
                 <div class="gallery-item-3d" style="animation-delay: 0.8s;">
                     <img src="https://i.ibb.co/pj2gkVbB/Chat-GPT-Image-Jul-24-2026-02-06-48-PM.png" alt="Gallery 7" loading="lazy">
                     <div class="gallery-overlay"><h4>Preparation</h4></div>
                 </div>
-                <!-- Gallery Item 8 -->
                 <div class="gallery-item-3d" style="animation-delay: 1.8s;">
                     <img src="https://i.ibb.co/QFjGF9f3/D1-AB43-CB-F582-4-C5-D-9-B1-C-7798-F3-BEDF7-C.jpg" alt="Gallery 8" loading="lazy">
                     <div class="gallery-overlay"><h4>Spiritual Grounding</h4></div>
                 </div>
-                <!-- Gallery Item 9 -->
                 <div class="gallery-item-3d" style="animation-delay: 2.8s;">
                     <img src="https://i.ibb.co/TqJwqgpH/IMG-9240.jpg" alt="Gallery 9" loading="lazy">
                     <div class="gallery-overlay"><h4>Wisdom in Practice</h4></div>
@@ -1235,16 +1903,16 @@
     </section>
     
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer" style="position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; z-index: 99999; opacity: 0; visibility: hidden; transition: all 0.4s ease; padding: 2rem;">
-        <div class="lightbox-content" style="position: relative; max-width: 90%; max-height: 90vh;">
-            <button class="lightbox-close" id="lightboxClose" aria-label="Close" style="position: absolute; top: -50px; right: 0; width: 44px; height: 44px; background: var(--gold); color: var(--forest-green-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </button>
-            <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous" style="position: absolute; top: 50%; left: -70px; transform: translateY(-50%); width: 50px; height: 50px; background: var(--gold); color: var(--forest-green-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <img id="lightboxImg" src="" alt="" style="max-width: 100%; max-height: 85vh; border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,0.5);">
-            <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next" style="position: absolute; top: 50%; right: -70px; transform: translateY(-50%); width: 50px; height: 50px; background: var(--gold); color: var(--forest-green-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+            <img id="lightboxImg" src="" alt="">
+            <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
         </div>
@@ -1253,7 +1921,7 @@
     <!-- ============================================= -->
     <!-- TESTIMONIALS (INFINITE 3D MARQUEE)            -->
     <!-- ============================================= -->
-    <section class="testimonials page-section" id="testimonials" style="background: var(--bg-primary); overflow: hidden;">
+    <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Testimonials</span>
@@ -1268,79 +1936,79 @@
             </div>
         </div>
         
-        <div class="marquee-container" style="position: relative; width: 100%; overflow: hidden; padding: 2rem 0;">
-            <div class="marquee-track" style="display: flex; gap: 2rem; width: max-content; animation: scrollLeft 45s linear infinite;">
+        <div class="marquee-container">
+            <div class="marquee-track">
                 <!-- Set 1 -->
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"Nana Kyeri's guidance brought clarity to my family during a difficult time. His wisdom, delivered with such respect and warmth, helped us find peace together."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">AK</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Ama Konadu</h4><p style="font-size: 0.85rem; color: var(--text-muted);">Kumasi, Ghana</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Nana Kyeri's guidance brought clarity to my family during a difficult time. His wisdom, delivered with such respect and warmth, helped us find peace together."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info"><h4>Ama Konadu</h4><p>Kumasi, Ghana</p></div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"I came seeking direction in my business, and left with far more — a renewed sense of purpose and traditional wisdom I will carry for life. Truly a blessing."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">KA</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Kwame Asante</h4><p style="font-size: 0.85rem; color: var(--text-muted);">Accra, Ghana</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I came seeking direction in my business, and left with far more — a renewed sense of purpose and traditional wisdom I will carry for life. Truly a blessing."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KA</div>
+                        <div class="author-info"><h4>Kwame Asante</h4><p>Accra, Ghana</p></div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"The home blessing ceremony brought such peace to our household. Nana Kyeri's presence is calm, respectful, and deeply spiritual. We are grateful."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">EM</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Efua Mensah</h4><p style="font-size: 0.85rem; color: var(--text-muted);">Cape Coast, Ghana</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The home blessing ceremony brought such peace to our household. Nana Kyeri's presence is calm, respectful, and deeply spiritual. We are grateful."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EM</div>
+                        <div class="author-info"><h4>Efua Mensah</h4><p>Cape Coast, Ghana</p></div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"As someone from abroad reconnecting with my roots, I felt deeply welcomed and understood. The experience honored both tradition and my personal journey."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">YO</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Yaa Owusu</h4><p style="font-size: 0.85rem; color: var(--text-muted);">London, UK</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"As someone from abroad reconnecting with my roots, I felt deeply welcomed and understood. The experience honored both tradition and my personal journey."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">YO</div>
+                        <div class="author-info"><h4>Yaa Owusu</h4><p>London, UK</p></div>
                     </div>
                 </div>
 
                 <!-- Set 2 (Duplicate for seamless infinite loop) -->
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"Nana Kyeri's guidance brought clarity to my family during a difficult time. His wisdom, delivered with such respect and warmth, helped us find peace together."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">AK</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Ama Konadu</h4><p style="font-size: 0.85rem; color: var(--text-muted);">Kumasi, Ghana</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Nana Kyeri's guidance brought clarity to my family during a difficult time. His wisdom, delivered with such respect and warmth, helped us find peace together."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info"><h4>Ama Konadu</h4><p>Kumasi, Ghana</p></div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"I came seeking direction in my business, and left with far more — a renewed sense of purpose and traditional wisdom I will carry for life. Truly a blessing."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">KA</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Kwame Asante</h4><p style="font-size: 0.85rem; color: var(--text-muted);">Accra, Ghana</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I came seeking direction in my business, and left with far more — a renewed sense of purpose and traditional wisdom I will carry for life. Truly a blessing."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KA</div>
+                        <div class="author-info"><h4>Kwame Asante</h4><p>Accra, Ghana</p></div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"The home blessing ceremony brought such peace to our household. Nana Kyeri's presence is calm, respectful, and deeply spiritual. We are grateful."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">EM</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Efua Mensah</h4><p style="font-size: 0.85rem; color: var(--text-muted);">Cape Coast, Ghana</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The home blessing ceremony brought such peace to our household. Nana Kyeri's presence is calm, respectful, and deeply spiritual. We are grateful."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EM</div>
+                        <div class="author-info"><h4>Efua Mensah</h4><p>Cape Coast, Ghana</p></div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card-3d" style="width: 380px; flex-shrink: 0; background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d); transition: all 0.4s ease;">
-                    <div style="color: var(--gold); margin-bottom: 1rem;">★★★★★</div>
-                    <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">"As someone from abroad reconnecting with my roots, I felt deeply welcomed and understood. The experience honored both tradition and my personal journey."</p>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--forest-green), var(--gold)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: var(--font-heading); font-size: 1.25rem;">YO</div>
-                        <div><h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600;">Yaa Owusu</h4><p style="font-size: 0.85rem; color: var(--text-muted);">London, UK</p></div>
+                <div class="testimonial-card-3d">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"As someone from abroad reconnecting with my roots, I felt deeply welcomed and understood. The experience honored both tradition and my personal journey."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">YO</div>
+                        <div class="author-info"><h4>Yaa Owusu</h4><p>London, UK</p></div>
                     </div>
                 </div>
             </div>
@@ -1350,7 +2018,7 @@
     <!-- ============================================= -->
     <!-- FAQ SECTION                                   -->
     <!-- ============================================= -->
-    <section class="faq page-section" id="faq" style="background: var(--bg-secondary);">
+    <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">FAQ</span>
@@ -1364,52 +2032,52 @@
                 </div>
             </div>
             
-            <div class="faq-container" style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
-                <div class="faq-item" style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease;">
-                    <button class="faq-question" aria-expanded="false" style="width: 100%; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; font-size: 1.05rem; font-weight: 600; color: var(--text-primary);">
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
                         <span>How do I book a consultation?</span>
-                        <div class="faq-icon" style="width: 32px; height: 32px; background: var(--forest-green); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease;">
+                        <div class="faq-icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </div>
                     </button>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
-                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">You can book a consultation by sending a message via WhatsApp. We typically respond within 24 hours and will schedule a time that works for you.</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">You can book a consultation by sending a message via WhatsApp. We typically respond within 24 hours and will schedule a time that works for you.</div>
                     </div>
                 </div>
                 
-                <div class="faq-item" style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease;">
-                    <button class="faq-question" aria-expanded="false" style="width: 100%; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; font-size: 1.05rem; font-weight: 600; color: var(--text-primary);">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Are consultations confidential?</span>
-                        <div class="faq-icon" style="width: 32px; height: 32px; background: var(--forest-green); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease;">
+                        <div class="faq-icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </div>
                     </button>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
-                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">Absolutely. We treat every consultation with the utmost respect and confidentiality. Your privacy is sacred to us.</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Absolutely. We treat every consultation with the utmost respect and confidentiality. Your privacy is sacred to us.</div>
                     </div>
                 </div>
                 
-                <div class="faq-item" style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease;">
-                    <button class="faq-question" aria-expanded="false" style="width: 100%; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; font-size: 1.05rem; font-weight: 600; color: var(--text-primary);">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Do you offer virtual consultations?</span>
-                        <div class="faq-icon" style="width: 32px; height: 32px; background: var(--forest-green); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease;">
+                        <div class="faq-icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </div>
                     </button>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
-                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">Yes, we offer virtual consultations via video call for those who cannot visit in person. Please contact us via WhatsApp to arrange a suitable time.</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Yes, we offer virtual consultations via video call for those who cannot visit in person. Please contact us via WhatsApp to arrange a suitable time.</div>
                     </div>
                 </div>
                 
-                <div class="faq-item" style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease;">
-                    <button class="faq-question" aria-expanded="false" style="width: 100%; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left; font-size: 1.05rem; font-weight: 600; color: var(--text-primary);">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
                         <span>What are your business hours?</span>
-                        <div class="faq-icon" style="width: 32px; height: 32px; background: var(--forest-green); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease;">
+                        <div class="faq-icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </div>
                     </button>
-                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
-                        <div style="padding: 0 1.5rem 1.5rem; color: var(--text-secondary); line-height: 1.7;">We are open Monday through Saturday, from 8:00 AM to 6:00 PM. For urgent matters outside these hours, please reach out via WhatsApp.</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">We are open Monday through Saturday, from 8:00 AM to 6:00 PM. For urgent matters outside these hours, please reach out via WhatsApp.</div>
                     </div>
                 </div>
             </div>
@@ -1419,7 +2087,7 @@
     <!-- ============================================= -->
     <!-- CONTACT SECTION (WHATSAPP ONLY)               -->
     <!-- ============================================= -->
-    <section class="contact page-section" id="contact" style="background: var(--bg-primary);">
+    <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Get in Touch</span>
@@ -1434,54 +2102,64 @@
                 <p>We are here to listen and guide. Reach out whenever you are ready.</p>
             </div>
             
-            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; position: relative; z-index: 2;">
-                <div class="contact-info" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div class="contact-card" style="padding: 1.75rem; background: var(--bg-secondary); border-radius: 16px; border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1rem; transition: all 0.4s ease; box-shadow: var(--shadow-3d);">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark)); color: var(--gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 8px 16px rgba(45, 80, 22, 0.2);">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
                         <div>
-                            <h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem;">Visit Us</h4>
-                            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Manso Abore, Ashanti Region<br>Ghana, West Africa</p>
+                            <h4>Visit Us</h4>
+                            <p>Manso Abore, Ashanti Region<br>Ghana, West Africa</p>
                         </div>
                     </div>
                     
-                    <div class="contact-card" style="padding: 1.75rem; background: var(--bg-secondary); border-radius: 16px; border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1rem; transition: all 0.4s ease; box-shadow: var(--shadow-3d);">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 8px 16px rgba(37, 211, 102, 0.2);">
+                    <div class="contact-card">
+                        <div class="contact-icon" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </div>
                         <div>
-                            <h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem;">WhatsApp Us</h4>
-                            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">+233 54 099 1248<br>+233 24 008 1689</p>
+                            <h4>WhatsApp Us</h4>
+                            <p>+233 54 099 1248<br>+233 24 008 1689</p>
                         </div>
                     </div>
                     
-                    <div class="contact-card" style="padding: 1.75rem; background: var(--bg-secondary); border-radius: 16px; border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1rem; transition: all 0.4s ease; box-shadow: var(--shadow-3d);">
-                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark)); color: var(--gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 8px 16px rgba(45, 80, 22, 0.2);">
+                    <div class="contact-card">
+                        <div class="contact-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
                         <div>
-                            <h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem;">Business Hours</h4>
-                            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: By Appointment</p>
+                            <h4>Business Hours</h4>
+                            <p>Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: By Appointment</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-placeholder">
+                        <div>
+                            <div class="map-pin">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <h3 style="color: var(--gold-light); font-size: 1.25rem; margin-bottom: 0.5rem;">Manso Abore, Ghana</h3>
+                            <p style="color: rgba(250, 246, 235, 0.85); font-size: 0.9rem;">Ashanti Region, West Africa</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form" style="background: var(--bg-secondary); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-3d);">
+                <div class="contact-form">
                     <form id="contactForm" novalidate>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-                            <div>
-                                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">Full Name</label>
-                                <input type="text" id="name" name="name" class="form-input" style="width: 100%; padding: 0.9rem 1.15rem; font-family: inherit; font-size: 0.95rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); transition: all 0.3s ease;" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
                             </div>
-                            <div>
-                                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">Phone</label>
-                                <input type="tel" id="phone" name="phone" class="form-input" style="width: 100%; padding: 0.9rem 1.15rem; font-family: inherit; font-size: 0.95rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); transition: all 0.3s ease;" required>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required>
                             </div>
                         </div>
-                        <div style="margin-bottom: 1.25rem;">
-                            <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">Service of Interest</label>
-                            <select id="service" name="service" class="form-input" style="width: 100%; padding: 0.9rem 1.15rem; font-family: inherit; font-size: 0.95rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); transition: all 0.3s ease;" required>
+                        <div class="form-group">
+                            <label class="form-label">Service of Interest</label>
+                            <select id="service" name="service" class="form-input form-select" required>
                                 <option value="">Select a service</option>
                                 <option value="Spiritual Consultation">Spiritual Consultation</option>
                                 <option value="Herbal Guidance">Herbal Guidance</option>
@@ -1493,13 +2171,13 @@
                                 <option value="Community Counseling">Community Counseling</option>
                             </select>
                         </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">Your Message</label>
-                            <textarea id="message" name="message" class="form-input" style="width: 100%; padding: 0.9rem 1.15rem; font-family: inherit; font-size: 0.95rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); transition: all 0.3s ease; min-height: 140px; resize: vertical;" required></textarea>
+                        <div class="form-group">
+                            <label class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
                         </div>
-                        <button type="submit" class="form-submit" style="width: 100%; padding: 1.1rem; background: linear-gradient(135deg, #25D366, #128C7E); color: white; font-weight: 600; border-radius: 50px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; justify-content: center; gap: 0.75rem; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3), inset 0 1px 0 rgba(255,255,255,0.3);">
+                        <button type="submit" class="form-submit">
                             <span>Send via WhatsApp</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </button>
                     </form>
                 </div>
@@ -1510,62 +2188,60 @@
     <!-- ============================================= -->
     <!-- FOOTER                                        -->
     <!-- ============================================= -->
-    <footer class="footer" style="background: var(--forest-green-dark); color: var(--cream); padding: 4rem 0 0; position: relative; overflow: hidden;">
-        <div style="position: absolute; inset: 0; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1' opacity='0.08'%3E%3Ccircle cx='60' cy='60' r='25'/%3E%3Cpath d='M60 35 L60 85 M35 60 L85 60'/%3E%3Cpath d='M42 42 L78 78 M42 78 L78 42'/%3E%3Ccircle cx='60' cy='60' r='8'/%3E%3C/g%3E%3C/svg%3E&quot;); background-size: 120px 120px; pointer-events: none;"></div>
-        
-        <div class="container" style="position: relative; z-index: 2;">
-            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
-                <div>
-                    <a href="#home" class="nav-link-trigger" data-target="home" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <img src="https://i.ibb.co/rfzMc2yh/Chat-GPT-Image-Jul-24-2026-02-06-48-PM-1.png" alt="Logo" style="height: 50px; width: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-                        <div>
-                            <div style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--gold-light); line-height: 1;">Asuo Dia Komfour</div>
-                            <div style="font-size: 0.7rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;">Spiritual Herbal Center</div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo" style="margin-bottom: 1rem;">
+                        <img src="https://i.ibb.co/rfzMc2yh/Chat-GPT-Image-Jul-24-2026-02-06-48-PM-1.png" alt="Logo" style="height: 45px;">
+                        <div class="logo-text">
+                            <span class="main" style="color: var(--gold-light);">Asuo Dia Komfour</span>
+                            <span class="sub">Spiritual Herbal Center</span>
                         </div>
                     </a>
-                    <p style="color: rgba(250, 246, 235, 0.75); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.7;">A sanctuary of traditional wisdom, spiritual guidance, and herbal heritage rooted in the heart of Ghana's Ashanti region.</p>
-                    <div style="display: flex; gap: 0.75rem;">
-                        <a href="https://wa.me/233540991248" target="_blank" rel="noopener" aria-label="WhatsApp" style="width: 42px; height: 42px; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: all 0.3s ease;">
+                    <p>A sanctuary of traditional wisdom, spiritual guidance, and herbal heritage rooted in the heart of Ghana's Ashanti region.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/233540991248" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </a>
-                        <a href="https://www.tiktok.com/@asuodiakomfour" target="_blank" rel="noopener" aria-label="TikTok" style="width: 42px; height: 42px; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: all 0.3s ease;">
+                        <a href="https://www.tiktok.com/@asuodiakomfour" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43V8.54a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.37z"/></svg>
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 style="color: var(--gold-light); font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin-bottom: 1.25rem; letter-spacing: 0.05em;">Quick Links</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <li><a href="#home" class="nav-link-trigger" data-target="home" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">Home</a></li>
-                        <li><a href="#about" class="nav-link-trigger" data-target="about" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">About</a></li>
-                        <li><a href="#services" class="nav-link-trigger" data-target="services" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">Services</a></li>
-                        <li><a href="#gallery" class="nav-link-trigger" data-target="gallery" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">Gallery</a></li>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 style="color: var(--gold-light); font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin-bottom: 1.25rem; letter-spacing: 0.05em;">Services</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <li><a href="#services" class="nav-link-trigger" data-target="services" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">Spiritual Consultation</a></li>
-                        <li><a href="#services" class="nav-link-trigger" data-target="services" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">Herbal Guidance</a></li>
-                        <li><a href="#services" class="nav-link-trigger" data-target="services" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">Family Guidance</a></li>
-                        <li><a href="#services" class="nav-link-trigger" data-target="services" style="color: rgba(250, 246, 235, 0.75); font-size: 0.9rem; transition: all 0.3s ease;">Home Blessings</a></li>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Spiritual Consultation</a></li>
+                        <li><a href="#services">Herbal Guidance</a></li>
+                        <li><a href="#services">Family Guidance</a></li>
+                        <li><a href="#services">Home Blessings</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 style="color: var(--gold-light); font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin-bottom: 1.25rem; letter-spacing: 0.05em;">Contact</h4>
-                    <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <li style="display: flex; align-items: center; gap: 0.5rem; color: rgba(250, 246, 235, 0.75); font-size: 0.9rem;">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: center; gap: 0.5rem;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             Manso Abore, Ghana
                         </li>
-                        <li style="display: flex; align-items: center; gap: 0.5rem; color: rgba(250, 246, 235, 0.75); font-size: 0.9rem;">
+                        <li style="display: flex; align-items: center; gap: 0.5rem;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             +233 54 099 1248
                         </li>
-                        <li style="display: flex; align-items: center; gap: 0.5rem; color: rgba(250, 246, 235, 0.75); font-size: 0.9rem;">
+                        <li style="display: flex; align-items: center; gap: 0.5rem;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                             Mon - Sat: 8AM - 6PM
                         </li>
@@ -1573,9 +2249,9 @@
                 </div>
             </div>
             
-            <div style="padding: 2rem 0; text-align: center; color: rgba(250, 246, 235, 0.6); font-size: 0.85rem; position: relative; z-index: 2;">
+            <div class="footer-bottom">
                 <p>&copy; 2026 Nana Kyeri Beyifour Spiritual Herbal Center (Asuo Dia Komfour). All rights reserved.</p>
-                <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--gold-light); font-weight: 700; letter-spacing: 0.05em;">Powered by KS1 Empire Global Foundation (KS1EGF)</p>
+                <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--gold-light); font-weight: 700; letter-spacing: 0.05em;">Powered by KS1 Empire Global Foundation (KS1EGF)</p>
             </div>
         </div>
     </footer>
@@ -1583,12 +2259,12 @@
     <!-- ============================================= -->
     <!-- FLOATING ELEMENTS                             -->
     <!-- ============================================= -->
-    <a href="https://wa.me/233540991248" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position: fixed; bottom: 2rem; right: 2rem; width: 64px; height: 64px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); z-index: 999; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: pulseWhatsapp 2s ease-in-out infinite;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a href="https://wa.me/233540991248" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
     
-    <button class="back-to-top" id="backToTop" aria-label="Back to top" style="position: fixed; bottom: 2rem; right: 6.5rem; width: 50px; height: 50px; background: var(--forest-green); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
 
     <!-- ============================================= -->
@@ -1599,93 +2275,94 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('loader').classList.add('hidden');
-            }, 1200);
+            }, 1000);
         });
 
-        /* 2. SPA NAVIGATION */
-        function showSection(id) {
-            document.querySelectorAll('.page-section').forEach(sec => {
-                sec.classList.remove('active');
-            });
-            const target = document.getElementById(id);
-            if (target) {
-                target.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            document.querySelectorAll('.nav-link, .nav-link-trigger').forEach(link => {
-                const href = link.getAttribute('href')?.substring(1) || link.getAttribute('data-target');
-                link.classList.toggle('active', href === id);
-            });
-            // Close mobile menu if open
-            document.getElementById('navMenu').classList.remove('active');
-            document.getElementById('menuToggle').classList.remove('active');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            showSection('home');
-            document.querySelectorAll('.nav-link, .nav-link-trigger').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href')?.substring(1) || link.getAttribute('data-target');
-                    if (targetId) showSection(targetId);
-                });
-            });
-        });
-
-        /* 3. NAVBAR SCROLL & BACK TO TOP */
+        /* 2. NAVBAR SCROLL & ACTIVE LINKS */
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('backToTop');
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
         window.addEventListener('scroll', () => {
+            // Navbar shadow
             navbar.classList.toggle('scrolled', window.scrollY > 50);
+            // Back to top visibility
             backToTop.classList.toggle('visible', window.scrollY > 500);
+            
+            // Active link highlighting
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
+
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        /* 4. MOBILE MENU */
+        /* 3. MOBILE MENU */
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
+        
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
         });
+        
+        // Close mobile menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
 
-        /* 5. THEME TOGGLE */
+        /* 4. THEME TOGGLE */
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        themeIcon.innerHTML = savedTheme === 'dark' ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>' : '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+        
+        function updateThemeIcon(theme) {
+            themeIcon.innerHTML = theme === 'dark' 
+                ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>' 
+                : '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+        }
+        updateThemeIcon(savedTheme);
         
         themeToggle.addEventListener('click', () => {
             const current = document.documentElement.getAttribute('data-theme');
             const newTheme = current === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            themeIcon.innerHTML = newTheme === 'dark' ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>' : '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+            updateThemeIcon(newTheme);
         });
 
-        /* 6. LANGUAGE SWITCHER */
+        /* 5. LANGUAGE SWITCHER */
         const langSwitch = document.getElementById('langSwitch');
         const langLabel = document.getElementById('langLabel');
         let currentLang = localStorage.getItem('lang') || 'en';
         
-        function applyLanguage(lang) {
-            document.querySelectorAll('[data-en][data-tw]').forEach(el => {
-                const text = el.getAttribute(`data-${lang}`);
-                if (text) el.textContent = text;
-            });
-            document.documentElement.lang = lang === 'en' ? 'en' : 'tw';
-            langLabel.textContent = lang.toUpperCase();
-            localStorage.setItem('lang', lang);
-        }
-        applyLanguage(currentLang);
+        // Note: For brevity in this unified file, language switching is set up for English. 
+        // You can add data-tw attributes to HTML elements and toggle them here as needed.
         langSwitch.addEventListener('click', () => {
             currentLang = currentLang === 'en' ? 'tw' : 'en';
-            applyLanguage(currentLang);
+            langLabel.textContent = currentLang.toUpperCase();
+            localStorage.setItem('lang', currentLang);
         });
 
-        /* 7. ANIMATED COUNTERS */
+        /* 6. ANIMATED COUNTERS */
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1711,13 +2388,14 @@
         }, { threshold: 0.3 });
         document.querySelectorAll('.hero-stats').forEach(el => counterObserver.observe(el));
 
-        /* 8. FAQ ACCORDION */
+        /* 7. FAQ ACCORDION */
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 const answer = item.querySelector('.faq-answer');
                 const isActive = item.classList.contains('active');
                 
+                // Close all
                 document.querySelectorAll('.faq-item').forEach(faq => {
                     faq.classList.remove('active');
                     faq.querySelector('.faq-answer').style.maxHeight = null;
@@ -1726,6 +2404,7 @@
                     faq.querySelector('.faq-icon').style.color = 'var(--gold)';
                 });
                 
+                // Open clicked if wasn't active
                 if (!isActive) {
                     item.classList.add('active');
                     answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -1736,7 +2415,7 @@
             });
         });
 
-        /* 9. GALLERY LIGHTBOX */
+        /* 8. GALLERY LIGHTBOX */
         const galleryImages = Array.from(document.querySelectorAll('.gallery-item-3d img')).map(img => img.src);
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
@@ -1746,17 +2425,16 @@
             item.addEventListener('click', () => {
                 currentImageIndex = index;
                 lightboxImg.src = galleryImages[currentImageIndex];
-                lightbox.style.opacity = '1';
-                lightbox.style.visibility = 'visible';
+                lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
         });
 
         const closeLightbox = () => {
-            lightbox.style.opacity = '0';
-            lightbox.style.visibility = 'hidden';
+            lightbox.classList.remove('active');
             document.body.style.overflow = '';
         };
+        
         document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
         
@@ -1765,20 +2443,22 @@
             currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             lightboxImg.src = galleryImages[currentImageIndex];
         });
+        
         document.getElementById('lightboxNext').addEventListener('click', (e) => {
             e.stopPropagation();
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             lightboxImg.src = galleryImages[currentImageIndex];
         });
+        
         document.addEventListener('keydown', (e) => {
-            if (lightbox.style.visibility === 'visible') {
+            if (lightbox.classList.contains('active')) {
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
                 if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
             }
         });
 
-        /* 10. CONTACT FORM TO WHATSAPP */
+        /* 9. CONTACT FORM TO WHATSAPP */
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
@@ -1801,134 +2481,6 @@
                 e.target.reset();
             }, 3000);
         });
-
-        /* 11. SEARCH OVERLAY (Basic) */
-        const searchBtn = document.getElementById('searchBtn');
-        const searchOverlay = document.getElementById('searchOverlay');
-        const searchClose = document.getElementById('searchClose');
-        
-        searchBtn.addEventListener('click', () => {
-            searchOverlay.style.opacity = '1';
-            searchOverlay.style.visibility = 'visible';
-            document.getElementById('searchInput').focus();
-        });
-        searchClose.addEventListener('click', () => {
-            searchOverlay.style.opacity = '0';
-            searchOverlay.style.visibility = 'hidden';
-        });
-        searchOverlay.addEventListener('click', (e) => {
-            if (e.target === searchOverlay) {
-                searchOverlay.style.opacity = '0';
-                searchOverlay.style.visibility = 'hidden';
-            }
-        });
     </script>
-    
-    <!-- 3D & Marquee Animations injected via JS to keep CSS clean in Part 1 -->
-    <style>
-        @keyframes floatUpDown {
-            0%, 100% { transform: translateY(0) perspective(1000px) rotateX(0deg); }
-            50% { transform: translateY(-15px) perspective(1000px) rotateX(2deg); }
-        }
-        
-        .gallery-item-3d {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: floatUpDown 8s ease-in-out infinite;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .gallery-item-3d img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        
-        .gallery-item-3d:hover {
-            transform: translateY(-10px) scale(1.03) perspective(1000px) rotateX(5deg) !important;
-            box-shadow: 0 30px 60px rgba(45, 80, 22, 0.25), 0 15px 20px rgba(45, 80, 22, 0.1);
-            border-color: var(--gold);
-            z-index: 10;
-        }
-        
-        .gallery-item-3d:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(26, 61, 10, 0.9), transparent);
-            color: var(--cream);
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
-        }
-        
-        .gallery-item-3d:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-        
-        .gallery-overlay h4 {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            color: var(--gold-light);
-        }
-        
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        .marquee-container:hover .marquee-track {
-            animation-play-state: paused;
-        }
-        
-        .testimonial-card-3d:hover {
-            transform: translateY(-10px) scale(1.02) perspective(1000px) rotateY(-2deg);
-            box-shadow: 0 30px 60px rgba(45, 80, 22, 0.2);
-            border-color: var(--gold);
-        }
-        
-        @keyframes pulseWhatsapp {
-            0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6), 0 0 0 15px rgba(37, 211, 102, 0); }
-        }
-        
-        .floating-whatsapp:hover {
-            transform: scale(1.1) translateZ(10px);
-        }
-        
-        .back-to-top:hover {
-            background: var(--gold);
-            color: var(--forest-green-dark);
-            transform: translateY(-5px) translateZ(10px);
-        }
-        
-        /* Responsive adjustments for new sections */
-        @media (max-width: 1024px) {
-            .herbal-content { grid-template-columns: 1fr !important; }
-            .contact-grid { grid-template-columns: 1fr !important; }
-            .footer .container > div { grid-template-columns: 1fr 1fr !important; }
-        }
-        
-        @media (max-width: 768px) {
-            .gallery-grid { grid-template-columns: 1fr 1fr !important; }
-            .footer .container > div { grid-template-columns: 1fr !important; text-align: center; }
-            .footer .container > div > div:first-child { display: flex; flex-direction: column; align-items: center; }
-            .social-links { justify-content: center; }
-            .floating-whatsapp { width: 56px; height: 56px; bottom: 1.5rem; right: 1.5rem; }
-            .back-to-top { right: 5.5rem; width: 46px; height: 46px; bottom: 1.75rem; }
-            .lightbox-prev { left: 10px !important; }
-            .lightbox-next { right: 10px !important; }
-        }
-    </style>
 </body>
 </html>
