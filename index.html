@@ -68,12 +68,8 @@
         h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; line-height: 1.15; color: var(--text-primary); }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 3rem); }
         
-        /* SPA PAGE LOGIC */
         .page-section { display: none; }
-        .page-section.active { 
-            display: block; 
-            animation: fadeInUp 0.6s ease forwards; 
-        }
+        .page-section.active { display: block; animation: fadeInUp 0.6s ease forwards; }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -137,9 +133,16 @@
             font-size: 0.75rem; font-weight: 700; padding: 0.4rem 0.8rem;
             border-radius: 50px; background: rgba(45, 80, 22, 0.1); color: var(--forest-green);
             border: 1px solid rgba(45, 80, 22, 0.2); cursor: pointer; outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232d5016' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            padding-right: 24px;
         }
-        [data-theme="dark"] .lang-switch { background: rgba(212, 175, 55, 0.15); color: var(--gold-light); border-color: rgba(212, 175, 55, 0.3); }
+        [data-theme="dark"] .lang-switch { 
+            background-color: rgba(212, 175, 55, 0.15); color: var(--gold-light); border-color: rgba(212, 175, 55, 0.3);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23f4d03f' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        }
         
         .menu-toggle { display: none; width: 38px; height: 38px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
         .menu-toggle span { width: 22px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s ease; }
@@ -147,12 +150,20 @@
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        /* HERO */
-        .hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 8rem 0 4rem; overflow: hidden; }
+        /* HERO - 3D FLOATING EFFECT */
+        .hero { 
+            min-height: 100vh; position: relative; display: flex; align-items: center; 
+            padding: 8rem 0 4rem; overflow: hidden; perspective: 1500px;
+        }
         .hero-bg-img {
             position: absolute; inset: 0;
             background: url('https://i.ibb.co/QFjGF9f3/D1-AB43-CB-F582-4-C5-D-9-B1-C-7798-F3-BEDF7-C.jpg') center/cover no-repeat;
             opacity: 0.35; z-index: 0; filter: blur(1px) saturate(1.2); transform: scale(1.05);
+            animation: bgFloat 12s ease-in-out infinite;
+        }
+        @keyframes bgFloat {
+            0%, 100% { transform: scale(1.05) translate(0, 0); }
+            50% { transform: scale(1.07) translate(-5px, -5px); }
         }
         .hero::before {
             content: ''; position: absolute; inset: 0;
@@ -163,39 +174,108 @@
             content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
             background: linear-gradient(to top, var(--bg-primary), transparent); pointer-events: none; z-index: 2;
         }
-        .hero-content { position: relative; z-index: 3; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; color: var(--cream); }
+        .hero-content { 
+            position: relative; z-index: 3; display: grid; grid-template-columns: 1.2fr 1fr; 
+            gap: 4rem; align-items: center; color: var(--cream);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-out;
+        }
+        .hero-text { transform-style: preserve-3d; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1.5rem;
             background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 50px; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--gold-light); margin-bottom: 2rem; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--gold-light); margin-bottom: 2rem; backdrop-filter: blur(10px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float3D 6s ease-in-out infinite;
+            transform: translateZ(30px);
         }
-        .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 700; color: var(--cream); margin-bottom: 1.5rem; line-height: 1.05; letter-spacing: 0.05em; }
-        .reveal-text { display: block; opacity: 0; transform: translateY(40px); animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .reveal-text:nth-child(2) { animation-delay: 0.2s; }
-        .hero-title .accent { color: var(--gold-light); font-style: italic; text-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
-        @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes float3D {
+            0%, 100% { transform: translateZ(30px) translateY(0) rotateX(0deg); }
+            50% { transform: translateZ(40px) translateY(-10px) rotateX(2deg); }
+        }
+        .hero-title { 
+            font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 700; color: var(--cream); 
+            margin-bottom: 1.5rem; line-height: 1.05; letter-spacing: 0.05em;
+            transform-style: preserve-3d;
+        }
+        .reveal-text { 
+            display: block; opacity: 0; transform: translateY(40px) translateZ(0); 
+            animation: revealUp3D 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform-style: preserve-3d;
+        }
+        .reveal-text:nth-child(1) { animation: revealUp3D 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards, slowFloat3D 8s ease-in-out 1.5s infinite; transform: translateZ(50px); }
+        .reveal-text:nth-child(2) { animation-delay: 0.2s; transform: translateZ(80px); }
+        @keyframes revealUp3D {
+            to { opacity: 1; transform: translateY(0) translateZ(60px); }
+        }
+        @keyframes slowFloat3D {
+            0%, 100% { transform: translateY(0) translateZ(60px) rotateX(0deg) rotateY(0deg); }
+            33% { transform: translateY(-8px) translateZ(70px) rotateX(1deg) rotateY(-1deg); }
+            66% { transform: translateY(4px) translateZ(65px) rotateX(-1deg) rotateY(1deg); }
+        }
+        .hero-title .accent { color: var(--gold-light); font-style: italic; text-shadow: 0 0 40px rgba(212, 175, 55, 0.3), 0 5px 20px rgba(212, 175, 55, 0.2); }
         
-        .hero-desc { font-size: 1.15rem; color: rgba(250, 246, 235, 0.95); margin-bottom: 2.5rem; max-width: 560px; line-height: 1.8; opacity: 0; animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
-        .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; opacity: 0; animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards; }
+        .hero-desc { 
+            font-size: 1.15rem; color: rgba(250, 246, 235, 0.95); margin-bottom: 2.5rem; 
+            max-width: 560px; line-height: 1.8; opacity: 0; 
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards, slowFloat3DDesc 7s ease-in-out 2s infinite;
+            transform-style: preserve-3d;
+            transform: translateZ(40px);
+        }
+        @keyframes slowFloat3DDesc {
+            0%, 100% { transform: translateY(0) translateZ(40px); }
+            50% { transform: translateY(-6px) translateZ(45px); }
+        }
+        .hero-buttons { 
+            display: flex; flex-wrap: wrap; gap: 1rem; opacity: 0; 
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+            transform-style: preserve-3d;
+            transform: translateZ(20px);
+        }
         .btn {
             display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; font-size: 0.95rem; font-weight: 600;
             border-radius: 50px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3); transform-style: preserve-3d; position: relative; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3); 
+            transform-style: preserve-3d; position: relative; overflow: hidden;
+            animation: btnFloat 5s ease-in-out infinite;
+        }
+        @keyframes btnFloat {
+            0%, 100% { transform: translateY(0) translateZ(20px); }
+            50% { transform: translateY(-4px) translateZ(25px); }
         }
         .btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s ease; }
         .btn:hover::before { left: 100%; }
         .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--forest-green-dark); }
-        .btn-primary:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 25px 50px rgba(212, 175, 55, 0.4); }
-        .btn-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); color: white; }
-        .btn-whatsapp:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 25px 50px rgba(37, 211, 102, 0.4); }
+        .btn-primary:hover { transform: translateY(-6px) scale(1.03) translateZ(40px) !important; box-shadow: 0 25px 50px rgba(212, 175, 55, 0.4); }
+        .btn-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); color: white; animation-delay: 0.5s; }
+        .btn-whatsapp:hover { transform: translateY(-6px) scale(1.03) translateZ(40px) !important; box-shadow: 0 25px 50px rgba(37, 211, 102, 0.4); }
         
-        .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(250, 246, 235, 0.2); opacity: 0; animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; }
-        .stat-number { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+        .hero-stats { 
+            display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2rem; 
+            border-top: 1px solid rgba(250, 246, 235, 0.2); opacity: 0; 
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+            transform-style: preserve-3d;
+            transform: translateZ(15px);
+        }
+        .stat { animation: statFloat 6s ease-in-out infinite; transform-style: preserve-3d; }
+        .stat:nth-child(2) { animation-delay: 0.3s; }
+        .stat:nth-child(3) { animation-delay: 0.6s; }
+        @keyframes statFloat {
+            0%, 100% { transform: translateY(0) translateZ(15px); }
+            50% { transform: translateY(-5px) translateZ(25px); }
+        }
+        .stat-number { 
+            font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; 
+            color: var(--gold-light); line-height: 1;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
         .stat-label { font-size: 0.8rem; color: rgba(250, 246, 235, 0.7); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; }
 
+        @keyframes revealUp { to { opacity: 1; transform: translateY(0) translateZ(40px); } }
+
         /* SECTIONS COMMON */
-        section { padding: clamp(5rem, 10vw, 8rem) 0; position: relative; }
+        section { padding: clamp(5rem, 10vw, 8rem) 0; position: relative; overflow: hidden; }
         .section-header { text-align: center; max-width: 750px; margin: 0 auto 4rem; position: relative; z-index: 2; }
         .section-tag { display: inline-block; padding: 0.5rem 1.25rem; background: rgba(45, 80, 22, 0.08); color: var(--forest-green); border-radius: 50px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem; border: 1px solid rgba(45, 80, 22, 0.1); }
         [data-theme="dark"] .section-tag { background: rgba(212, 175, 55, 0.1); color: var(--gold-light); border-color: rgba(212, 175, 55, 0.2); }
@@ -207,8 +287,30 @@
         .divider-line { width: 60px; height: 1px; background: var(--gold); }
         .divider-symbol { width: 24px; height: 24px; color: var(--gold); }
 
-        /* ABOUT */
-        .about { background: var(--bg-secondary); }
+        /* ABOUT - WITH BACKGROUND IMAGE */
+        .about { 
+            background: var(--bg-secondary); 
+            position: relative;
+        }
+        .about::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://i.ibb.co/fzhWQjMc/IMG-9240.jpg') center/cover no-repeat;
+            opacity: 0.18;
+            z-index: 0;
+            filter: saturate(0.9);
+        }
+        .about::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, transparent 50%, var(--bg-secondary) 100%);
+            opacity: 0.85;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .about .container { position: relative; z-index: 2; }
         .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; position: relative; z-index: 2; }
         .about-image { position: relative; perspective: 1000px; }
         .about-image-main { border-radius: 24px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 25px 25px 70px rgba(0,0,0,0.25); transform: perspective(1000px) rotateY(-5deg); animation: moveRightToLeft 8s ease-in-out infinite; border: 3px solid var(--gold); }
@@ -225,8 +327,30 @@
         .value-item h4 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
         .value-item p { font-size: 0.8rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
 
-        /* SERVICES */
-        .services { background: var(--bg-primary); }
+        /* SERVICES - WITH BACKGROUND IMAGE */
+        .services { 
+            background: var(--bg-primary);
+            position: relative;
+        }
+        .services::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://i.ibb.co/G3dd0bq4/IMG-9248.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+            filter: saturate(0.9);
+        }
+        .services::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, transparent 60%, var(--bg-primary) 100%);
+            opacity: 0.9;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .services .container { position: relative; z-index: 2; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; position: relative; z-index: 2; }
         .service-card { background: var(--bg-secondary); padding: 2.25rem 1.75rem; border-radius: 20px; border: 1px solid var(--border); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; transform-style: preserve-3d; box-shadow: var(--shadow-3d); }
         .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--forest-green), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
@@ -333,7 +457,7 @@
         .form-submit { width: 100%; padding: 1rem; background: linear-gradient(135deg, #25D366, #128C7E); color: white; font-weight: 600; border-radius: 50px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; justify-content: center; gap: 0.75rem; box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3); }
         .form-submit:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 25px 50px rgba(37, 211, 102, 0.4); }
 
-        /* FOOTER (TRADEMARK) */
+        /* FOOTER */
         .footer { background: var(--forest-green-dark); color: var(--cream); padding: 4rem 0 0; position: relative; overflow: hidden; }
         .footer::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1' opacity='0.08'%3E%3Ccircle cx='60' cy='60' r='25'/%3E%3Cpath d='M60 35 L60 85 M35 60 L85 60'/%3E%3Cpath d='M42 42 L78 78 M42 78 L78 42'/%3E%3Ccircle cx='60' cy='60' r='8'/%3E%3C/g%3E%3C/svg%3E"); background-size: 120px 120px; pointer-events: none; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; position: relative; z-index: 2; padding-bottom: 3rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
@@ -383,19 +507,16 @@
             .menu-toggle { display: flex; width: 36px; height: 36px; }
             .menu-toggle span { width: 20px; }
             .icon-btn { width: 36px; height: 36px; }
-            .lang-switch { font-size: 0.7rem; padding: 0.35rem 0.7rem; }
+            .lang-switch { font-size: 0.7rem; padding: 0.35rem 0.7rem; padding-right: 20px; }
             .about-values, .herbal-features { grid-template-columns: 1fr; }
             .hero-stats { flex-direction: column; gap: 1.5rem; align-items: center; }
             .stat-number { font-size: 2rem; }
             .gallery-grid { grid-template-columns: 1fr 1fr; }
-            
-            /* FOOTER MOBILE ORDER FIX */
             .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
             .footer-brand { display: flex; flex-direction: column; align-items: center; }
             .footer-links { align-items: center; }
             .footer-links li { justify-content: center; }
             .social-links { justify-content: center; }
-            
             .form-row { grid-template-columns: 1fr; }
             .floating-whatsapp { width: 52px; height: 52px; bottom: 1.5rem; right: 1.5rem; }
             .back-to-top { right: 5.2rem; width: 42px; height: 42px; bottom: 1.75rem; }
@@ -410,16 +531,24 @@
             .gallery-grid { grid-template-columns: 1fr; }
             .contact-form { padding: 1.5rem; }
         }
+        
+        /* Disable 3D motion on mobile for performance */
+        @media (max-width: 768px) {
+            .reveal-text:nth-child(1) { animation: revealUp3D 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+            @keyframes slowFloat3D { 0%, 100% { transform: translateY(0) translateZ(60px); } 50% { transform: translateY(-3px) translateZ(60px); } }
+            @keyframes slowFloat3DDesc { 0%, 100% { transform: translateY(0) translateZ(40px); } 50% { transform: translateY(-3px) translateZ(40px); } }
+            @keyframes btnFloat { 0%, 100% { transform: translateY(0) translateZ(20px); } 50% { transform: translateY(-2px) translateZ(20px); } }
+            @keyframes statFloat { 0%, 100% { transform: translateY(0) translateZ(15px); } 50% { transform: translateY(-2px) translateZ(15px); } }
+            @keyframes float3D { 0%, 100% { transform: translateZ(30px) translateY(0); } 50% { transform: translateZ(30px) translateY(-4px); } }
+        }
     </style>
 </head>
 <body>
-    <!-- LOADER -->
     <div class="loader" id="loader" aria-hidden="true">
         <img src="https://i.ibb.co/rfzMc2yh/Chat-GPT-Image-Jul-24-2026-02-06-48-PM-1.png" alt="Logo" class="loader-logo">
         <div class="loader-text">Asuo Dia Komfour</div>
     </div>
 
-    <!-- NAVIGATION -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo" id="logoHome">
@@ -430,14 +559,14 @@
                 </div>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a class="nav-link active" data-target="home" data-tw="Fie" data-ga="Rumɔ" data-ee="Aƒe" data-ha="Gida">Home</a></li>
-                <li><a class="nav-link" data-target="about" data-tw="Fa Ho" data-ga="É bɛ mli" data-ee="Nɔnɔ" data-ha="Game">About</a></li>
-                <li><a class="nav-link" data-target="services" data-tw="Dwuma" data-ga="Tsheelɛ" data-ee="Dɔdɔ" data-ha="Aiki">Services</a></li>
-                <li><a class="nav-link" data-target="herbal" data-tw="Nhaban" data-ga="Odu" data-ee="Atikpe" data-ha="Magani">Herbal</a></li>
-                <li><a class="nav-link" data-target="gallery" data-tw="Mfonini" data-ga="Mfoni" data-ee="Foto" data-ha="Hoto">Gallery</a></li>
-                <li><a class="nav-link" data-target="testimonials" data-tw="Adansedi" data-ga="Nɔni" data-ee="Kpeɖeŋu" data-ha="Shaida">Testimonials</a></li>
-                <li><a class="nav-link" data-target="faq" data-tw="Nsɛmmisa" data-ga="Nsɛm" data-ee="Bia" data-ha="Tambaya">FAQ</a></li>
-                <li><a class="nav-link" data-target="contact" data-tw="Frɛ" data-ga="Kɛ mɔ" data-ee="Yɔ" data-ha="Tuntube">Contact</a></li>
+                <li><a class="nav-link active" data-target="home" data-tw="Fie" data-ga="Shia" data-ee="Aƒe" data-ha="Gida">Home</a></li>
+                <li><a class="nav-link" data-target="about" data-tw="Fa Ho" data-ga="Yɛhe" data-ee="Ŋutinya" data-ha="Game">About</a></li>
+                <li><a class="nav-link" data-target="services" data-tw="Dwuma" data-ga="Nitsumɔi" data-ee="Subɔsubɔ" data-ha="Ayyuka">Services</a></li>
+                <li><a class="nav-link" data-target="herbal" data-tw="Nhaban" data-ga="Nɔɔ" data-ee="Atike" data-ha="Ganye">Herbal</a></li>
+                <li><a class="nav-link" data-target="gallery" data-tw="Mfonini" data-ga="Mfonii" data-ee="Foto" data-ha="Hotuna">Gallery</a></li>
+                <li><a class="nav-link" data-target="testimonials" data-tw="Adansedi" data-ga="Testimonia" data-ee="Kpeɖeŋu" data-ha="Shaida">Testimonials</a></li>
+                <li><a class="nav-link" data-target="faq" data-tw="Nsɛmmisa" data-ga="Biblɛmɔi" data-ee="Bia" data-ha="Tambayoyi">FAQ</a></li>
+                <li><a class="nav-link" data-target="contact" data-tw="Frɛ" data-ga="Fɔŋ" data-ee="Ka mí" data-ha="Tuntu">Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <select id="langSwitch" class="lang-switch" aria-label="Select Language">
@@ -463,7 +592,7 @@
     <section class="hero page-section active" id="home">
         <div class="hero-bg-img"></div>
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" id="heroContent">
                 <div class="hero-text">
                     <div class="hero-badge">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14 8L20 9L15 14L17 20L12 17L7 20L9 14L4 9L10 8Z"/></svg>
@@ -473,23 +602,23 @@
                         <span class="reveal-text">MAKASKA</span>
                         <span class="reveal-text accent">MAGANDA</span>
                     </h1>
-                    <p class="hero-desc" data-tw="Akwaaba wɔ Asuo Dia Komfour — baabi a awo ntoatoaso nimdeɛ a ɛfa honhom ne nhaban ho hyia ɔyɛ adwene ne ɔboa a ɛyɛ mmɔborɔhunu. Nana Kyeri Beyifour di w'anim wɔ wo kwan so ma wo abam, nteaseɛ, ne asetena pa." data-ga="Akwaaba wɔ Asuo Dia Komfour — shiɛi akɛ ni tsheelɛ ni odu lɛ bɔ ni amɛ ni akɛ mɔ ni kɛjɔ ni mɔ ni tsɔɔ ni mɔ ni ni hiɛ ni mɔ ni kɛ ni mɔ ni tsɔɔ ni mɔ ni ni hiɛ." data-ee="Woezɔ wɔ Asuo Dia Komfour — afɔŋo si wo wɔ nɔnɔ kple atikpe si wo wɔ nɔnɔ kple amegbetɔwo ƒe nɔnɔ me." data-ha="Barka da zuwa Asuo Dia Komfour — wuri ne hikimar gargajiya da magungunan ganye da ke tafiya da jagoranci mai tausayi.">
+                    <p class="hero-desc" data-en="Welcome to Asuo Dia Komfour — a sacred sanctuary where generations of traditional spiritual and herbal knowledge meet compassionate, respectful guidance. Led by Nana Kyeri Beyifour, we walk alongside you on your journey toward balance, clarity, and profound well-being." data-tw="Akwaaba wɔ Asuo Dia Komfour — baabi kronkron a awo ntoatoaso nimdeɛ a ɛfa honhom ne nhaban ho hyia ɔyɛ adwene ne ɔboa a ɛyɛ mmɔborɔhunu. Nana Kyeri Beyifour di w'anim wɔ wo kwan so ma wo abam, nteaseɛ, ne asetena pa." data-ga="Oyaa jɛ Asuo Dia Komfour — shiɛi ni shikpɔŋ ni ni tsheelɛ ni odu lɛ bɔ ni amɛ ni akɛ mɔ ni kɛjɔ ni mɔ ni tsɔɔ ni mɔ ni ni hiɛ." data-ee="Woezɔ ɖe Asuo Dia Komfour — kɔkɔeƒe si xɔ aƒe ƒe aɖaŋuɖoɖo kple atikeŋutinunya si kpe ɖe amegbetɔwo ŋu." data-ha="Barka da zuwa Asuo Dia Komfour — wuri mai tsarki inda hikimar gargajiya da magungunan ganye ke haɗu da jagoranci mai tausayi.">
                         Welcome to Asuo Dia Komfour — a sacred sanctuary where generations of traditional spiritual and herbal knowledge meet compassionate, respectful guidance. Led by Nana Kyeri Beyifour, we walk alongside you on your journey toward balance, clarity, and profound well-being.
                     </p>
                     <div class="hero-buttons">
                         <a class="btn btn-primary" data-target="contact">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                            <span data-tw="Bɔ Hyɛn" data-ga="Kɛ ba" data-ee="Ƒu asi" data-ha="Yi alƙawari">Book Consultation</span>
+                            <span data-en="Book Consultation" data-tw="Bɔ Hyɛn" data-ga="Bɔɔ Heshimɔ" data-ee="Ƒo asikɔ" data-ha="Yi Alƙawari">Book Consultation</span>
                         </a>
                         <a href="https://wa.me/233540991248" class="btn btn-whatsapp" target="_blank" rel="noopener">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            <span data-tw="Frɛ yɛn" data-ga="Kɛ mɔ" data-ee="Yɔ mí" data-ha="Tuntube">WhatsApp Us</span>
+                            <span data-en="WhatsApp Us" data-tw="Frɛ yɛn" data-ga="Fɔŋ wɔ" data-ee="Ka mí" data-ha="Tuntu Mu">WhatsApp Us</span>
                         </a>
                     </div>
                     <div class="hero-stats">
-                        <div class="stat"><div class="stat-number" data-count="25">0</div><div class="stat-label" data-tw="Mfeɛ a Yɛsom" data-ga="Jiɛji ni amɛ tsɔɔ" data-ee="Ƒe siwo míɖe gbe" data-ha="Shekarun Hidima">Years of Service</div></div>
-                        <div class="stat"><div class="stat-number" data-count="5000">0</div><div class="stat-label" data-tw="Nkra a Yɛaka" data-ga="Ni amɛ ni amɛ tsɔɔ" data-ee="Agbegbe wo míɖo" data-ha="Rayuwar da muka taba">Lives Touched</div></div>
-                        <div class="stat"><div class="stat-number" data-count="100">0</div><div class="stat-label" data-tw="Nhaban Aduru" data-ga="Odu ni amɛ tsɔɔ" data-ee="Atikpe wo" data-ha="Magungunan Ganye">Herbal Remedies</div></div>
+                        <div class="stat"><div class="stat-number" data-count="25">0</div><div class="stat-label" data-en="Years of Service" data-tw="Mfeɛ a Yɛsom" data-ga="Jiɛji ni wɔ" data-ee="Ƒe siwo míɖe gbe" data-ha="Shekarun Hidima">Years of Service</div></div>
+                        <div class="stat"><div class="stat-number" data-count="5000">0</div><div class="stat-label" data-en="Lives Touched" data-tw="Nkra a Yɛaka" data-ga="Shihilɛi" data-ee="Agbe siwo míeka" data-ha="Rayuwar da muka">Lives Touched</div></div>
+                        <div class="stat"><div class="stat-number" data-count="100">0</div><div class="stat-label" data-en="Herbal Remedies" data-tw="Nhaban Aduru" data-ga="Nɔɔ Shihimɔi" data-ee="Atike siwo le mí" data-ha="Magungunan Ganye">Herbal Remedies</div></div>
                     </div>
                 </div>
             </div>
@@ -500,25 +629,29 @@
     <section class="about page-section" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-tw="Fa Nana Kyeri Ho" data-ga="É bɛ mli" data-ee="Nɔnɔ" data-ha="Game">About Nana Kyeri</span>
-                <h2><span data-tw="Asetena a Ɛyɛ" data-ga="Acresɛ" data-ee="Agbenɔnɔ" data-ha="Rayuwa">A Life of</span> <span class="accent" data-tw="Asomdi ne Nimdeɛ" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Hikima">Service & Wisdom</span></h2>
+                <span class="section-tag" data-en="About Nana Kyeri" data-tw="Fa Nana Kyeri Ho" data-ga="Nana Kyeri He" data-ee="Nana Kyeri Ŋutinya" data-ha="Game Nana Kyeri">About Nana Kyeri</span>
+                <h2><span data-en="A Life of" data-tw="Asetena a Ɛyɛ" data-ga="Shihilɛ" data-ee="Agbenɔnɔ" data-ha="Rayuwa">A Life of</span> <span class="accent" data-en="Service & Wisdom" data-tw="Asomdi ne Nimdeɛ" data-ga="Nitsumɔi kple Hikima" data-ee="Subɔsubɔ kple Nunya" data-ha="Hidima da Hikima">Service & Wisdom</span></h2>
                 <div class="divider"><div class="divider-line"></div><svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><div class="divider-line"></div></div>
-                <p data-tw="Ɛgyina Asante amanmuu so, gyidi ne anubuo kɛseɛ a yɛwɔ ma abɔdeɛ no di yɛn anim." data-ga="Ni jiɛji ni amɛ tsɔɔ ni amɛ ni amɛ tsɔɔ." data-ee="Míɖo gbe wo wɔ nɔnɔ kple amegbetɔwo ƒe nɔnɔ me." data-ha="Tushin tushe a al'ada da gaskiya.">Rooted in the ancestral traditions of the Ashanti people, guided by faith and a deep reverence for nature.</p>
+                <p data-en="Rooted in the ancestral traditions of the Ashanti people, guided by faith and a deep reverence for nature." data-tw="Ɛgyina Asante amanmuu so, gyidi ne anubuo kɛseɛ a yɛwɔ ma abɔdeɛ no di yɛn anim." data-ga="Ni jiɛji ni amɛ tsɔɔ ni Ashanti manbii shiɛi, gyidi kple anubuo ni abɔdeɛ." data-ee="Etuɖo aƒe ƒe aɖaŋuɖoɖo me le Ashanti dukɔ me, xɔse kple bubu le dzɔdzɔme." data-ha="Tushin tushe a al'ada da gaskiya na mutanen Ashanti, tare da imani da girman kai ga halitta.">Rooted in the ancestral traditions of the Ashanti people, guided by faith and a deep reverence for nature.</p>
             </div>
             <div class="about-grid">
                 <div class="about-image">
                     <div class="about-image-main"><img src="https://i.ibb.co/rCRsHKK/IMG-9238.jpg" alt="Nana Kyeri" loading="lazy"></div>
-                    <div class="about-image-accent"><div class="number">25+</div><div class="label" data-tw="Mfeɛ a Yɛyɛ" data-ga="Jiɛji" data-ee="Ƒewo" data-ha="Shekaru">Years of Practice</div></div>
+                    <div class="about-image-accent"><div class="number">25+</div><div class="label" data-en="Years of Practice" data-tw="Mfeɛ a Yɛyɛ" data-ga="Jiɛji" data-ee="Ƒewo" data-ha="Shekaru">Years of Practice</div></div>
                 </div>
                 <div class="about-content">
                     <h3>Nana Kyeri Beyifour</h3>
-                    <p>Nana Kyeri Beyifour is a respected spiritual guide and traditional herbalist from Manso Abore in the Ashanti Region of Ghana. Born into a lineage of healers, he was trained from a young age in the sacred arts of herbal medicine, spiritual consultation, and ancestral wisdom.</p>
-                    <p>His mission is simple yet profound: to offer compassionate guidance to those seeking clarity in matters of the spirit, family, relationships, and personal well-being — always with respect, confidentiality, and humility.</p>
+                    <p data-en="Nana Kyeri Beyifour is a respected spiritual guide and traditional herbalist from Manso Abore in the Ashanti Region of Ghana. Born into a lineage of healers, he was trained from a young age in the sacred arts of herbal medicine, spiritual consultation, and ancestral wisdom." data-tw="Nana Kyeri Beyifour yɛ honhom fam kwankyerɛfoɔ ne nhaban aduruyɛfoɔ a wɔdi wɔ Manso Abore wɔ Asante Mantam mu wɔ Ghana." data-ga="Nana Kyeri Beyifour yɛ tsheelɛ kple odu shihimɔ ni Manso Abore, Ashanti Region, Ghana." data-ee="Nana Kyeri Beyifour nye gbedada ƒe aɖaŋuɖola kple atikewɔla tso Manso Abore le Ashanti Nutome le Ghana." data-ha="Nana Kyeri Beyifour shine mai bada da gaskiya kuma jagorancin ruhaniya da maganin ganye daga Manso Abore a yankin Ashanti na Ghana.">
+                        Nana Kyeri Beyifour is a respected spiritual guide and traditional herbalist from Manso Abore in the Ashanti Region of Ghana. Born into a lineage of healers, he was trained from a young age in the sacred arts of herbal medicine, spiritual consultation, and ancestral wisdom.
+                    </p>
+                    <p data-en="His mission is simple yet profound: to offer compassionate guidance to those seeking clarity in matters of the spirit, family, relationships, and personal well-being — always with respect, confidentiality, and humility." data-tw="N'botaeɛ yɛ mmerɛ nanso ɛyɛ titire: ɔpɛ sɛ ɔbɛma wɔn a wɔhwehwɛ kwankyerɛ wɔ honhom, abusua, abusuabɔ, ne wɔn ankasa asetena ho ɔboa a ɛyɛ mmɔborɔhunu." data-ga="Etsɔɔ lɛ yɛ akɛ mɔ ni amɛ ni kɛ mɔ ni tsheelɛ kple anubuo." data-ee="Eƒe dɔ si nye be wòakpe ɖe ame siwo le mɔ dim le ruhaniya, ƒome, kple agbenɔnɔ me." data-ha="Manufarinsa shine mai sauƙi amma zurfafa: bayar da jagoranci mai tausayi ga waɗanda ke neman haske a cikin ruhaniya, iyali, da dangantaka.">
+                        His mission is simple yet profound: to offer compassionate guidance to those seeking clarity in matters of the spirit, family, relationships, and personal well-being — always with respect, confidentiality, and humility.
+                    </p>
                     <div class="about-values">
-                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div><h4 data-tw="Amanmuu Mu" data-ga="Shishito" data-ee="Tradition" data-ha="Al'ada">Traditional Values</h4><p>Honoring ancestral wisdom</p></div></div>
-                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div><h4 data-tw="Abusua Adwuma" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Hidima">Community Service</h4><p>Serving with humility</p></div></div>
-                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4 data-tw="Ahintaw Nhwɛsoɔ" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Amana">Confidential Care</h4><p>Your trust is sacred</p></div></div>
-                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4 data-tw="Kwankyerɛ a Ɛwɔ Anuonyam" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Jagoranci">Respectful Guidance</h4><p>Dignity in every encounter</p></div></div>
+                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div><h4 data-en="Traditional Values" data-tw="Amanmuu Mu" data-ga="Nɔŋmɔ" data-ee="Kɔnuwo" data-ha="Ƙimomin Al'ada">Traditional Values</h4><p data-en="Honoring ancestral wisdom" data-tw="Yɛdi nenanom nimdeɛ anim" data-ga="Tsɔɔ tsofɔɔi" data-ee="Bubule tsofowo" data-ha="Girmama hikimar kakanni">Honoring ancestral wisdom</p></div></div>
+                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div><h4 data-en="Community Service" data-tw="Abusua Adwuma" data-ga="Shia Tsɔɔ" data-ee="Habu ƒe Subɔsubɔ" data-ha="Hidima Al'umma">Community Service</h4><p data-en="Serving with humility" data-tw="Yɛsom ne ahobrɛaseɛ mu" data-ga="Tsɔɔ kple bubu" data-ee="Subɔsubɔ kple ɖokuibɔbɔ" data-ha="Hidima tare da tawali'i">Serving with humility</p></div></div>
+                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4 data-en="Confidential Care" data-tw="Ahintaw Nhwɛsoɔ" data-ga="Tsɔɔ Shishi" data-ee="Kpɔkpɔ ɖe Eɖokui" data-ha="Kulawa ta">Confidential Care</h4><p data-en="Your trust is sacred" data-tw="Wo gyidi yɛ kronkron" data-ga="Wo hemɔ yɛ shikpɔŋ" data-ee="Wò ŋudzedzekpɔkpɔ nye kɔkɔe" data-ha="Amintaccenka mai tsarki ne">Your trust is sacred</p></div></div>
+                        <div class="value-item"><div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><h4 data-en="Respectful Guidance" data-tw="Kwankyerɛ a Ɛwɔ Anuonyam" data-ga="Tsɔɔ kple bubu" data-ee="Mɔfiame bubutɔe" data-ha="Jagorancin Girmama">Respectful Guidance</h4><p data-en="Dignity in every encounter" data-tw="Anuonyam wɔ nhyiamu biara mu" data-ga="Nyaanɛyeli" data-ee="Bubu le ŋutɔŋutɔ sia ŋutɔŋutɔ me" data-ha="Mutunci a kowane haduwa">Dignity in every encounter</p></div></div>
                     </div>
                 </div>
             </div>
@@ -529,20 +662,20 @@
     <section class="services page-section" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-tw="Yɛn Nnwuma" data-ga="Tsheelɛ" data-ee="Dɔdɔ" data-ha="Ayyuka">Our Services</span>
-                <h2><span data-tw="Honhom ne" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Ruhi">Spiritual &</span> <span class="accent" data-tw="Kwankyerɛ Nnwuma" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Jagoranci">Guidance Services</span></h2>
+                <span class="section-tag" data-en="Our Services" data-tw="Yɛn Nnwuma" data-ga="Wɔ Nitsumɔi" data-ee="Míaƒe Subɔsubɔwo" data-ha="Ayyukanmu">Our Services</span>
+                <h2><span data-en="Spiritual &" data-tw="Honhom ne" data-ga="Ruhani" data-ee="Ruhani kple" data-ha="Ruhani da">Spiritual &</span> <span class="accent" data-en="Guidance Services" data-tw="Kwankyerɛ Nnwuma" data-ga="Tsɔɔ" data-ee="Mɔfiame" data-ha="Jagoranci">Guidance Services</span></h2>
                 <div class="divider"><div class="divider-line"></div><svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><div class="divider-line"></div></div>
-                <p>Compassionate guidance rooted in tradition, offered with respect and absolute confidentiality.</p>
+                <p data-en="Compassionate guidance rooted in tradition, offered with respect and absolute confidentiality." data-tw="Kwankyerɛ a ɛwɔ mmɔborɔhunu a ɛgyina amanmuu so, wɔde anuonyam ne ahintaw na ɛma." data-ga="Tsɔɔ ni bubu kple tsɔɔ." data-ee="Mɔfiame si tso kɔnuwo me, bubutɔe kple ɖokuie." data-ha="Jagoranci mai tausayi wanda ya ginu a al'ada, tare da girmama da kare ta.">Compassionate guidance rooted in tradition, offered with respect and absolute confidentiality.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Spiritual Consultation</h3><p>Personalized spiritual guidance to help you find clarity, direction, and peace in life's journey.</p></div>
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L12 22M2 12L22 12"/><path d="M7 7L17 17M7 17L17 7"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Herbal Guidance</h3><p>Traditional herbal wisdom passed down through generations, offered with care and cultural respect.</p></div>
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Family Guidance</h3><p>Support for families seeking harmony, understanding, and resolution in their relationships.</p></div>
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h3>Relationship Guidance</h3><p>Thoughtful counsel for couples and individuals navigating the complexities of love and partnership.</p></div>
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h3>Business Guidance</h3><p>Spiritual insight and traditional wisdom for entrepreneurs seeking direction and prosperity.</p></div>
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Home Blessings</h3><p>Traditional blessings and spiritual cleansing ceremonies to bring peace and protection to your home.</p></div>
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Spiritual Protection</h3><p>Traditional protective practices rooted in ancestral wisdom to safeguard your spiritual well-being.</p></div>
-                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div><h3>Community Counseling</h3><p>Supportive counseling for community members facing life's challenges, offered with dignity and care.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3 data-en="Spiritual Consultation" data-tw="Honhom Nhyiamu" data-ga="Ruhani Heshimɔ" data-ee="Ruhani ƒe Asikɔ" data-ha="Shawarar Ruhaniya">Spiritual Consultation</h3><p data-en="Personalized spiritual guidance to help you find clarity, direction, and peace in life's journey." data-tw="Kwankyerɛ a wɔde ma obiara sɛ ɛbɛboa wo ma woanya nteaseɛ, kwan, ne asomdwoeɛ wɔ wo nkwa mu." data-ga="Tsɔɔ ni shiɛi ni amɛ tsɔɔ." data-ee="Mɔfiame ɖekaɖeka na amewo be woakpɔ hasusu, mɔfiame, kple ŋutifafa." data-ha="Jagorancin ruhaniya na kowa don taimake ka samu haske, hanya, da zaman lafiya a rayuwa.">Personalized spiritual guidance to help you find clarity, direction, and peace in life's journey.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L12 22M2 12L22 12"/><path d="M7 7L17 17M7 17L17 7"/><circle cx="12" cy="12" r="3"/></svg></div><h3 data-en="Herbal Guidance" data-tw="Nhaban Kwankyerɛ" data-ga="Nɔɔ Tsɔɔ" data-ee="Atike ƒe Mɔfiame" data-ha="Jagorancin Ganye">Herbal Guidance</h3><p data-en="Traditional herbal wisdom passed down through generations, offered with care and cultural respect." data-tw="Nhaban nimdeɛ a wɔn a wɔdii yɛn anim no de maeɛ." data-ga="Nɔɔ shiɛi ni amɛ tsɔɔ." data-ee="Atikeŋutinunya si tso aƒewo me, bubutɔe." data-ha="Hikimar ganyen gargajiya da aka watsa daga tsararraki.">Traditional herbal wisdom passed down through generations, offered with care and cultural respect.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3 data-en="Family Guidance" data-tw="Abusua Kwankyerɛ" data-ga="Weku Tsɔɔ" data-ee="Ƒome ƒe Mɔfiame" data-ha="Jagorancin Iyali">Family Guidance</h3><p data-en="Support for families seeking harmony, understanding, and resolution in their relationships." data-tw="Abusua a wɔhwehwɛ asomdwoeɛ, nteaseɛ, ne nkɔsoɔ wɔ wɔn abusuabɔ mu no mmoa." data-ga="Tsɔɔ ni weku ni amɛ tsɔɔ." data-ee="Kpekpeɖeŋu na ƒomewo siwo le ŋutifafa dim." data-ha="Taimako ga iyalai da ke neman zaman lafiya da fahimta a cikin dangantakarsu.">Support for families seeking harmony, understanding, and resolution in their relationships.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h3 data-en="Relationship Guidance" data-tw="Abusuabɔ Kwankyerɛ" data-ga="Tsɔɔ" data-ee="Dangantaka ƒe Mɔfiame" data-ha="Jagorancin Dangantaka">Relationship Guidance</h3><p data-en="Thoughtful counsel for couples and individuals navigating the complexities of love and partnership." data-tw="Akwankyerɛ a wɔn a wɔwɔ abusuabɔ ne wɔn a wɔn nko ara de ma wɔn a wɔnam ɔdɔ ne nkitahodi mu." data-ga="Tsɔɔ ni amɛ tsɔɔ." data-ee="Aɖaŋuɖoɖo na mawulawo kple ame ɖekaɖekawo." data-ha="Shawara mai zurfafa ga ma'aurata da mutane.">Thoughtful counsel for couples and individuals navigating the complexities of love and partnership.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h3 data-en="Business Guidance" data-tw="Adwuma Kwankyerɛ" data-ga="Nɔŋmɔ Tsɔɔ" data-ee="Dɔwɔƒe ƒe Mɔfiame" data-ha="Jagorancin Kasuwanci">Business Guidance</h3><p data-en="Spiritual insight and traditional wisdom for entrepreneurs seeking direction and prosperity." data-tw="Honhom mu nimdeɛ ne amanmuu mu nimdeɛ ma wɔn a wɔn a wɔhwehwɛ kwan ne ahonya." data-ga="Ruhani kple shiɛi." data-ee="Ruhani hasusu kple aƒe ƒe nunya." data-ha="Fahimtar ruhaniya da hikimar gargajiya ga 'yan kasuwa.">Spiritual insight and traditional wisdom for entrepreneurs seeking direction and prosperity.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3 data-en="Home Blessings" data-tw="Fie Nhyira" data-ga="Shia Bɔlɛ" data-ee="Aƒe ƒe Yayra" data-ha="Albarkar Gida">Home Blessings</h3><p data-en="Traditional blessings and spiritual cleansing ceremonies to bring peace and protection to your home." data-tw="Nhyira ne honhom mu tew ho nhyiamu sɛ ɛbɛba asomdwoeɛ ne bammɔ aba wo fie." data-ga="Tsɔɔ ni kple shiɛi." data-ee="Kɔnuwo ƒe yayra kple kɔkɔe." data-ha="Albarkar gargajiya da tsarkakewar ruhaniya.">Traditional blessings and spiritual cleansing ceremonies to bring peace and protection to your home.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 data-en="Spiritual Protection" data-tw="Honhom Bammɔ" data-ga="Ruhani Kpɔɔ" data-ee="Ruhani ƒe Tsɔtsɔ" data-ha="Kariyar Ruhaniya">Spiritual Protection</h3><p data-en="Traditional protective practices rooted in ancestral wisdom to safeguard your spiritual well-being." data-tw="Amanmuu mu bammɔ a ɛgyina nenanom nimdeɛ so sɛ ɛbɔ wo honhom mu asetena ho ban." data-ga="Tsɔɔ ni shiɛi." data-ee="Kɔnuwo ƒe tsɔtsɔ kɔe." data-ha="Kariya ta gargajiya wadda ta ginu a hikimar kakanni.">Traditional protective practices rooted in ancestral wisdom to safeguard your spiritual well-being.</p></div>
+                <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div><h3 data-en="Community Counseling" data-tw="Abusua Akyerɛ" data-ga="Shia Tsɔɔ" data-ee="Habu ƒe Aɖaŋuɖoɖo" data-ha="Ba da Shawara">Community Counseling</h3><p data-en="Supportive counseling for community members facing life's challenges, offered with dignity and care." data-tw="Mmoa ma abusua mufoɔ a wɔhyia nkwa mu ɔhaw, wɔde anuonyam ne mmɔborɔhunu na ɛma." data-ga="Tsɔɔ ni shiɛi." data-ee="Kpekpeɖeŋu na habu me tɔwo." data-ha="Taimakon shawara ga membobin al'umma.">Supportive counseling for community members facing life's challenges, offered with dignity and care.</p></div>
             </div>
         </div>
     </section>
@@ -551,20 +684,20 @@
     <section class="herbal page-section" id="herbal">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-tw="Amanmuu Mu Nhaban Adwuma" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Al'ada">Traditional Herbal Practice</span>
-                <h2><span data-tw="Abɔdeɛ Akyɛdeɛ" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Kyautar">The Healing Power of</span> <span class="accent" data-tw="Sa Ahoɔden" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Wadata">Nature's Gifts</span></h2>
+                <span class="section-tag" data-en="Traditional Herbal Practice" data-tw="Amanmuu Mu Nhaban Adwuma" data-ga="Nɔŋmɔ Nɔɔ" data-ee="Kɔnuwo ƒe Atikewɔwɔ" data-ha="Al'adar Maganin Ganye">Traditional Herbal Practice</span>
+                <h2><span data-en="The Healing Power of" data-tw="Abɔdeɛ Akyɛdeɛ" data-ga="Tsɔɔ" data-ee="Ŋusẽ Kɔkɔe" data-ha="Ikon Warkewar">The Healing Power of</span> <span class="accent" data-en="Nature's Gifts" data-tw="Sa Ahoɔden" data-ga="Tsɔɔ" data-ee="Dzɔdzɔme ƒe Nunana" data-ha="Kyaututtukan Halitta">Nature's Gifts</span></h2>
                 <div class="divider"><div class="divider-line"></div><svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><div class="divider-line"></div></div>
             </div>
             <div class="herbal-content">
                 <div class="herbal-text">
-                    <p>At Asuo Dia Komfour, we honor the ancient tradition of herbal medicine — a practice that has sustained communities across West Africa for centuries. Our approach is rooted in deep respect for the land, the plants, and the ancestral knowledge that guides their use.</p>
-                    <p>Every consultation begins with listening. From this foundation, Nana Kyeri draws upon generations of knowledge to offer thoughtful guidance. Our herbal preparations are made with care, using plants gathered with intention and prepared according to traditional methods.</p>
-                    <p>We believe in working alongside modern healthcare, not in opposition to it. Our role is to offer cultural and spiritual support within a framework of respect for your overall well-being.</p>
+                    <p data-en="At Asuo Dia Komfour, we honor the ancient tradition of herbal medicine — a practice that has sustained communities across West Africa for centuries. Our approach is rooted in deep respect for the land, the plants, and the ancestral knowledge that guides their use." data-tw="Wɔ Asuo Dia Komfour, yɛdi amanmuu mu nhaban aduru a ɛyɛ amammerɛ a ato so abɔ mmraa mmusua wɔ Atɔeɛ Afrikam no anim." data-ga="Wɔ Asuo Dia Komfour, wɔ tsɔɔ nɔɔ ni shiɛi." data-ee="Le Asuo Dia Komfour, míedea bubu kɔnuwo ƒe atikewɔwɔ ŋu." data-ha="A Asuo Dia Komfour, muna girmama al'adar maganin ganye.">At Asuo Dia Komfour, we honor the ancient tradition of herbal medicine — a practice that has sustained communities across West Africa for centuries.</p>
+                    <p data-en="Every consultation begins with listening. From this foundation, Nana Kyeri draws upon generations of knowledge to offer thoughtful guidance. Our herbal preparations are made with care, using plants gathered with intention and prepared according to traditional methods." data-tw="Nhyiamu biara fi atie so. Efi hɔ na Nana Kyeri de ntoatoaso nimdeɛ di dwuma ma kwankyerɛ a ɛwɔ nwenem." data-ga="Tsɔɔ ni shiɛi." data-ee="Asikɔ sia asikɔ dzea egɔme kple toɖoɖo." data-ha="Kowane shawara yana fara da sauraro.">Every consultation begins with listening. Our herbal preparations are made with care.</p>
+                    <p data-en="We believe in working alongside modern healthcare, not in opposition to it. Our role is to offer cultural and spiritual support within a framework of respect for your overall well-being." data-tw="Yɛgye di sɛ yɛne nnɛ ayaresa yɛ adwuma, ɛnyɛ atia." data-ga="Wɔ tsɔɔ ni shiɛi." data-ee="Míexɔe se be míewɔ dɔ kple atikegbɔlɔ̃wo." data-ha="Mun yi imani da aiki tare da kula da lafiya.">We believe in working alongside modern healthcare.</p>
                     <div class="herbal-features">
-                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h4>Ancestral Knowledge</h4><p>Wisdom passed through generations</p></div>
-                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8C17 5.24 14.76 3 12 3S7 5.24 7 8c0 3 5 9 5 9s5-6 5-9z"/><circle cx="12" cy="8" r="2"/></svg></div><h4>Local Plants</h4><p>Sourced from Ghana's rich forests</p></div>
-                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h4>Made with Care</h4><p>Prepared with intention and respect</p></div>
-                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Respectful Approach</h4><p>Honoring tradition and dignity</p></div>
+                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h4 data-en="Ancestral Knowledge" data-tw="Nenanom Nimdeɛ" data-ga="Tsofɔɔi" data-ee="Tsofowo ƒe Nunya" data-ha="Hikimar Kakanni">Ancestral Knowledge</h4><p data-en="Wisdom passed through generations" data-tw="Nimdeɛ a wɔde maeɛ" data-ga="Shiɛi" data-ee="Nunya si wotsɔ watsa" data-ha="Hikima da aka watsa">Wisdom passed through generations</p></div>
+                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8C17 5.24 14.76 3 12 3S7 5.24 7 8c0 3 5 9 5 9s5-6 5-9z"/><circle cx="12" cy="8" r="2"/></svg></div><h4 data-en="Local Plants" data-tw="Nhaban a Ɛwɔ Ha" data-ga="Nɔɔ" data-ee="Ati ƒomeviwo" data-ha="Tsirrai na Gida">Local Plants</h4><p data-en="Sourced from Ghana's rich forests" data-tw="Wɔfa fi Ghana kwaeɛ mu" data-ga="Shiɛi" data-ee="Wotso Ghana ƒe ave me" data-ha="Daga dazuzzukan Ghana">Sourced from Ghana's rich forests</p></div>
+                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h4 data-en="Made with Care" data-tw="Wɔyɛ ne Mmɔborɔhunu" data-ga="Tsɔɔ" data-ee="Wowɔ kple Lɔlɔ̃" data-ha="An yi da Kula">Made with Care</h4><p data-en="Prepared with intention and respect" data-tw="Wɔsiesie ne nwenem ne anuonyam" data-ga="Shiɛi" data-ee="Wowɔ ɖe susu kple bubu nu" data-ha="An shirya da niyya">Prepared with intention and respect</p></div>
+                        <div class="herbal-feature"><div class="herbal-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4 data-en="Respectful Approach" data-tw="Kwan a Ɛwɔ Anuonyam" data-ga="Tsɔɔ" data-ee="Mɔfiame bubutɔe" data-ha="Hanya mai Girmama">Respectful Approach</h4><p data-en="Honoring tradition and dignity" data-tw="Yɛdi amammerɛ ne anuonyam anim" data-ga="Shiɛi" data-ee="Bubu le kɔnuwo kple bubu ŋu" data-ha="Girmama al'ada da mutunci">Honoring tradition and dignity</p></div>
                     </div>
                 </div>
                 <div class="herbal-image-wrapper">
@@ -572,7 +705,7 @@
                 </div>
             </div>
             <div class="herbal-disclaimer">
-                <p><strong>Note:</strong> Our herbal practices are rooted in cultural tradition and spiritual guidance. They are not intended to diagnose, treat, cure, or prevent any medical condition. We encourage all visitors to consult qualified healthcare professionals for medical concerns.</p>
+                <p data-en="Note: Our herbal practices are rooted in cultural tradition and spiritual guidance. They are not intended to diagnose, treat, cure, or prevent any medical condition. We encourage all visitors to consult qualified healthcare professionals for medical concerns." data-tw="Nsesa: Yɛn nhaban adwuma gyina amammerɛ ne honhom kwankyerɛ so." data-ga="Tsɔɔ: Wɔ nɔɔ ni shiɛi." data-ee="Kpɔɖeŋu: Míaƒe atikewɔwɔ tuɖo kɔnuwo dzi." data-ha="Lura: Ayyukanmu na maganin ganye ginu ne a al'ada."><strong>Note:</strong> Our herbal practices are rooted in cultural tradition and spiritual guidance. They are not intended to diagnose, treat, cure, or prevent any medical condition.</p>
             </div>
         </div>
     </section>
@@ -581,8 +714,8 @@
     <section class="gallery page-section" id="gallery">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-tw="Yɛn Mfonini" data-ga="Mfoni" data-ee="Foto" data-ha="Hoto">Our Gallery</span>
-                <h2><span data-tw="Agyapadeɛ ne" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Gado">Moments of</span> <span class="accent" data-tw="Abɔdeɛ" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Yanayi">Heritage & Nature</span></h2>
+                <span class="section-tag" data-en="Our Gallery" data-tw="Yɛn Mfonini" data-ga="Mfonii" data-ee="Foto" data-ha="Hotunanmu">Our Gallery</span>
+                <h2><span data-en="Moments of" data-tw="Agyapadeɛ ne" data-ga="Tsɔɔ" data-ee="Ɣeyiɣiwo" data-ha="Lokacin">Moments of</span> <span class="accent" data-en="Heritage & Nature" data-tw="Abɔdeɛ" data-ga="Shiɛi" data-ee="Domefi kple Dzɔdzɔme" data-ha="Gado da Halitta">Heritage & Nature</span></h2>
                 <div class="divider"><div class="divider-line"></div><svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><div class="divider-line"></div></div>
             </div>
             <div class="gallery-grid">
@@ -599,7 +732,6 @@
         </div>
     </section>
 
-    <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox">
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightboxClose"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
@@ -613,8 +745,8 @@
     <section class="testimonials page-section" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-tw="Adansedi" data-ga="Nɔni" data-ee="Kpeɖeŋu" data-ha="Shaida">Testimonials</span>
-                <h2><span data-tw="Aseda" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Godiya">Words of</span> <span class="accent" data-tw="Asɛm" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Mada">Gratitude</span></h2>
+                <span class="section-tag" data-en="Testimonials" data-tw="Adansedi" data-ga="Testimonia" data-ee="Kpeɖeŋu" data-ha="Shaida">Testimonials</span>
+                <h2><span data-en="Words of" data-tw="Aseda" data-ga="Tsɔɔ" data-ee="Nyawo" data-ha="Kalmomin">Words of</span> <span class="accent" data-en="Gratitude" data-tw="Asɛm" data-ga="Shiɛi" data-ee="Akpedada" data-ha="Godiya">Gratitude</span></h2>
                 <div class="divider"><div class="divider-line"></div><svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><div class="divider-line"></div></div>
             </div>
         </div>
@@ -624,7 +756,6 @@
                 <div class="testimonial-card-3d"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I came seeking direction in my business, and left with far more — a renewed sense of purpose and traditional wisdom I will carry for life. Truly a blessing."</p><div class="testimonial-author"><div class="author-avatar">KA</div><div class="author-info"><h4>Kwame Asante</h4><p>Accra, Ghana</p></div></div></div>
                 <div class="testimonial-card-3d"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The home blessing ceremony brought such peace to our household. Nana Kyeri's presence is calm, respectful, and deeply spiritual. We are grateful."</p><div class="testimonial-author"><div class="author-avatar">EM</div><div class="author-info"><h4>Efua Mensah</h4><p>Cape Coast, Ghana</p></div></div></div>
                 <div class="testimonial-card-3d"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"As someone from abroad reconnecting with my roots, I felt deeply welcomed and understood. The experience honored both tradition and my personal journey."</p><div class="testimonial-author"><div class="author-avatar">YO</div><div class="author-info"><h4>Yaa Owusu</h4><p>London, UK</p></div></div></div>
-                <!-- Duplicate for seamless loop -->
                 <div class="testimonial-card-3d"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Nana Kyeri's guidance brought clarity to my family during a difficult time. His wisdom, delivered with such respect and warmth, helped us find peace together."</p><div class="testimonial-author"><div class="author-avatar">AK</div><div class="author-info"><h4>Ama Konadu</h4><p>Kumasi, Ghana</p></div></div></div>
                 <div class="testimonial-card-3d"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I came seeking direction in my business, and left with far more — a renewed sense of purpose and traditional wisdom I will carry for life. Truly a blessing."</p><div class="testimonial-author"><div class="author-avatar">KA</div><div class="author-info"><h4>Kwame Asante</h4><p>Accra, Ghana</p></div></div></div>
                 <div class="testimonial-card-3d"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The home blessing ceremony brought such peace to our household. Nana Kyeri's presence is calm, respectful, and deeply spiritual. We are grateful."</p><div class="testimonial-author"><div class="author-avatar">EM</div><div class="author-info"><h4>Efua Mensah</h4><p>Cape Coast, Ghana</p></div></div></div>
@@ -637,15 +768,15 @@
     <section class="faq page-section" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-tw="Nsɛmmisa" data-ga="Nsɛm" data-ee="Bia" data-ha="Tambaya">FAQ</span>
-                <h2><span data-tw="Nsɛmmisa a Wɔbisa" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Tambayoyin">Frequently Asked</span> <span class="accent" data-tw="Pii" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="da">Questions</span></h2>
+                <span class="section-tag" data-en="FAQ" data-tw="Nsɛmmisa" data-ga="Biblɛmɔi" data-ee="Bia" data-ha="Tambayoyi">FAQ</span>
+                <h2><span data-en="Frequently Asked" data-tw="Nsɛmmisa a Wɔbisa" data-ga="Tsɔɔ" data-ee="Bia siwo Wobiaa" data-ha="Tambayoyin da aka yi">Frequently Asked</span> <span class="accent" data-en="Questions" data-tw="Pii" data-ga="Shiɛi" data-ee="Biabiawo" data-ha="Tambayoyi">Questions</span></h2>
                 <div class="divider"><div class="divider-line"></div><svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><div class="divider-line"></div></div>
             </div>
             <div class="faq-container">
-                <div class="faq-item"><button class="faq-question"><span>How do I book a consultation?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content">You can book a consultation by sending a message via WhatsApp. We typically respond within 24 hours and will schedule a time that works for you.</div></div></div>
-                <div class="faq-item"><button class="faq-question"><span>Are consultations confidential?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content">Absolutely. We treat every consultation with the utmost respect and confidentiality. Your privacy is sacred to us.</div></div></div>
-                <div class="faq-item"><button class="faq-question"><span>Do you offer virtual consultations?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content">Yes, we offer virtual consultations via video call for those who cannot visit in person. Please contact us via WhatsApp to arrange a suitable time.</div></div></div>
-                <div class="faq-item"><button class="faq-question"><span>What are your business hours?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content">We are open Monday through Saturday, from 8:00 AM to 6:00 PM. For urgent matters outside these hours, please reach out via WhatsApp.</div></div></div>
+                <div class="faq-item"><button class="faq-question"><span data-en="How do I book a consultation?" data-tw="Sɛnea ɛyɛ a mɛbɔ nhyiamu?" data-ga="Nɔŋmɔ?" data-ee="Aleke mabia asikɔ?" data-ha="Yaya zan yi alƙawari?">How do I book a consultation?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content" data-en="You can book a consultation by sending a message via WhatsApp. We typically respond within 24 hours." data-tw="Wubetumi abɔ nhyiamu fa WhatsApp so." data-ga="Wɔ bɔɔ heshimɔ." data-ee="Àteŋu abia asikɔ to WhatsApp dzi." data-ha="Kana ka yi alƙawari ta hanyar WhatsApp.">You can book a consultation by sending a message via WhatsApp.</div></div></div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Are consultations confidential?" data-tw="Nhyiamu no yɛ ahintaw?" data-ga="Tsɔɔ?" data-ee="Asikɔawo ɖe eɖokui?" data-ha="Shawarar tana da sirri?">Are consultations confidential?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content" data-en="Absolutely. We treat every consultation with the utmost respect and confidentiality." data-tw="Aane. Yɛdi nhyiamu biara anim yie na ɛyɛ ahintaw." data-ga="Tsɔɔ." data-ee="Ɛ̃. Míetsɔa bubu kple ɖokuie." data-ha="Haka. Muna kula da kowane shawara da girmama.">Absolutely. We treat every consultation with the utmost respect and confidentiality.</div></div></div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Do you offer virtual consultations?" data-tw="Moyɛ nhyiamu a ɛwɔ intanɛt so?" data-ga="Tsɔɔ?" data-ee="Miewɔ asikɔ ɖe internet dzi?" data-ha="Kuna bayar da shawarar yanar gizo?">Do you offer virtual consultations?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content" data-en="Yes, we offer virtual consultations via video call for those who cannot visit in person." data-tw="Aane, yɛyɛ nhyiamu a ɛwɔ intanɛt so fa video call so." data-ga="Tsɔɔ." data-ee="Ɛ̃, míewɔ asikɔ to video call dzi." data-ha="Ee, muna bayar da shawarar yanar gizo ta bidiyo.">Yes, we offer virtual consultations via video call.</div></div></div>
+                <div class="faq-item"><button class="faq-question"><span data-en="What are your business hours?" data-tw="Mo adwuma bere yɛ sɛn?" data-ga="Tsɔɔ?" data-ee="Míaƒe dɔwɔɣi?" data-ha="Menene lokutan aikinku?">What are your business hours?</span><div class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-answer"><div class="faq-answer-content" data-en="We are open Monday through Saturday, from 8:00 AM to 6:00 PM." data-tw="Yɛbue fi Dwoada kosi Memeneda, fi 8:00 AE kosi 6:00 EW." data-ga="Tsɔɔ." data-ee="Míeʋuna tso Memleɖa va se ɖe Memleɖa." data-ha="Muna buɗe daga Litinin zuwa Asabar.">We are open Monday through Saturday, from 8:00 AM to 6:00 PM.</div></div></div>
             </div>
         </div>
     </section>
@@ -654,34 +785,33 @@
     <section class="contact page-section" id="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag" data-tw="Ka Yɛn Ho" data-ga="Kɛ mɔ" data-ee="Yɔ" data-ha="Tuntube">Get in Touch</span>
-                <h2><span data-tw="Fi Wo" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Fara">Begin Your</span> <span class="accent" data-tw="Kwan Afi Ɛnnɛ" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Tafiya">Journey Today</span></h2>
+                <span class="section-tag" data-en="Get in Touch" data-tw="Ka Yɛn Ho" data-ga="Fɔŋ" data-ee="Ka mí" data-ha="Tuntu Mu">Get in Touch</span>
+                <h2><span data-en="Begin Your" data-tw="Fi Wo" data-ga="Tsɔɔ" data-ee="Dze Egɔme" data-ha="Fara Tafiyarka">Begin Your</span> <span class="accent" data-en="Journey Today" data-tw="Kwan Afi Ɛnnɛ" data-ga="Shiɛi" data-ee="Mɔzɔzɔ egbe" data-ha="A Yau">Journey Today</span></h2>
                 <div class="divider"><div class="divider-line"></div><svg class="divider-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><div class="divider-line"></div></div>
-                <p>We are here to listen and guide. Reach out whenever you are ready.</p>
+                <p data-en="We are here to listen and guide. Reach out whenever you are ready." data-tw="Yɛwɔ ha sɛ yɛbɛtie na yɛakyerɛ wo kwan." data-ga="Wɔ tsɔɔ." data-ee="Míele afi be míaɖo to kple mɔfiame." data-ha="Muna nan be mu saurare kuma jagoranci.">We are here to listen and guide. Reach out whenever you are ready.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-card"><div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>Visit Us</h4><p>Manso Abore, Ashanti Region<br>Ghana, West Africa</p></div></div>
+                    <div class="contact-card"><div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4 data-en="Visit Us" data-tw="Bra Yɛn Nkyɛn" data-ga="Baa Wɔ" data-ee="Va mía gbɔ" data-ha="Ziyarci Mu">Visit Us</h4><p>Manso Abore, Ashanti Region<br>Ghana, West Africa</p></div></div>
                     <div class="contact-card"><div class="contact-icon" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div><h4>WhatsApp Us</h4><p>+233 54 099 1248<br>+233 24 008 1689</p></div></div>
-                    <div class="contact-card"><div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4>Business Hours</h4><p>Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: By Appointment</p></div></div>
+                    <div class="contact-card"><div class="contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4 data-en="Business Hours" data-tw="Adwuma Bere" data-ga="Tsɔɔ" data-ee="Dɔwɔɣi" data-ha="Lokutan Aiki">Business Hours</h4><p>Mon - Sat: 8:00 AM - 6:00 PM<br>Sunday: By Appointment</p></div></div>
                     <div class="map-placeholder"><div><div class="map-pin"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3 style="color: var(--gold-light); font-size: 1.25rem; margin-bottom: 0.5rem;">Manso Abore, Ghana</h3><p style="color: rgba(250, 246, 235, 0.85); font-size: 0.9rem;">Ashanti Region, West Africa</p></div></div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm" novalidate>
                         <div class="form-row">
-                            <div class="form-group"><label class="form-label">Full Name</label><input type="text" id="name" name="name" class="form-input" required></div>
-                            <div class="form-group"><label class="form-label">Phone</label><input type="tel" id="phone" name="phone" class="form-input" required></div>
+                            <div class="form-group"><label class="form-label" data-en="Full Name" data-tw="Din Nyinaa" data-ga="Ŋkɔ" data-ee="Ŋkɔ Bliboa" data-ha="Cikakken Suna">Full Name</label><input type="text" id="name" name="name" class="form-input" required></div>
+                            <div class="form-group"><label class="form-label" data-en="Phone" data-tw="Telefon" data-ga="Telefon" data-ee="Telefon" data-ha="Wayar">Phone</label><input type="tel" id="phone" name="phone" class="form-input" required></div>
                         </div>
-                        <div class="form-group"><label class="form-label">Service of Interest</label><select id="service" name="service" class="form-input form-select" required><option value="">Select a service</option><option value="Spiritual Consultation">Spiritual Consultation</option><option value="Herbal Guidance">Herbal Guidance</option><option value="Family Guidance">Family Guidance</option><option value="Relationship Guidance">Relationship Guidance</option><option value="Business Guidance">Business Guidance</option><option value="Home Blessings">Home Blessings</option><option value="Spiritual Protection">Spiritual Protection</option><option value="Community Counseling">Community Counseling</option></select></div>
-                        <div class="form-group"><label class="form-label">Your Message</label><textarea id="message" name="message" class="form-input form-textarea" required></textarea></div>
-                        <button type="submit" class="form-submit"><span>Send via WhatsApp</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>
+                        <div class="form-group"><label class="form-label" data-en="Service of Interest" data-tw="Adwuma a Wopɛ" data-ga="Tsɔɔ" data-ee="Subɔsubɔ" data-ha="Sabis">Service of Interest</label><select id="service" name="service" class="form-input form-select" required><option value="">Select a service</option><option value="Spiritual Consultation">Spiritual Consultation</option><option value="Herbal Guidance">Herbal Guidance</option><option value="Family Guidance">Family Guidance</option><option value="Relationship Guidance">Relationship Guidance</option><option value="Business Guidance">Business Guidance</option><option value="Home Blessings">Home Blessings</option><option value="Spiritual Protection">Spiritual Protection</option><option value="Community Counseling">Community Counseling</option></select></div>
+                        <div class="form-group"><label class="form-label" data-en="Your Message" data-tw="Wo Nkrato" data-ga="Wɔ" data-ee="Wò Gbedasi" data-ha="Sakonka">Your Message</label><textarea id="message" name="message" class="form-input form-textarea" required></textarea></div>
+                        <button type="submit" class="form-submit"><span data-en="Send via WhatsApp" data-tw="Mane fa WhatsApp" data-ga="Tsɔɔ" data-ee="Ðo to WhatsApp" data-ha="Aika ta WhatsApp">Send via WhatsApp</span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER (TRADEMARK) - ALWAYS VISIBLE -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -697,7 +827,7 @@
                     </div>
                 </div>
                 <div>
-                    <h4 data-tw="Nkitahodi Ntɛmpɛ" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Hanyar">Quick Links</h4>
+                    <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a class="nav-link" data-target="home">Home</a></li>
                         <li><a class="nav-link" data-target="about">About</a></li>
@@ -706,7 +836,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 data-tw="Nnwuma" data-ga="Tsheelɛ" data-ee="Subanu" data-ha="Ayyuka">Services</h4>
+                    <h4>Services</h4>
                     <ul class="footer-links">
                         <li><a class="nav-link" data-target="services">Spiritual Consultation</a></li>
                         <li><a class="nav-link" data-target="services">Herbal Guidance</a></li>
@@ -715,7 +845,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 data-tw="Frɛ" data-ga="Kɛ mɔ" data-ee="Yɔ" data-ha="Tuntube">Contact</h4>
+                    <h4>Contact</h4>
                     <ul class="footer-links">
                         <li style="display: flex; align-items: center; gap: 0.5rem; justify-content: flex-start;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Manso Abore, Ghana</li>
                         <li style="display: flex; align-items: center; gap: 0.5rem; justify-content: flex-start;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+233 54 099 1248</li>
@@ -730,15 +860,14 @@
         </div>
     </footer>
 
-    <!-- FLOATING -->
     <a href="https://wa.me/233540991248" class="floating-whatsapp" target="_blank" rel="noopener"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     <button class="back-to-top" id="backToTop"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
 
     <script>
-        /* 1. LOADER */
+        /* LOADER */
         window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1000); });
 
-        /* 2. SPA NAVIGATION */
+        /* SPA NAVIGATION */
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.page-section');
         const menuToggle = document.getElementById('menuToggle');
@@ -765,32 +894,71 @@
             });
         });
 
-        document.getElementById('logoHome').addEventListener('click', () => showSection('home'));
+        document.getElementById('logoHome').addEventListener('click', (e) => { e.preventDefault(); showSection('home'); });
 
-        /* 3. MOBILE MENU */
+        /* MOBILE MENU */
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        /* 4. LANGUAGE TRANSLATION ENGINE */
+        /* ENHANCED TRANSLATION ENGINE */
+        // Store original English text for restoration
+        const originalTexts = new Map();
+        
+        // Save all original English text on page load
+        function saveOriginalTexts() {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                // Store the English text from data-en attribute (primary) or current text
+                const enText = el.getAttribute('data-en') || el.textContent.trim();
+                originalTexts.set(el, enText);
+            });
+            // Also save elements that don't have data-en but need restoration
+            document.querySelectorAll('[data-tw], [data-ga], [data-ee], [data-ha]').forEach(el => {
+                if (!originalTexts.has(el)) {
+                    originalTexts.set(el, el.textContent.trim());
+                }
+            });
+        }
+        
+        // Initialize storage on load
+        saveOriginalTexts();
+
         const langSwitch = document.getElementById('langSwitch');
         
         function applyLanguage(lang) {
-            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-                const text = el.getAttribute('data-' + lang);
-                if (text) el.textContent = text;
-            });
+            if (lang === 'en') {
+                // Restore all original English text
+                originalTexts.forEach((text, el) => {
+                    if (el.isConnected) { // Element still in DOM
+                        el.textContent = text;
+                    }
+                });
+            } else {
+                // Apply the selected language
+                document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+                    const text = el.getAttribute(`data-${lang}`);
+                    if (text) {
+                        el.textContent = text;
+                    }
+                });
+            }
+            document.documentElement.lang = lang;
             localStorage.setItem('lang', lang);
         }
 
-        langSwitch.addEventListener('change', (e) => { applyLanguage(e.target.value); });
+        langSwitch.addEventListener('change', (e) => {
+            applyLanguage(e.target.value);
+        });
         
+        // Initialize language
         const savedLang = localStorage.getItem('lang') || 'en';
         langSwitch.value = savedLang;
-        if (savedLang !== 'en') applyLanguage(savedLang);
+        if (savedLang !== 'en') {
+            applyLanguage(savedLang);
+        }
 
-        /* 5. THEME TOGGLE */
+        /* THEME TOGGLE */
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const savedTheme = localStorage.getItem('theme') || 'light';
@@ -811,7 +979,7 @@
             updateThemeIcon(newTheme);
         });
 
-        /* 6. SCROLL & BACK TO TOP */
+        /* SCROLL & BACK TO TOP */
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
@@ -820,7 +988,32 @@
         });
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        /* 7. COUNTERS */
+        /* 3D PARALLAX EFFECT ON HERO */
+        const heroContent = document.getElementById('heroContent');
+        let isHeroVisible = true;
+        
+        // Track mouse for parallax
+        document.addEventListener('mousemove', (e) => {
+            if (!isHeroVisible) return;
+            const hero = document.getElementById('home');
+            if (!hero.classList.contains('active')) return;
+            
+            const x = (e.clientX / window.innerWidth - 0.5) * 2;
+            const y = (e.clientY / window.innerHeight - 0.5) * 2;
+            
+            if (heroContent) {
+                heroContent.style.transform = `rotateY(${x * 2}deg) rotateX(${-y * 2}deg)`;
+            }
+        });
+        
+        // Reset on mouse leave
+        document.addEventListener('mouseleave', () => {
+            if (heroContent) {
+                heroContent.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            }
+        });
+
+        /* COUNTERS */
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -841,7 +1034,7 @@
         }, { threshold: 0.3 });
         document.querySelectorAll('.hero-stats').forEach(el => counterObserver.observe(el));
 
-        /* 8. FAQ */
+        /* FAQ */
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
@@ -855,7 +1048,7 @@
             });
         });
 
-        /* 9. LIGHTBOX */
+        /* LIGHTBOX */
         const galleryImages = Array.from(document.querySelectorAll('.gallery-item-3d img')).map(img => img.src);
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
@@ -883,7 +1076,7 @@
             }
         });
 
-        /* 10. CONTACT FORM */
+        /* CONTACT FORM */
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
