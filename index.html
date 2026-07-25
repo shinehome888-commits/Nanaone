@@ -119,13 +119,6 @@
         [data-theme="dark"] .nav-link:hover, [data-theme="dark"] .nav-link.active { color: var(--gold-light); background: rgba(212, 175, 55, 0.1); }
         
         .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
-        .icon-btn {
-            width: 38px; height: 38px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-secondary); transition: all 0.3s ease;
-        }
-        .icon-btn:hover { background: rgba(45, 80, 22, 0.1); color: var(--forest-green); transform: scale(1.1); }
-        [data-theme="dark"] .icon-btn:hover { background: rgba(212, 175, 55, 0.15); color: var(--gold-light); }
         
         .lang-switch {
             font-size: 0.75rem; font-weight: 700; padding: 0.4rem 0.8rem;
@@ -456,16 +449,44 @@
         .footer-bottom { padding: 2rem 0; text-align: center; color: rgba(250, 246, 235, 0.6); font-size: 0.8rem; position: relative; z-index: 2; }
         .footer-bottom a { color: var(--gold-light); }
 
-        .floating-whatsapp { position: fixed; bottom: 2rem; right: 2rem; width: 56px; height: 56px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); z-index: 999; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: pulseWhatsapp 2s ease-in-out infinite; }
+        /* Floating buttons positioned ABOVE the footer */
+        .floating-whatsapp { 
+            position: fixed; bottom: 2rem; right: 2rem; 
+            width: 56px; height: 56px; background: #25D366; color: white; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); z-index: 999; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, transform 0.4s ease; 
+            animation: pulseWhatsapp 2s ease-in-out infinite; 
+        }
         @keyframes pulseWhatsapp { 0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); } 50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6), 0 0 0 15px rgba(37, 211, 102, 0); } }
         .floating-whatsapp:hover { transform: scale(1.1) translateZ(10px); }
         
-        .floating-share { position: fixed; bottom: 2rem; left: 2rem; width: 56px; height: 56px; background: var(--forest-green); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(45, 80, 22, 0.4); z-index: 999; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .floating-share { 
+            position: fixed; bottom: 2rem; left: 2rem; 
+            width: 56px; height: 56px; background: var(--forest-green); color: var(--gold); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.4); z-index: 999; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, transform 0.4s ease; 
+        }
         .floating-share:hover { transform: scale(1.1) translateZ(10px); background: var(--gold); color: var(--forest-green-dark); }
         
-        .back-to-top { position: fixed; bottom: 2rem; right: 6rem; width: 46px; height: 46px; background: var(--forest-green); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .back-to-top { 
+            position: fixed; bottom: 2rem; right: 6rem; 
+            width: 46px; height: 46px; background: var(--forest-green); color: var(--gold); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 998; 
+            opacity: 0; visibility: hidden; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
         .back-to-top.visible { opacity: 1; visibility: visible; }
         .back-to-top:hover { background: var(--gold); color: var(--forest-green-dark); transform: translateY(-5px) translateZ(10px); }
+        
+        /* Hide floating buttons when footer is in view */
+        .floating-buttons-hidden {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            transform: translateY(20px) !important;
+        }
 
         @media (max-width: 1024px) {
             .hero-content { grid-template-columns: 1fr; text-align: center; }
@@ -492,7 +513,6 @@
             .nav-link { width: 100%; text-align: center; padding: 0.75rem 1rem; font-size: 0.9rem; }
             .menu-toggle { display: flex; width: 36px; height: 36px; }
             .menu-toggle span { width: 20px; }
-            .icon-btn { width: 36px; height: 36px; }
             .lang-switch { font-size: 0.7rem; padding: 0.35rem 0.7rem; padding-right: 20px; }
             .about-values, .herbal-features { grid-template-columns: 1fr; }
             .hero-stats { flex-direction: column; gap: 1.5rem; align-items: center; }
@@ -560,17 +580,6 @@
                     <option value="ee">Ewe</option>
                     <option value="ha">Hausa</option>
                 </select>
-                <button class="icon-btn" id="shareBtn" aria-label="Share site">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
-                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-                    </svg>
-                </button>
-                <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-                    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                    </svg>
-                </button>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -794,7 +803,7 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
@@ -842,7 +851,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/233540991248" class="floating-whatsapp" target="_blank" rel="noopener"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <a href="https://wa.me/233540991248" class="floating-whatsapp" target="_blank" rel="noopener" id="floatingWhatsapp"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     
     <button class="floating-share" id="floatingShareBtn" aria-label="Share site">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -884,7 +893,6 @@
 
         document.getElementById('logoHome').addEventListener('click', (e) => { e.preventDefault(); showSection('home'); });
         
-        // Book Consultation Button Fix
         document.getElementById('bookConsultBtn').addEventListener('click', (e) => {
             e.preventDefault();
             showSection('contact');
@@ -930,32 +938,36 @@
         langSwitch.value = savedLang;
         if (savedLang !== 'en') applyLanguage(savedLang);
 
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        function updateThemeIcon(theme) {
-            themeIcon.innerHTML = theme === 'dark' 
-                ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>' 
-                : '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
-        }
-        updateThemeIcon(savedTheme);
-        
-        themeToggle.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
-            const newTheme = current === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('backToTop');
+        const floatingWhatsapp = document.getElementById('floatingWhatsapp');
+        const floatingShareBtn = document.getElementById('floatingShareBtn');
+        const footer = document.getElementById('footer');
+        
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
             backToTop.classList.toggle('visible', window.scrollY > 500);
+            
+            // Hide floating buttons when footer is in view so trademark is clearly visible
+            if (footer) {
+                const footerRect = footer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const isFooterVisible = footerRect.top < windowHeight && footerRect.bottom > 0;
+                
+                if (isFooterVisible) {
+                    floatingWhatsapp.classList.add('floating-buttons-hidden');
+                    floatingShareBtn.classList.add('floating-buttons-hidden');
+                    backToTop.classList.add('floating-buttons-hidden');
+                } else {
+                    floatingWhatsapp.classList.remove('floating-buttons-hidden');
+                    floatingShareBtn.classList.remove('floating-buttons-hidden');
+                    if (window.scrollY > 500) {
+                        backToTop.classList.remove('floating-buttons-hidden');
+                    }
+                }
+            }
         });
+        
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
         const heroContent = document.getElementById('heroContent');
@@ -1046,28 +1058,23 @@
         });
 
         // Share Button Functionality
-        const shareBtns = [document.getElementById('shareBtn'), document.getElementById('floatingShareBtn')];
-        shareBtns.forEach(btn => {
-            if (btn) {
-                btn.addEventListener('click', async () => {
-                    const shareData = {
-                        title: 'Asuo Dia Komfour - Spiritual Herbal Center',
-                        text: 'Discover traditional spiritual and herbal guidance rooted in Ghanaian heritage.',
-                        url: window.location.href
-                    };
-                    if (navigator.share) {
-                        try {
-                            await navigator.share(shareData);
-                        } catch (err) {
-                            console.log('Share canceled or failed:', err);
-                        }
-                    } else {
-                        navigator.clipboard.writeText(window.location.href).then(() => {
-                            alert('Link copied to clipboard! You can now share it anywhere.');
-                        }).catch(() => {
-                            alert('Please copy this link to share: ' + window.location.href);
-                        });
-                    }
+        floatingShareBtn.addEventListener('click', async () => {
+            const shareData = {
+                title: 'Asuo Dia Komfour - Spiritual Herbal Center',
+                text: 'Discover traditional spiritual and herbal guidance rooted in Ghanaian heritage.',
+                url: window.location.href
+            };
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    console.log('Share canceled or failed:', err);
+                }
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copied to clipboard! You can now share it anywhere.');
+                }).catch(() => {
+                    alert('Please copy this link to share: ' + window.location.href);
                 });
             }
         });
