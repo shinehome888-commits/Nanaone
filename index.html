@@ -155,7 +155,7 @@
         .hero-bg-img {
             position: absolute; inset: 0;
             background: url('https://i.ibb.co/QFjGF9f3/D1-AB43-CB-F582-4-C5-D-9-B1-C-7798-F3-BEDF7-C.jpg') center center no-repeat;
-            background-size: contain;
+            background-size: cover;
             opacity: 0.35; z-index: 0;
         }
         .hero::before {
@@ -288,7 +288,7 @@
             position: absolute;
             inset: 0;
             background: url('https://i.ibb.co/fzhWQjMc/IMG-9240.jpg') center center no-repeat;
-            background-size: contain;
+            background-size: cover;
             opacity: 0.18;
             z-index: 0;
         }
@@ -327,7 +327,7 @@
             position: absolute;
             inset: 0;
             background: url('https://i.ibb.co/G3dd0bq4/IMG-9248.jpg') center center no-repeat;
-            background-size: contain;
+            background-size: cover;
             opacity: 0.15;
             z-index: 0;
         }
@@ -354,7 +354,7 @@
         .herbal {
             background: linear-gradient(135deg, rgba(26, 61, 10, 0.5), rgba(107, 68, 35, 0.4)),
                         url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1920&q=80') center center no-repeat;
-            background-size: contain;
+            background-size: cover;
             color: var(--cream);
         }
         .herbal .section-header h2, .herbal .section-header p { color: var(--cream); }
@@ -377,7 +377,7 @@
         .gallery { background: var(--bg-secondary); }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; position: relative; z-index: 2; }
         .gallery-item-3d { position: relative; border-radius: 20px; overflow: hidden; cursor: pointer; box-shadow: 0 20px 40px rgba(0,0,0,0.15); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: floatUpDown 8s ease-in-out infinite; border: 2px solid rgba(212, 175, 55, 0.3); background: var(--forest-green-dark); }
-        .gallery-item-3d img { width: 100%; height: 280px; object-fit: contain; transition: transform 0.6s ease; }
+        .gallery-item-3d img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.6s ease; }
         .gallery-item-3d:hover { transform: translateY(-10px) scale(1.03) perspective(1000px) rotateX(5deg) !important; box-shadow: 0 30px 60px rgba(45, 80, 22, 0.25); border-color: var(--gold); z-index: 10; }
         .gallery-item-3d:hover img { transform: scale(1.1); }
         .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(to top, rgba(26, 61, 10, 0.9), transparent); color: var(--cream); transform: translateY(100%); transition: transform 0.4s ease; }
@@ -428,7 +428,7 @@
         .contact-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--forest-green), var(--forest-green-dark)); color: var(--gold); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 8px 16px rgba(45, 80, 22, 0.2); }
         .contact-card h4 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
         .contact-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
-        .map-placeholder { height: 220px; background: linear-gradient(135deg, rgba(45, 80, 22, 0.4), rgba(107, 68, 35, 0.3)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80') center center no-repeat; background-size: contain; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--cream); text-align: center; padding: 2rem; position: relative; overflow: hidden; box-shadow: var(--shadow-3d); }
+        .map-placeholder { height: 220px; background: linear-gradient(135deg, rgba(45, 80, 22, 0.4), rgba(107, 68, 35, 0.3)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80') center center no-repeat; background-size: cover; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--cream); text-align: center; padding: 2rem; position: relative; overflow: hidden; box-shadow: var(--shadow-3d); }
         .map-pin { width: 50px; height: 50px; background: var(--gold); color: var(--forest-green-dark); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; animation: bounce 2s ease-in-out infinite; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .map-pin svg { transform: rotate(45deg); }
         @keyframes bounce { 0%, 100% { transform: rotate(-45deg) translateY(0); } 50% { transform: rotate(-45deg) translateY(-10px); } }
@@ -948,7 +948,6 @@
         langSwitch.value = savedLang;
         if (savedLang !== 'en') applyLanguage(savedLang);
 
-        // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         
